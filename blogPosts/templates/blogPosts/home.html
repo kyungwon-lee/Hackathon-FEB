@@ -2,9 +2,56 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <title>snulion</title>
+    <title>FEB</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/textPage.css' %}">  
   </head>
   <body>
     <h1>Hello World!</h1>
+
+      <div class= "textPage"> </div>
+
+      <div class = "topBar">
+        
+        <input type="text" placeholder="필요한 내용을 검색해주세요">
+        <button class = "printButton">인쇄</button>
+        <button class = "shareButton">공유</button>
+        <button class = "editButton">편집</button>
+      </div>
+
+      <div class = "topInformation">
+        <div class= "Title"><h1>제목<h1></div>
+        <div class= "Sub-Title"><h2>부제목<h2></div>
+        <div class= "abstract-Text">간략한 설명</div>
+      </div>
+
+      <div class = "textBox">
+        <div style="border: 1px solid black; padding: 10px;">
+          <img src="/blogPosts/templates/blogPosts/bonobono.jpg" width="200px" alt="예시 이미지"/>
+
+
+
+          안녕하세요 글 내용이 제대로 입력되는지 테스트 중입니다.
+
+
+        </div>
+      </div>
+
+
+
+      
+
+    
+
+      
+
+
+
+
+
   </body>
 </html>
+
+
+
+
