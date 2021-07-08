@@ -1,0 +1,35 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+}
+
+.homeTop{
+    display: flex;
+    justify-content: center;
+}
+
+.homeMiddle{
+    display: flex;
+    justify-content: center;
+}
+
+.homeBottom{
+    display: flex;
+    justify-content: center;
+}
+
+.homeTitle{
+    margin-top: 
+    text-align: center;
+
+    font-family: SeoulNamsan CL;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 64px;
+    /* identical to box height */
+    color: #FF9900;
+}
