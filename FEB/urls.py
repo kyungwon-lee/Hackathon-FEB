@@ -23,6 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', blogPosts.views.index, name='index'),
     path('main/', blogPosts.views.main, name='main'),
+    path('home/', blogPosts.views.home, name='home'),
+    path('textPage/', blogPosts.views.textPage, name='textPage'),
+
 ]
 
 

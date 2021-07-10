@@ -7,3 +7,14 @@ def index(request):
 def main(request):
     return render(request, 'blogPosts/main.html')  
 
+def home(request):
+    return render(request, 'blogPosts/home.html')  
+
+def textPage(request):
+    return render(request, 'blogPosts/textPage.html')  
+
+
+
+
+
+
