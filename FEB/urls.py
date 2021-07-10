@@ -24,3 +24,5 @@ urlpatterns = [
     path('', blogPosts.views.index, name='index'),
     path('main/', blogPosts.views.main, name='main'),
 ]
+
+
