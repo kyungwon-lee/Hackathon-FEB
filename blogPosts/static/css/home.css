@@ -17,6 +17,10 @@ html, body{
     margin-bottom: 10px;
 }
 
+#logo {
+    width: 20%;
+}
+
 .homeMiddle{
     display: flex;
     justify-content: center;
