@@ -1,5 +1,6 @@
 html, body{
     height: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .home {
@@ -106,7 +107,7 @@ html, body{
     margin: 0 auto;
     letter-spacing: normal;
     color: #323232;
-    font-family: 'Gaegu', cursive;
+    /* font-family: 'Gaegu', cursive; */
     font-size: large;
     font-weight: 800;
 }
