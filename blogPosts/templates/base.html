@@ -10,15 +10,34 @@
       @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100,300,500,700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
     </style>
   </head>
   <body>
-    <header>
-      <img src="{%static 'blogPosts/img/FEB_logo.png'%}" />
-      <span class="login">
-      <a>LogIn</a>
-      </span>
-    </header>
+    <nav class="header">
+      <div class="header-logo">
+        <a href>
+          <img src="{%static 'blogPosts/img/logo.png'%}" />
+        </a>
+      </div>
+
+      <div class="header-menus">
+        <ul>
+          <li class="header-menu">
+            <a href>
+              <span>회원가입</span>
+            </a>
+          </li>
+
+          <li class="header-menu">
+            <a href>
+              <span>로그인</span>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
   {% block content %}
   {% endblock %}
   </body>

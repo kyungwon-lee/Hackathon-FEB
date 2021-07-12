@@ -107,7 +107,9 @@ html, body{
     margin: 0 auto;
     letter-spacing: normal;
     color: #323232;
-    /* font-family: 'Gaegu', cursive; */
+    font-family: 'Gaegu', cursive;
+    /* font-family: 'Nanum Gothic Coding', monospace; */
+    /* font-size: medium; */
     font-size: large;
     font-weight: 800;
 }
@@ -115,4 +117,11 @@ html, body{
 .homeBottom .category .category-icon{
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+}
+
+.homeBottom .category-icon img{
+    /* display: flex; */
+    resize : both;
+    width: 54px;
+    height: 54px;
 }
