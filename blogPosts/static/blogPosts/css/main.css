@@ -23,12 +23,13 @@ padding-left: 0px;
 .allServices h2 {
   text-align: center;
   font-size: 32px;
-  margin-bottom:0px;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .allServices h3 {
   font-size: 24px;
   margin-bottom:8px;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .categories {
@@ -42,20 +43,66 @@ padding-left: 0px;
 
 .contentsPage {
   text-align: center;
-  padding-top: 5%;
-  padding-bottom: 10%;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding: 10%;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
-.mainTitle #mainTitle-searchtap {
-  width: 30%;
-  height: 50px;
-  border-color: orange;
+.homeMiddle{
+  display: flex;
+  justify-content: center;
+  padding: 10px 10px;
+}
+
+.homeMiddle .search{
+  display: flex;
+  flex-direction: row;
+  border-radius: 24px;
+  border: 2px solid #dfe1e5;
+  width: 35vw;
+  height: 5vh;
+  z-index: 3;
+  margin: 15px;
+}
+
+.homeMiddle .search_inside{
+  display: flex;
+  height: 100%;
+}
+
+.homeMiddle .magnifying-icon img{
+  display: flex;
+  resize: both;
+  width: 1.5vw;
+  height: 70%;
+  margin-left: 14px;
+  margin-top: 6px;
+  margin-right: 5px;
+}
+
+.homeMiddle .search_input input{
+  border: none;
+  height: 90%;
+  width: 30vw;
+  text-align: center;
+}
+
+.mainTitle .mainTitle-title {
+  font-size: 30px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.mainTitle #segmentTitle {
+  margin-bottom: 0px;
+}
+
+.mainTitle .mainTitle-title-sentence {
+  font-size: 16px;
+  margin-top: 0px;
 }
 
 .mainMenu {
-  border-top: 1px solid black;
+  border-top: 2px solid #dfe1e5;
   padding-top: 30px;
   display: flex;
   justify-content: space-evenly;
@@ -63,23 +110,66 @@ padding-left: 0px;
 
 .mainMenu .mainMenu-icons {
   background-color: antiquewhite;
-  border : 1px solid black;
+  border: none;
   width: 100px;
   height: 100px;
   border-radius: 70%;
 }
 
+#mainMenu-iconimg {
+  width: 80%;
+  margin-top: 8px;
+}
+
+#mainBody-plus-btn {
+  padding-top: 10px;
+  width: 1.8%;
+}
+
 .mainBody .mainBody-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .mainBody .mainBody-container .mainBody-factors {
   width: 30%;
-  height: 150px;
-  border : 1px solid black;
+  height: 200px;
+  border : none;
   margin-bottom: 30px;
   background-color: antiquewhite;
   text-align: center;
+  border-radius: 10px;
+  box-shadow: 5px 5px #dfe1e5;
+}
+
+.mainBody .mainBody-container .mainBody-factors .mainBody-factors-top {
+  height: 70%;
+  background-color: aliceblue;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.mainBody .mainBody-container .mainBody-factors .mainBody-factors-bottom {
+  font-size: 15px;
+  vertical-align: center;
+  margin-top: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+footer {
+  border-top: 2px solid #dfe1e5;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: row;
+}
+
+#insta-icon {
+  width: 50px;
 }
