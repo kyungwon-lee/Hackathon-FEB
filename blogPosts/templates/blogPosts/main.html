@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <title>FEB</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'blogPosts/css/main.css' %}">
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100,300,500,700,900&display=swap');
-    </style>
-  </head>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
   <body class="main-body">
     <section class="mainTitle">
       <div class="mainTitle-title">
@@ -38,7 +29,7 @@
         <li class="mainMenu-icons">
           <div class="mainMenu-icons-container">
             <a href="" id="mainMenu-icons-tag">
-              <img src="{%static 'blogPosts/img/icons/economics.png'%}" id="mainMenu-iconimg"/>
+              <img src="{%static 'blogPosts/img/icons/economics2.png'%}" id="mainMenu-iconimg"/>
               <p id="mainMenu-icons-title">금융</p>
             </a>
           </div>
@@ -46,7 +37,7 @@
         <li class="mainMenu-icons">
           <div class="mainMenu-icons-container">
             <a href="" id="mainMenu-icons-tag">
-              <img src="{%static 'blogPosts/img/icons/love.png'%}" id="mainMenu-iconimg"/>
+              <img src="{%static 'blogPosts/img/icons/love2.png'%}" id="mainMenu-iconimg"/>
               <p id="mainMenu-icons-title">사랑</p>
             </a>
           </div>
@@ -54,7 +45,7 @@
         <li class="mainMenu-icons">
           <div class="mainMenu-icons-container">
             <a href="" id="mainMenu-icons-tag">
-              <img src="{%static 'blogPosts/img/icons/exercise.png'%}" id="mainMenu-iconimg"/>
+              <img src="{%static 'blogPosts/img/icons/exercise2.png'%}" id="mainMenu-iconimg"/>
               <p id="mainMenu-icons-title">운동</p>
             </a>
           </div>
@@ -62,7 +53,7 @@
         <li class="mainMenu-icons">
           <div class="mainMenu-icons-container">
             <a href="" id="mainMenu-icons-tag">
-              <img src="{%static 'blogPosts/img/icons/hobby.png'%}" id="mainMenu-iconimg"/>
+              <img src="{%static 'blogPosts/img/icons/hobby2.png'%}" id="mainMenu-iconimg"/>
               <p id="mainMenu-icons-title">취미</p>
             </a>
           </div>
@@ -70,7 +61,7 @@
         <li class="mainMenu-icons">
           <div class="mainMenu-icons-container">
             <a href="" id="mainMenu-icons-tag">
-              <img src="{%static 'blogPosts/img/icons/study.png'%}" id="mainMenu-iconimg"/>
+              <img src="{%static 'blogPosts/img/icons/study2.png'%}" id="mainMenu-iconimg"/>
               <p id="mainMenu-icons-title">학습</p>
             </a>
           </div>
@@ -78,7 +69,7 @@
         <li class="mainMenu-icons">
           <div class="mainMenu-icons-container">
             <a href="" id="mainMenu-icons-tag">
-              <img src="{%static 'blogPosts/img/icons/electrons.png'%}" id="mainMenu-iconimg"/>
+              <img src="{%static 'blogPosts/img/icons/electrons2.png'%}" id="mainMenu-iconimg"/>
               <p id="mainMenu-icons-title">전자기기</p>
             </a>
           </div>
@@ -86,7 +77,7 @@
         <li class="mainMenu-icons">
           <div class="mainMenu-icons-container">
             <a href="" id="mainMenu-icons-tag">
-              <img src="{%static 'blogPosts/img/icons/application.png'%}" id="mainMenu-iconimg"/>
+              <img src="{%static 'blogPosts/img/icons/application2.png'%}" id="mainMenu-iconimg"/>
               <p id="mainMenu-icons-title">어플리케이션</p>
             </a>
           </div>
@@ -94,7 +85,7 @@
         <li class="mainMenu-icons">
           <div class="mainMenu-icons-container">
             <a href="" id="mainMenu-icons-tag">
-              <img src="{%static 'blogPosts/img/icons/etc.png'%}" id="mainMenu-iconimg"/>
+              <img src="{%static 'blogPosts/img/icons/etc2.png'%}" id="mainMenu-iconimg"/>
               <p id="mainMenu-icons-title">기타</p>
             </a>
           </div>
@@ -112,7 +103,9 @@
 
       <div class="mainBody-container">
         <a href="" class="mainBody-factors">
-          <div class="mainBody-factors-top" style="background-image: url ("https://dmmj3ljielax6.cloudfront.net/upload/service/95b493f1-8ef3-43a2-b8bb-e9bfda642968.png");"></div>
+          <div class="mainBody-factors-top">
+            <img src="{%static 'blogPosts/img/maintest.png' %}" id="maintest"/>
+          </div>
           <div class="mainBody-factors-bottom">주식</div>
         </a>
         <a href="" class="mainBody-factors">
@@ -300,4 +293,4 @@
         </div>
       </div>
   </body>
-</html>
+{% endblock content%}
