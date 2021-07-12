@@ -5,6 +5,10 @@
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+.textPage{
+    margin-top:57px;
+}
+
 .printButton{
     height: 40px;
     width: 70px;
