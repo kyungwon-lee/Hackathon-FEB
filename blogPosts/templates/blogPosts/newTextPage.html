@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <h1>쓰고 싶은 내용을 작성해 주세요!</h1>
+    
+
+    <form action="{% url 'blogPosts:example' %}" method="POST">
+
+        {% csrf_token %}
+        <p>분류</p>
+        <input name = "section"/><br/>
+        <p>제목</p>
+        <input name="title" /> <br />
+        <p>한줄 요약</p>
+        <textarea name="brief_description" rows="1" cols="50"></textarea> <br />
+        <p>내용</p>
+        <textarea name="content" rows="30" cols="50"></textarea> <br />
+        
+        <input type="submit" value="submit" />
+    </form>
+
+
+{% endblock content %}
