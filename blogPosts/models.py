@@ -3,7 +3,6 @@ from django.utils import timezone
 
 
 
-
 class Post(models.Model): 
     
     section = models.CharField(max_length=256, null=True)

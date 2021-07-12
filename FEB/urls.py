@@ -28,7 +28,7 @@ urlpatterns = [
     path('textPage/', blogPosts.views.textPage, name='textPage'),
     path('example/', blogPosts.views.example, name='example'),
     path('posts/', include('blogPosts.urls')),
-
+    path('accounts/', include('accounts.urls')),
 ]
 
 
