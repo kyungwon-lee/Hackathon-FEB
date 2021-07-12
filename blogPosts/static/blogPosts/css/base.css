@@ -8,9 +8,9 @@ nav{
   vertical-align: middle;
   margin: 0 auto;
   height: 40px;
-  border-bottom: 1px solid #e1e1e1;
+  /* border-bottom: 1px solid #e1e1e1; */
   background-color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
 
   position: fixed;
   top: 0;
