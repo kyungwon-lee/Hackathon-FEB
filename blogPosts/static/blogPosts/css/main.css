@@ -2,6 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0px 10vw;
+}
+
+.allServices #allServices-title {
+  font-weight: 700;
+  font-size: 30px;
 }
 
 .services {
@@ -51,6 +57,7 @@ padding-left: 0px;
   display: flex;
   justify-content: center;
   padding: 10px 10px;
+  margin-bottom: 20px;
 }
 
 .homeMiddle .search{
@@ -86,6 +93,14 @@ padding-left: 0px;
   text-align: center;
 }
 
+.main-body {
+  font-family: Noto sans, sans-serif;
+}
+
+.mainTitle {
+  text-align: center;
+}
+
 .mainTitle .mainTitle-title {
   font-size: 30px;
   font-weight: bolder;
@@ -93,32 +108,64 @@ padding-left: 0px;
 }
 
 .mainTitle #segmentTitle {
-  margin-bottom: 0px;
+  margin-bottom: 15px;
+  margin-top: 150px;
+  font-weight: 900;
 }
 
 .mainTitle .mainTitle-title-sentence {
   font-size: 16px;
   margin-top: 0px;
+  font-weight: 100;
 }
 
 .mainMenu {
-  border-top: 2px solid #dfe1e5;
-  padding-top: 30px;
+  padding: 20px 0px;
+  background-color: #fafafa;
+}
+
+.mainMenu .mainMenu-menus {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  margin: 0px 10vw;
+  list-style: none;
 }
 
 .mainMenu .mainMenu-icons {
-  background-color: antiquewhite;
   border: none;
   width: 100px;
   height: 100px;
-  border-radius: 70%;
+}
+
+.mainMenu .mainMenu-icons .mainMenu-icons-container {
+  text-align: center;
+}
+
+#mainMenu-icons-tag {
+  text-decoration: none;
 }
 
 #mainMenu-iconimg {
   width: 80%;
-  margin-top: 8px;
+  margin-top: 0px;
+}
+
+#mainMenu-icons-title {
+  margin: 0px 0px;
+  font-size: 15px;
+  font-family: Noto sans, sans-serif;
+  font-weight: 700;
+  text-decoration: black;
+}
+
+.mainBody {
+  text-align: center;
+  margin: 0px 10vw;
+}
+
+.mainBody #mainBody-title {
+  font-size: 30px;
+  font-weight: 700;
 }
 
 #mainBody-plus-btn {
