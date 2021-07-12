@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <title>FEB</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static '/blogPosts/css/textPage.css' %}">  
-  </head>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
   <body>
-  
+    <div class = "NQ">
       <div class= "textPage"> 
 
 <!-- 검색창과 기능버튼 구현 -->
@@ -71,8 +67,7 @@
 
 
       </div>
-
-  </body>
-</html>
+    </div>
+  {% endblock content%}
 
 

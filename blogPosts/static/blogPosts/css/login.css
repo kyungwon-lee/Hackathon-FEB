@@ -1,0 +1,133 @@
+.loginPage {
+  background-color: #fafafa;
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  font-family: Noto Sans KR,Malgun Gothic,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+}
+
+.loginPage h2 {
+  margin:0 0 2.5rem 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: 2.125rem;
+  line-height: normal;
+  letter-spacing: normal;
+  display:block;
+  margin-block-end: 0.83em;
+  margin-block-start: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.card {
+  width: 100%;
+  max-width: 342px;
+  border: 1px solid #f2f2f2;
+  border-radius: 8px;
+  padding: 2.5rem;
+  margin: 0 auto;
+  box-shadow: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+}
+
+.formRow {
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-right: -5px;
+  margin-left: -5px;
+}
+
+.formRow legend {
+  font-size: 1rem;
+  padding-bottom: .375rem;
+  font-weight: 500;
+  padding-top: 0!important;
+}
+
+.formRow .pwLegend {
+  margin-top: 10px;
+}
+
+.formRow input {
+  padding: .75rem;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  background-image:none;
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 1.375rem + 2px);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #323232;
+  background-color: #fff;
+  background-clip: padding-box;
+  box-sizing:border-box;
+}
+
+.formRow .userPw{
+  margin-bottom: 20px;
+}
+
+.loginPage button{
+  width: 100%;
+  margin-bottom: .75rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginPage .emailLoginBtn {
+  transition: opacity .2s ease-in-out;
+  color:#fff;
+  background-color: #FFB13D;
+  border-color: #FFB13D;
+  display:inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  padding: .6875rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+}
+
+.loginPage .facebookLoginBtn {
+  background-color:#1876f1;
+  border-color:#1876f1;
+  color:#fff;
+  display:inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  padding: .6875rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  margin-bottom: 40px;
+}
+
+.loginPage .signupLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginPage .signupLink .link {
+  font-size: 1rem;
+  color: #737373;
+  text-decoration: none;
+  background-color: transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+}
