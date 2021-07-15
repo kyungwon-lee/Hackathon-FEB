@@ -9,6 +9,8 @@
       @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300&display=swap');
     </style>
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="{% static 'blogPosts/js/cursor.js' %}"></script>
   </head>
   <body>
     <header>
@@ -21,6 +23,10 @@
         <a href= "{% url 'signup' %}">회원가입</a>
       {% endif %}
     </header>
+    <div id="cursor">
+      <img src="http://superkts.pe.kr/images/helper/huk.gif"
+      alt="헉"/>
+    </div>
     <section class="home">
       <div class="loginButton">
       </div>
