@@ -223,16 +223,12 @@
   
 }
 
-footer {
+.main-footer {
+  padding-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
   border-top: 2px solid #dfe1e5;
-  display: flex;
   justify-content: flex-end;
-}
-
-.footer {
-  margin-top: 10px;
-  display: flex;
-  justify-content: row;
 }
 
 #insta-icon {

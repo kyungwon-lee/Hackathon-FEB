@@ -1,74 +1,196 @@
 {% extends 'base.html' %}
-{% load static %}
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>FEB</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blogPosts/css/base.css' %}">  
+    <link rel="stylesheet" href="{% static 'blogPosts/css/home.css' %}">  
+    <link rel="stylesheet" href="{% static 'blogPosts/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'blogPosts/css/textPage.css' %}">  
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100,300,500,700,900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+    </style>
+  </head>
+{% comment %} {% load static %} {% endcomment %}
 
 {% block content %}
-  <body>
-    <div class = "NQ">
-      <div class= "textPage"> 
-
-<!-- 검색창과 기능버튼 구현 -->
-        <section class = "topBar">
-          
-          <span class = "search">
-            <input class = "searchBar"  type="text" placeholder="필요한 내용을 검색해주세요" >
-            <!-- <span class = search-button>
-              <button type="button" id="img_button"><img  src="{%static 'blogPosts/img/search_icon.png'%}" width = "30px"></button>
-            </span> -->
-            <button class = "searchButton">검색</button> 
-          </span>
-          
-          <span style = "float : right" class = "button-list">
-            <button class = "printButton">인쇄</button>
-            <button class = "shareButton">공유</button>
-            <button class = "editButton">편집</button>
-          </span>
+  <body class="text-body">
+    <div class="container">
+      <nav class="navigator">
+      </nav>
+      <div class="article-container">
+        <section class="sidebar">
+          <h3>경원님을 위한 추천 글</h3>
+          <ul>
+            <li>
+              <a href class="list-item">[금융] 금융에서의 추천 게시글</a>
+            </li>
+            <li>
+              <a href class="list-item">[사랑] 사랑에서의 추천 게시글</a>
+            </li>
+            <li>
+              <a href class="list-item">[운동] 운동에서의 추천 게시글</a>
+            </li>
+            <li>
+              <a href class="list-item">[어플리케이션] 어플리케이션에서의 추천 게시글</a>
+            </li>
+          </ul>
         </section>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
-  <!-- 텍스트의 분류, 제목, 간략한 설명 -->
-
-
-        <section class = "topInformation">
-          {% comment %} <a href = "127.0.0.1:8000" class= "classification">분류(동물)</a> {% endcomment %}
-          <h3 class= "classification"> {{ post.section }}</h3>
-          <h1 class= "title">{{ post.title }}</h1>
-          <p class= "abstract-text">{{ post.brief_description }}</p>
-          {% comment %} <div class= "title">제목(보노보노)</div> {% endcomment %}
-          {% comment %} <div class= "abstract-text">간략한 설명</div> {% endcomment %}
-        </section>
-
-        <br>
-        <br>
-        <br>
-        <br>
-
-
-  <!-- 텍스트의 내용과 사진이 들어가는 부분 -->
-        <section class = "textBox">
-          <div style="border: 1px solid black; padding: 10px; height : 1000px; width : 1000px" >
-            <p>
-            <img src="{%static 'blogPosts/img/bonobono.jpg'%}" width="200px"  alt="예시 이미지" align = "left" vspace = "10" hspace = "10">
-              <div>
-                {{ post.content }}
+        <article class="article">
+          <header class="article-header">
+            <h1 class="article-title">[금융] For Every 주식 Beginner</h1>
+          </header>
+          <section class="article-info">
+            <div class="article-content">
+              <p>
+                <span>주식을 처음 시작하시는 <strong>주식 초보</strong>들을 위한 지침 안내서</span>
+              </p>
+              <p>
+                <span>[증권] 증권 : 유가증권, 주식 (주식의 종류, 주식을 세는 단위 주), 채권</span>
+              </p>
+              <p>
+                <span>[주주의 권리와 책임] 주주, 배당 (주식배당), 투표권, 잔여재산청구권 주주의 책임</span>
+              </p>
+              <p>
+                <span>[주식의 종류] 보통주 · 우선주 · 신형우선주 · 후배주 자사주</span>
+              </p>
+              <p>
+                <span>[주식투자] 주가와 주가의 결정요인, 주식투자방법</span>
+              </p>
+              <p>&nbsp;</p>
+              <p>
+                <span>주식을 처음 시작하시는 <strong>주식 초보</strong>들을 위한 지침 안내서</span>
+              </p>
+              <p>
+                <span>[증권] 증권 : 유가증권, 주식 (주식의 종류, 주식을 세는 단위 주), 채권</span>
+              </p>
+              <p>
+                <span>[주주의 권리와 책임] 주주, 배당 (주식배당), 투표권, 잔여재산청구권 주주의 책임</span>
+              </p>
+              <p>
+                <span>[주식의 종류] 보통주 · 우선주 · 신형우선주 · 후배주 자사주</span>
+              </p>
+              <p>
+                <span>[주식투자] 주가와 주가의 결정요인, 주식투자방법</span>
+              </p>
+              <p>&nbsp;</p>
+              <p>
+                <span>주식을 처음 시작하시는 <strong>주식 초보</strong>들을 위한 지침 안내서</span>
+              </p>
+              <p>
+                <span>[증권] 증권 : 유가증권, 주식 (주식의 종류, 주식을 세는 단위 주), 채권</span>
+              </p>
+              <p>
+                <span>[주주의 권리와 책임] 주주, 배당 (주식배당), 투표권, 잔여재산청구권 주주의 책임</span>
+              </p>
+              <p>
+                <span>[주식의 종류] 보통주 · 우선주 · 신형우선주 · 후배주 자사주</span>
+              </p>
+              <p>
+                <span>[주식투자] 주가와 주가의 결정요인, 주식투자방법</span>
+              </p>
+            </div>
+          </section>
+          <footer>
+            <div class="article-footer">
+              <div class="article-share">
+                <ul class="share">
+                  <li>
+                    <a href>
+                      <img src="{%static 'blogPosts/img/facebook.svg'%}" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href>
+                      <img src="{%static 'blogPosts/img/instagram.svg'%}" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href>
+                      <img src="{%static 'blogPosts/img/twitter.svg'%}" />
+                    </a>
+                  </li>
+                </ul>
               </div>
-            </p>
-          </div>
-        </section>
-
-        <section class = "editButtonList">
-          <a href = "{% url 'blogPosts:delete' id=post.id %}"> 삭제 </a>
-          <a href = "{% url 'blogPosts:update' id=post.id %}"> 수정 </a>
-
-
-
-
+            </div>
+            <div class="article-votes">
+              
+            </div>
+            <div class="article-more-questions">
+            </div>
+          </footer>
+        </article>
       </div>
     </div>
   </body>
-  {% endblock content%}
+</html>
+{% endblock content%}
 
 
+
+
+
+
+{% comment %} {% extends 'base.html' %}
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>FEB</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blogPosts/css/base.css' %}">  
+    <link rel="stylesheet" href="{% static 'blogPosts/css/home.css' %}">  
+    <link rel="stylesheet" href="{% static 'blogPosts/css/main.css' %}">
+    <link rel="stylesheet" href="{% static '/blogPosts/css/textPage.css' %}">  
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100,300,500,700,900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+    </style>
+  </head>
+{% comment %} {% load static %} {% endcomment %}
+
+{% comment %} {% block content %}
+  <body class = "text-body">
+    <div class = "text-main-container">
+      <div class = "text-navigator">
+        <div class="nav-head">
+          <div class="left-nav">
+            <ul class="nav-contents">
+              <li>
+                <a href>문서</a>
+              </li>
+              <li>
+                <a href>토론</a>
+              </li>
+            </ul>
+          </div>
+          <div class="right-nav">
+          </div>
+        </div>
+        <div class="nav-sidebar">
+          <span> 여기에 추천 link가 뜨면 좋을 듯! </span>
+        </div>
+      </div>
+
+      <div class = "text-content">
+        <main class="text-body">
+          <header class="body-header">
+            <h1>주식 [STOCK]</h1>
+            <span>For Every Beginner, 우리 모두의 백과사전.</span>
+          </header>
+          <div class="body-content">
+            <p><b>정의(正義, Justice)</b>는 사회를 구성하고 유지하기 위해 사회 구성원들이 공정하고 올바른 상태를 추구해야 한다는 가치로, 대부분의 법이 포함하는 이념이다. 철학 영역에서는 정의의 올바른 뜻을 확립하고자 많은 고민을 해왔다.</p>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock content%}  {% endcomment %}
+
+{% comment %} 숨고 버전 {% endcomment %}
