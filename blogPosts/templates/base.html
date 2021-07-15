@@ -18,24 +18,37 @@
   <body>
     <nav class="header">
       <div class="header-logo">
-        <a href>
+        <a href="/">
           <img src="{%static 'blogPosts/img/logo.png'%}" />
         </a>
       </div>
-
+    
       <div class="header-menus">
         <ul>
+          {% if user.is_authenticated %}
           <li class="header-menu">
-            <a href>
+            <a href= "{% url 'logout' %}">
+              <span>로그아웃</span>
+            </a>
+          </li>
+          <li class="header-menu">
+            <a href= "{% url 'mypage' %}">
+              <span>마이페이지</span>
+            </a>
+          </li>
+          {% else %}
+          <li class="header-menu">
+            <a href="{% url 'signup' %}">
               <span>회원가입</span>
             </a>
           </li>
 
           <li class="header-menu">
-            <a href>
+            <a href= "{% url 'login' %}">
               <span>로그인</span>
             </a>
           </li>
+          {% endif %}
 
         </ul>
       </div>

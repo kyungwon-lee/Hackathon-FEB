@@ -11,7 +11,19 @@
     </style>
   </head>
   <body>
+    <header>
+      {% if user.is_authenticated %}
+        {{user.get_username}}님, 안녕하세요
+        <a href="{% url 'logout' %}">로그아웃</a>
+        <a href="{% url 'mypage' %}">마이페이지</a>
+      {% else %}
+        <a href= "{% url 'login' %}">로그인</a>
+        <a href= "{% url 'signup' %}">회원가입</a>
+      {% endif %}
+    </header>
     <section class="home">
+      <div class="loginButton">
+      </div>
       <div class="homeTop">
         <div class="homeTitle">
           For Every Beginner

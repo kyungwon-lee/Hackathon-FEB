@@ -20,7 +20,9 @@
           <span style = "float : right" class = "button-list">
             <button class = "printButton">인쇄</button>
             <button class = "shareButton">공유</button>
+          {% if user.is_authenticated %}
             <button class = "editButton">편집</button>
+          {% endif %}
           </span>
         </section>
         <br>
@@ -60,8 +62,10 @@
         </section>
 
         <section class = "editButtonList">
+        {% if user.is_authenticated %}
           <a href = "{% url 'blogPosts:delete' id=post.id %}"> 삭제 </a>
           <a href = "{% url 'blogPosts:update' id=post.id %}"> 수정 </a>
+        {% endif %}
 
 
 
