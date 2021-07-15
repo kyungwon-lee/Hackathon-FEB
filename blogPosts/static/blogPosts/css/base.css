@@ -8,10 +8,6 @@
   display: none;
 }
 
-nav{
-  /* z-index: 1000; */
-}
-
 .header {
   display: flex;
   justify-content: space-between;

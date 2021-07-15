@@ -20,12 +20,12 @@ def new(request) :
 
 def show(request, id) :
     post = Post.objects.get(id = id)
-    return render(request, 'blogPosts/TextPage.html', {'post':post})
+    return render(request, 'blogPosts/textPage.html', {'post':post})
 
 def delete(request, id) :
     post = Post.objects.get(id = id)
     post.delete()
-    return redirect('blogPosts:example')
+    return redirect('blogPosts:main')
 
 def update(request, id) :
     if request.method == 'GET':

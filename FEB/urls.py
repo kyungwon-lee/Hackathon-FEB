@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include 
 import blogPosts.views
-import accounts.views
 
 app_name= "blogPosts"
 
@@ -29,12 +28,7 @@ urlpatterns = [
     path('textPage/', blogPosts.views.textPage, name='textPage'),
     path('example/', blogPosts.views.example, name='example'),
     path('posts/', include('blogPosts.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/signup/', accounts.views.signup, name="signup"),
-    path('accounts/mypage/', accounts.views.mypage, name="mypage"),
-    path('accounts/mypage/editname/', accounts.views.editname, name="editname"),
-    path('accounts/mypage/email/', accounts.views.editemail, name="editemail"),
-    path('accounts/mypage/password/', accounts.views.editpassword, name="editpassword"),
+    path('accounts/', include('accounts.urls')),
 ]
 
 
