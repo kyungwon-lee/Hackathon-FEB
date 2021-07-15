@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>FEB</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/blogPosts/css/editEmail.css' %}">  
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+    </style>
+  </head>
+  <body>
+    <div class="editEmailContainer">
+      <div class="emailInfo">
+        <h1>이메일 수정</h1>
+        <section class="inputEmail">
+          <fieldset>
+            <legend>이메일</legend>
+            <div>
+              <input name="email" type="text" placeholder="example@feb.riz" autocomplete="off">
+              <div class="invalidFeedback"></div>
+            </div>
+          </fieldset>
+        </section>
+        <footer class="buttonGroup">
+          <a class="cancel" href="#">취소</a>
+          <button class="confirm" type="button">수정 완료</button>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
