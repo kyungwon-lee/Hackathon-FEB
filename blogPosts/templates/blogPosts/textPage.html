@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset='utf-8'>
@@ -15,10 +15,49 @@
       @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
     </style>
   </head>
-{% comment %} {% load static %} {% endcomment %}
-
-{% block content %}
   <body class="text-body">
+    <div id="cursor">
+      <img src="http://superkts.pe.kr/images/helper/huk.gif"
+      alt="헉">
+    </div>
+    
+    <nav class="header">
+      <div class="header-logo">
+        <a href="/">
+          <img src="{%static 'blogPosts/img/logo.png'%}" />
+        </a>
+      </div>
+    
+      <div class="header-menus">
+        <ul>
+          {% if user.is_authenticated %}
+          <li class="header-menu">
+            <a href= "{% url 'logout' %}">
+              <span>로그아웃</span>
+            </a>
+          </li>
+          <li class="header-menu">
+            <a href= "{% url 'mypage' %}">
+              <span>마이페이지</span>
+            </a>
+          </li>
+          {% else %}
+          <li class="header-menu">
+            <a href="{% url 'signup' %}">
+              <span>회원가입</span>
+            </a>
+          </li>
+
+          <li class="header-menu">
+            <a href= "{% url 'login' %}">
+              <span>로그인</span>
+            </a>
+          </li>
+          {% endif %}
+
+        </ul>
+      </div>
+    </nav>
     <div class="container">
       <nav class="navigator">
       </nav>
@@ -128,69 +167,3 @@
     </div>
   </body>
 </html>
-{% endblock content%}
-
-
-
-
-
-
-{% comment %} {% extends 'base.html' %}
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <title>FEB</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'blogPosts/css/base.css' %}">  
-    <link rel="stylesheet" href="{% static 'blogPosts/css/home.css' %}">  
-    <link rel="stylesheet" href="{% static 'blogPosts/css/main.css' %}">
-    <link rel="stylesheet" href="{% static '/blogPosts/css/textPage.css' %}">  
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100,300,500,700,900&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
-    </style>
-  </head>
-{% comment %} {% load static %} {% endcomment %}
-
-{% comment %} {% block content %}
-  <body class = "text-body">
-    <div class = "text-main-container">
-      <div class = "text-navigator">
-        <div class="nav-head">
-          <div class="left-nav">
-            <ul class="nav-contents">
-              <li>
-                <a href>문서</a>
-              </li>
-              <li>
-                <a href>토론</a>
-              </li>
-            </ul>
-          </div>
-          <div class="right-nav">
-          </div>
-        </div>
-        <div class="nav-sidebar">
-          <span> 여기에 추천 link가 뜨면 좋을 듯! </span>
-        </div>
-      </div>
-
-      <div class = "text-content">
-        <main class="text-body">
-          <header class="body-header">
-            <h1>주식 [STOCK]</h1>
-            <span>For Every Beginner, 우리 모두의 백과사전.</span>
-          </header>
-          <div class="body-content">
-            <p><b>정의(正義, Justice)</b>는 사회를 구성하고 유지하기 위해 사회 구성원들이 공정하고 올바른 상태를 추구해야 한다는 가치로, 대부분의 법이 포함하는 이념이다. 철학 영역에서는 정의의 올바른 뜻을 확립하고자 많은 고민을 해왔다.</p>
-          </div>
-        </main>
-      </div>
-    </div>
-  </body>
-</html>
-{% endblock content%}  {% endcomment %}
-
-{% comment %} 숨고 버전 {% endcomment %}
