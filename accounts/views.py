@@ -16,7 +16,7 @@ def signup(request):
         return render(request, 'accounts/signup.html')
 
 def login(request):
-    user=User.Profile.objects.filter(email=request.POST['email'])
+    user=User.Profile.objects.filter(username=request.POST['username'])
     auth.login(request, user)
     return render(request, 'blogPosts/home.html')
 
