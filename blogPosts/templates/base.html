@@ -44,11 +44,11 @@
             </a>
           </li>
           {% else %}
-          <li class="header-menu">
+          {% comment %} <li class="header-menu">
             <a href="{% url 'signup' %}">
               <span>회원가입</span>
             </a>
-          </li>
+          </li> {% endcomment %}
 
           <li class="header-menu">
             <a href= "{% url 'login' %}">
