@@ -34,6 +34,7 @@
 
         <section class = "topInformation">
           {% comment %} <a href = "127.0.0.1:8000" class= "classification">분류(동물)</a> {% endcomment %}
+          <form method= 'POST' enctype = "multipart/form-data">
           <h3 class= "classification"> {{ post.section }}</h3>
           <h1 class= "title">{{ post.title }}</h1>
           <p class= "abstract-text">{{ post.brief_description }}</p>
@@ -49,9 +50,14 @@
 
   <!-- 텍스트의 내용과 사진이 들어가는 부분 -->
         <section class = "textBox">
+          <div> 
+          {% comment %} <p>작성자:<strong>{{post.auther.username}}</strong> {% endcomment %}
           <div style="border: 1px solid black; padding: 10px; height : 1000px; width : 1000px" >
             <p>
-            <img src="{%static 'blogPosts/img/bonobono.jpg'%}" width="200px"  alt="예시 이미지" align = "left" vspace = "10" hspace = "10">
+              {% if post.image %}
+                <img src= "{{ post.image.url }}" width="200px"  alt="" align = "left" vspace = "10" hspace = "10">
+              {% endif %}
+            </p>
               <div>
                 {{ post.content }}
               </div>
