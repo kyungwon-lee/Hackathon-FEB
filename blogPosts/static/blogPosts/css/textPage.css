@@ -298,10 +298,12 @@
 
 
 .article .article-header .article-title{
+    text-align: left;
     flex-basis: 100%;
     font-size: 30px;
     font-weight: 500;
     margin-bottom: 0.67em;
+    
 }
 
 /* #article-sub-title {
@@ -487,13 +489,21 @@ h2 em {
 }
 
 #review-input-type {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
     width: 95%;
     height: 100px;
-    word-wrap: break-word;
-    word-break: break-all;
     overflow: scroll;
     border-radius: 10px;
     outline: none;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    column-count: initial !important;
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: auto;
+    cursor: text;
 }
 
 #review-input-btn {
