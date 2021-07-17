@@ -55,7 +55,8 @@ def example(request):
         return redirect('blogPosts:example') 
 
 
-
+def text1(request) :
+    return render(request, 'blogPosts/text1.html')
 
 
 

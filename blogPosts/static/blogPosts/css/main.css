@@ -71,8 +71,9 @@
 .homeMiddle{
   display: flex;
   justify-content: center;
-  padding: 10px 10px;
-  margin-bottom: 20px;
+  padding: 10px 10px 20px 10px;
+  margin-bottom: 0px;
+  z-index: 2;
 }
 
 .homeMiddle .search{
@@ -89,6 +90,7 @@
 .homeMiddle .search_inside{
   display: flex;
   height: 100%;
+  z-index: 2;
 }
 
 .homeMiddle .magnifying-icon img{
@@ -99,6 +101,7 @@
   margin-left: 14px;
   margin-top: 6px;
   margin-right: 5px;
+  z-index: 2;
 }
 
 .homeMiddle .search_input input{
@@ -106,6 +109,7 @@
   height: 90%;
   width: 30vw;
   text-align: center;
+  z-index: 2;
 }
 
 .main-body {
@@ -114,24 +118,34 @@
 
 .mainTitle {
   text-align: center;
+  background-image: url('../img/background/bg_finance.jpg');
+  background-size: cover;
+  background-position: 50% 50%;
+  position: relative;
+  height: 400px;
+  z-index: 1;
 }
 
 .mainTitle .mainTitle-title {
   font-size: 30px;
   font-weight: bolder;
   margin-bottom: 10px;
+  z-index: 2;
 }
 
 .mainTitle #segmentTitle {
   margin-bottom: 15px;
-  margin-top: 150px;
+  margin-top: 0px;
+  padding-top: 150px;
   font-weight: 900;
+  z-index: 2;
 }
 
 .mainTitle .mainTitle-title-sentence {
   font-size: 16px;
   margin-top: 0px;
   font-weight: 100;
+  z-index: 2;
 }
 
 .mainMenu {
