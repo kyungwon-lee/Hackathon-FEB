@@ -477,6 +477,37 @@ h2 em {
     border-bottom: 1px solid #ddd;
 }
 
+.article-review .rv-1st .content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.article-review .content .content-input {
+    width: 100%;
+}
+
+#review-input-type {
+    width: 95%;
+    height: 100px;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: scroll;
+    border-radius: 10px;
+    outline: none;
+}
+
+#review-input-btn {
+    width: 20%;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 15px;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #ffbf00;
+}
+
 .article-review .user-info {
     position: relative;
     display: table;
