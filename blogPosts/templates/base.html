@@ -11,31 +11,51 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100,300,500,700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100,300,500,700,900&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
     </style>
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="{% static 'blogPosts/js/cursor.js' %}"></script>
   </head>
   <body>
+    <div id="cursor">
+      <img src="http://superkts.pe.kr/images/helper/huk.gif"
+      alt="헉">
+    </div>
+    
     <nav class="header">
       <div class="header-logo">
-        <a href>
+        <a href="/">
           <img src="{%static 'blogPosts/img/logo.png'%}" />
         </a>
       </div>
-
+    
       <div class="header-menus">
         <ul>
+          {% if user.is_authenticated %}
           <li class="header-menu">
-            <a href>
+            <a href= "{% url 'logout' %}">
+              <span>로그아웃</span>
+            </a>
+          </li>
+          <li class="header-menu">
+            <a href= "{% url 'mypage' %}">
+              <span>마이페이지</span>
+            </a>
+          </li>
+          {% else %}
+          <li class="header-menu">
+            <a href="{% url 'signup' %}">
               <span>회원가입</span>
             </a>
           </li>
 
           <li class="header-menu">
-            <a href>
+            <a href= "{% url 'login' %}">
               <span>로그인</span>
             </a>
           </li>
+          {% endif %}
 
         </ul>
       </div>

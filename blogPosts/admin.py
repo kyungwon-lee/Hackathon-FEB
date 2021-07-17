@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from .models import Post, Photo
 
 # Photo 클래스를 inline으로 나타낸다.

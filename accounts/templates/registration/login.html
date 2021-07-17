@@ -4,28 +4,30 @@
     <meta charset='utf-8'>
     <title>FEB</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static '/blogPosts/css/login.css' %}">  
+    <link rel="stylesheet" href="{% static '/accounts/css/login.css' %}">  
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
     </style>
   </head>
   <body>
+    <a href="{%url 'home'%}">홈으로</a>
     <div class="loginPage">
       <h2>로그인</h2>
       <div class="card">
-        <div class="formRow">
+        <form action="{%url 'login' %}" method="post" class="formRow">
+          {% csrf_token %}
           <legend>이메일</legend>
-          <input type="text" name="userId" placeholder="example@feb.com" onfocus="this.placeholder=''" onblur="this.placeholder='example@feb.com'"<br>
+          <input type="text" name="email" placeholder="example@feb.com" onfocus="this.placeholder=''" onblur="this.placeholder='example@feb.com'"<br>
           <legend class="pwLegend">비밀번호</legend>
-          <input type="password" name="userPass" placeholder="비밀번호를 입력해주세요."><br>
-          <button class="emailLoginBtn" type="button">이메일 로그인</button>
+          <input type="password" name="password" placeholder="비밀번호를 입력해주세요."><br>
+          <button class="emailLoginBtn" type="submit">이메일 로그인</button>
           <button class="facebookLoginBtn" type="button">
             <img src="https://assets.cdn.soomgo.com/icons/icon-login-facebook-btn.svg"></img>
             <span>Facebook으로 시작하기</span>
           </button>
-        </div>
+        </form>
         <div class="signupLink">
-         <a class="link" href=#>계정이 없으신가요?</a>
+         <a class="link" href="{%url 'signup' %}">계정이 없으신가요?</a>
         </div>
       </div>
     </div>

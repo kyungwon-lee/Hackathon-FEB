@@ -1,37 +1,61 @@
-{% extends 'base.html' %}
-{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>FEB</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blogPosts/css/base.css' %}">  
+    <link rel="stylesheet" href="{% static 'blogPosts/css/home.css' %}">  
+    <link rel="stylesheet" href="{% static 'blogPosts/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'blogPosts/css/textPage.css' %}">  
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100,300,500,700,900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+    </style>
+  </head>
+  <body class="text-body">
+    <div id="cursor">
+      <img src="http://superkts.pe.kr/images/helper/huk.gif"
+      alt="헉">
+    </div>
+    
+    <nav class="header">
+      <div class="header-logo">
+        <a href="/">
+          <img src="{%static 'blogPosts/img/logo.png'%}" />
+        </a>
+      </div>
+    
+      <div class="header-menus">
+        <ul>
+          {% if user.is_authenticated %}
+          <li class="header-menu">
+            <a href= "{% url 'logout' %}">
+              <span>로그아웃</span>
+            </a>
+          </li>
+          <li class="header-menu">
+            <a href= "{% url 'mypage' %}">
+              <span>마이페이지</span>
+            </a>
+          </li>
+          {% else %}
+          <li class="header-menu">
+            <a href="{% url 'signup' %}">
+              <span>회원가입</span>
+            </a>
+          </li>
 
-{% block content %}
-  <body>
-    <div class = "NQ">
-      <div class= "textPage"> 
+          <li class="header-menu">
+            <a href= "{% url 'login' %}">
+              <span>로그인</span>
+            </a>
+          </li>
+          {% endif %}
 
-<!-- 검색창과 기능버튼 구현 -->
-        <section class = "topBar">
-          
-          <span class = "search">
-            <input class = "searchBar"  type="text" placeholder="필요한 내용을 검색해주세요" >
-            <!-- <span class = search-button>
-              <button type="button" id="img_button"><img  src="{%static 'blogPosts/img/search_icon.png'%}" width = "30px"></button>
-            </span> -->
-            <button class = "searchButton">검색</button> 
-          </span>
-          
-          <span style = "float : right" class = "button-list">
-            <button class = "printButton">인쇄</button>
-            <button class = "shareButton">공유</button>
-            <button class = "editButton">편집</button>
-          </span>
-        </section>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
-  <!-- 텍스트의 분류, 제목, 간략한 설명 -->
-
-
+<!--        
         <section class = "topInformation">
           {% comment %} <a href = "127.0.0.1:8000" class= "classification">분류(동물)</a> {% endcomment %}
           <form method= 'POST' enctype = "multipart/form-data">
@@ -46,10 +70,11 @@
         <br>
         <br>
         <br>
+-->
 
 
   <!-- 텍스트의 내용과 사진이 들어가는 부분 -->
-        <section class = "textBox">
+        <!-- <section class = "textBox">
           <div> 
           {% comment %} <p>작성자:<strong>{{post.auther.username}}</strong> {% endcomment %}
           <div style="border: 1px solid black; padding: 10px; height : 1000px; width : 1000px" >
@@ -60,20 +85,119 @@
             </p>
               <div>
                 {{ post.content }}
-              </div>
-            </p>
-          </div>
+        -->
+
+
+        
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <nav class="navigator">
+      </nav>
+      <div class="article-container">
+        <section class="sidebar">
+          <h3>경원님을 위한 추천 글</h3>
+          <ul>
+            <li>
+              <a href class="list-item">[금융] 금융에서의 추천 게시글</a>
+            </li>
+            <li>
+              <a href class="list-item">[사랑] 사랑에서의 추천 게시글</a>
+            </li>
+            <li>
+              <a href class="list-item">[운동] 운동에서의 추천 게시글</a>
+            </li>
+            <li>
+              <a href class="list-item">[어플리케이션] 어플리케이션에서의 추천 게시글</a>
+            </li>
+          </ul>
         </section>
-
-        <section class = "editButtonList">
-          <a href = "{% url 'blogPosts:delete' id=post.id %}"> 삭제 </a>
-          <a href = "{% url 'blogPosts:update' id=post.id %}"> 수정 </a>
-
-
-
-
+        <article class="article">
+          <header class="article-header">
+            <h1 class="article-title">[금융] For Every 주식 Beginner</h1>
+          </header>
+          <section class="article-info">
+            <div class="article-content">
+              <p>
+                <span>주식을 처음 시작하시는 <strong>주식 초보</strong>들을 위한 지침 안내서</span>
+              </p>
+              <p>
+                <span>[증권] 증권 : 유가증권, 주식 (주식의 종류, 주식을 세는 단위 주), 채권</span>
+              </p>
+              <p>
+                <span>[주주의 권리와 책임] 주주, 배당 (주식배당), 투표권, 잔여재산청구권 주주의 책임</span>
+              </p>
+              <p>
+                <span>[주식의 종류] 보통주 · 우선주 · 신형우선주 · 후배주 자사주</span>
+              </p>
+              <p>
+                <span>[주식투자] 주가와 주가의 결정요인, 주식투자방법</span>
+              </p>
+              <p>&nbsp;</p>
+              <p>
+                <span>주식을 처음 시작하시는 <strong>주식 초보</strong>들을 위한 지침 안내서</span>
+              </p>
+              <p>
+                <span>[증권] 증권 : 유가증권, 주식 (주식의 종류, 주식을 세는 단위 주), 채권</span>
+              </p>
+              <p>
+                <span>[주주의 권리와 책임] 주주, 배당 (주식배당), 투표권, 잔여재산청구권 주주의 책임</span>
+              </p>
+              <p>
+                <span>[주식의 종류] 보통주 · 우선주 · 신형우선주 · 후배주 자사주</span>
+              </p>
+              <p>
+                <span>[주식투자] 주가와 주가의 결정요인, 주식투자방법</span>
+              </p>
+              <p>&nbsp;</p>
+              <p>
+                <span>주식을 처음 시작하시는 <strong>주식 초보</strong>들을 위한 지침 안내서</span>
+              </p>
+              <p>
+                <span>[증권] 증권 : 유가증권, 주식 (주식의 종류, 주식을 세는 단위 주), 채권</span>
+              </p>
+              <p>
+                <span>[주주의 권리와 책임] 주주, 배당 (주식배당), 투표권, 잔여재산청구권 주주의 책임</span>
+              </p>
+              <p>
+                <span>[주식의 종류] 보통주 · 우선주 · 신형우선주 · 후배주 자사주</span>
+              </p>
+              <p>
+                <span>[주식투자] 주가와 주가의 결정요인, 주식투자방법</span>
+              </p>
+            </div>
+          </section>
+          <footer>
+            <div class="article-footer">
+              <div class="article-share">
+                <ul class="share">
+                  <li>
+                    <a href>
+                      <img src="{%static 'blogPosts/img/facebook.svg'%}" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href>
+                      <img src="{%static 'blogPosts/img/instagram.svg'%}" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href>
+                      <img src="{%static 'blogPosts/img/twitter.svg'%}" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="article-votes">
+              
+            </div>
+            <div class="article-more-questions">
+            </div>
+          </footer>
+        </article>
       </div>
     </div>
-  {% endblock content%}
-
-
+  </body>
+</html>
