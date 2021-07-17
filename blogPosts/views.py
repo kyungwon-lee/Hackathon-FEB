@@ -60,3 +60,28 @@ def update(request, id) :
 
 
 
+def example(request):
+    if request.method == 'GET' :
+        posts = Post.objects.all()
+        return render(request, 'blogPosts/example.html', {'posts': posts})  
+    elif request.method == 'POST':
+        section = request.POST['section']
+        title = request.POST['title']
+        brief_description = request.POST['brief_description']
+        content = request.POST['content']
+        Post.objects.create(section = section, title = title, brief_description = brief_description, content = content )
+        return redirect('blogPosts:example') 
+
+
+def text1(request) :
+    return render(request, 'blogPosts/text1.html')
+
+def text2(request) :
+    return render(request, 'blogPosts/text2.html')
+
+def text3(request) :
+    return render(request, 'blogPosts/text3.html')
+
+
+
+
