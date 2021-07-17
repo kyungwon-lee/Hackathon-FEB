@@ -17,7 +17,7 @@
         <form action="{%url 'login' %}" method="post" class="formRow">
           {% csrf_token %}
           <legend>이메일</legend>
-          <input type="text" name="email" placeholder="example@feb.com" onfocus="this.placeholder=''" onblur="this.placeholder='example@feb.com'"<br>
+          <input type="text" name="username" placeholder="example@feb.com" onfocus="this.placeholder=''" onblur="this.placeholder='example@feb.com'"<br>
           <legend class="pwLegend">비밀번호</legend>
           <input type="password" name="password" placeholder="비밀번호를 입력해주세요."><br>
           <button class="emailLoginBtn" type="submit">이메일 로그인</button>

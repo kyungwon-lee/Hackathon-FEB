@@ -78,10 +78,101 @@
     padding: 0;
 } */
 
+/* body {
+    font-family: 'Noto Sans KR';
+} */
+
+#cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    width: 50px;
+    height: 50px;
+    display: none;
+  }
+/*   
+  nav{
+    z-index: 1000;
+  } */
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    margin: 0 auto;
+    height: 40px;
+    border-bottom: 1px solid #202020;
+    background-color: #fff;
+    padding: 1rem 1rem;
+    align-items: baseline;
+
+    /* position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; */
+    /* z-index: 1000; */
+  }
+
+  .header .search-box {
+      display: flex;
+      flex-direction: row;
+      border-radius: 24px;
+      border: 2px solid #dfe1e5;
+      width: 30vw;
+      height: 4vh;
+      z-index: 3;
+  }
+
+  .header .search-box input {
+      border: none;
+      height: 90%;
+      width: 25vw;
+      text-align: center;
+  }
+
+  .header .search-box input:focus {
+    outline: none;
+    }
+
+  
+  .header-logo img{
+    resize: both;
+    width: 250px;
+    height:  40px;
+    text-align: center;
+  }
+  
+  .header-menus{
+    text-align: center;
+  }
+  
+  .header-menus ul{
+    vertical-align: middle;
+    margin: 0;
+  }
+  
+  .header-menu {
+    display: inline-block;
+    margin-right: 36px;
+  }
+  
+  .header-menu span{
+    font-family: 'Nanum Gothic Coding', monospace;
+    /* font-family: 'Gaegu', cursive; */
+    font-weight: 900;
+    font-size: large;
+    color: black;
+  }
+  
+  .header-menu a{
+    text-decoration: none;
+  }
+
 .text-body{
     min-height: 65vh;
-    font-family: 'Noto Sans KR', sans-serif;
 }
+
 .text-body .container{
     padding: 0;
     width: 90%;
@@ -90,14 +181,46 @@
     margin: 0 auto;
 }
 
-.container .navigator{
+.container .sub-nav{
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
     min-height: 50px;
     padding-bottom: 15px;
+    padding-top: 20px;
     align-items: baseline;
     flex-direction: row;
+    box-sizing: border-box;
+}
+
+.sub-nav .breadcrumbs {
+    margin: 0 0 15px 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sub-nav .breadcrumbs li {
+    color: #363a3c;
+    font-weight: 500;
+    font-size: 13px;
+    max-width: 450px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    list-style-type: decimal;
+    float: left;
+}
+
+.breadcrumbs a {
+    color: #ced0db;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.sub-nav .breadcrumbs li + li::before {
+    content: ">";
+    margin: 0 4px;
 }
 
 .container .article-container{
@@ -174,8 +297,20 @@
     margin-bottom: 0.67em;
 }
 
+.article .article-header .article-sub-title{
+    margin-bottom: 0.67em;
+}
+
 .article .article-info{
     max-width: 100%;
+}
+
+.article .article-info .article-image img {
+    float: right;
+    width: 300px;
+    height: 300px;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 .article .article-info .article-content{
@@ -222,4 +357,263 @@
     resize: both;
     width: 25px;
     height: 25px;
+}
+
+footer {
+    color: #878d91;
+}
+
+.article-votes {
+    border-top: 1px solid #ddd;
+    padding: 30px 0;
+    text-align: center;
+    box-sizing: border-box;
+    display: block;
+    color: #878d91;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.article-votes a, a:visited {
+    text-decoration: none;
+    color:black;
+}
+
+.article-votes .realButton {
+    background: transparent;
+    border: 1px solid rgb(253, 187, 89);
+    color: rgb(253, 187, 89);
+    margin: 10px 5px;
+    min-width: 90px;
+    width: auto;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 2.34;
+    text-align: center;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.article-return-to-top {
+    border-top: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+}
+
+.article-return-to-top {
+    color: #363a3c;
+    display: block;
+    padding: 20px 0;
+    text-decoration: none;
+    background-color: none;
+    box-sizing: border-box;
+}
+
+.article-review {
+    max-width: 1040px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: #111;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.article-review h2 {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.45;
+    letter-spacing: -0.6px;
+    margin-bottom: 20px;
+    position: relative;
+    text-align: left;
+}
+
+h2 em {
+    color:rgb(253, 187, 89)!important;
+    font-style: normal;
+}
+
+.article-review .write-review {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -20px;
+    font-size: 14px;
+    height: 42px;
+    padding: 0 20px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    color: #666;
+    line-height: 40px;
+}
+
+.article-review {
+    font-size: 14px;
+    font-family: "Noto Sans KR";
+}
+
+.article-review .review-1st {
+    border-top: 1px solid #ddd;
+    list-style: none;
+    padding-left: 0px;
+}
+
+.article-review .review-1st > li {
+    padding: 30px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.article-review .user-info {
+    position: relative;
+    display: table;
+    width: 100%;
+    margin-bottom: 10px;
+    table-layout: fixed;
+}
+
+.article-review .user-info .img {
+    display: table-cell;
+    width: 30px;
+    vertical-align: middle;
+}
+
+.article-review .user-info .img .profile {
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.article-review .user-info .img .profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: top;
+    border: 0 none;
+    box-sizing: border-box;
+}
+
+.article-review .user-info a, span {
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    text-decoration: none;
+}
+
+.article-review .user-info .txt {
+    display: table-cell;
+    padding-left: 5px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.article-review .user-info .txt .username {
+    padding-right: 18px;
+    display: inline-block;
+    line-height: 20px;
+}
+
+.article-review .user-info .txt .date {
+    margin: 0;
+    color: #999;
+    display: block;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.article-review .content {
+    margin-bottom: 10px;
+    padding-left: 35px;
+    text-align: left;
+}
+
+.article-review .content p {
+    margin: 0;
+    color: #666;
+    line-height: 24px;
+    word-break: break-word;
+}
+
+.article-review .btn-box {
+    padding-left: 35px;
+    margin: 0;
+    text-align: left;
+}
+
+.article-review button {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    padding: 0;
+    background: none;
+    border: none;
+    vertical-align: top;
+}
+
+.article-review .likebtn {
+    padding-left: 19px;
+    color: #999;
+    background-image: url(https://front-img.taling.me/Content/Images/Vod/icon_wish_24.png);
+    background-position: left center;
+    background-size: 14px 12px;
+    background-repeat: no-repeat;
+}
+
+.article-review .reply {
+    margin: 0 15px;
+    padding-left: 18px;
+    color: #999;
+    background: url(https://front-img.taling.me/Content/Images/Vod/icon_reply.png) no-repeat left center;
+    background-size: 13px 13px;
+}
+
+.article-review .page-num {
+    position: relative;
+    margin: 40px 0 0;
+    text-align: center;
+    font-size: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.article-review .page-num .l {
+    background: url(https://front-img.taling.me/Content/app3/images/btn/btn_page_prev_bold.png) 50% 50%/5px 10px no-repeat;
+}
+
+.article-review .page-num .page {
+    border: 1px solid #707070;
+    text-indent: -9999px;
+}
+
+.article-review .page-num a {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    margin-left: 10px;
+    border-radius: 50%;
+    text-align: center;
+    color: #111;
+    line-height: 26px;
+    font-size: 14px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.article-review .page-num .r {
+    background: url(https://front-img.taling.me/Content/app3/images/btn/btn_page_next_bold.png) 50% 50%/5px 10px no-repeat;
+}
+
+.article-review .page-num .active {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    background-color: rgb(253, 187, 89);
 }

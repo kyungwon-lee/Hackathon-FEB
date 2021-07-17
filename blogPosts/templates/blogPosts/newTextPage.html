@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
-    <h1>쓰고 싶은 내용을 작성해 주세요!</h1>
     
     <form enctype = "multipart/form-data" action="{% url 'blogPosts:main' %}" method="POST">
 
@@ -23,7 +21,7 @@
         
         <p>제목</p>
         <input name="title" /> <br />
-        <p>한줄 요약</p>
+        <p class="brief-description">한줄 요약</p>
         <textarea name="brief_description" rows="1" cols="50"></textarea> <br />
         <p>이미지</p>
         <input type="file" name="image" /> <br />
@@ -33,6 +31,8 @@
 
         <input type="submit" value="submit" />
     </form>
+    
+  </body>
+</html>
 
-
-{% endblock content %}
+{% endblock %}

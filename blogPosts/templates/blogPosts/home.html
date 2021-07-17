@@ -8,25 +8,28 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300&display=swap');
+       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
     </style>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="{% static 'blogPosts/js/cursor.js' %}"></script>
   </head>
   <body>
     <header>
-      {% if user.is_authenticated %}
-        {{user.get_username}}님, 안녕하세요
-        <a href="{% url 'logout' %}">로그아웃</a>
-        <a href="{% url 'mypage' %}">마이페이지</a>
-      {% else %}
-        <a href= "{% url 'login' %}">로그인</a>
-        <a href= "{% url 'signup' %}">회원가입</a>
-      {% endif %}
+      <div class="buttons">
+        {% if user.is_authenticated %}
+          {% comment %} {{user.get_username}}님, 안녕하세요 {% endcomment %}
+          <a class="mypage" href="{% url 'mypage' %}">마이페이지</a>
+          <a class="logout" href="{% url 'logout' %}">로그아웃</a>
+        {% else %}
+          <a class="login" href= "{% url 'login' %}">로그인</a>
+          <a class="signup" href= "{% url 'signup' %}">회원가입</a>
+        {% endif %}
+      </div>
     </header>
-    <div id="cursor">
+    {% comment %} <div id="cursor">
       <img src="http://superkts.pe.kr/images/helper/huk.gif"
       alt="헉"/>
-    </div>
+    </div> {% endcomment %}
     <section class="home">
       <div class="loginButton">
       </div>
@@ -116,6 +119,14 @@
           </li>
         </ul>
       </div>
+      {% if user.is_authenticated %}
+      <div class="myDrawing">
+        <img class="newLeaf" src="{%static 'blogPosts/img/쇄싹이.svg'%}">
+        <img class="balloon" src="{%static 'blogPosts/img/말풍선.svg'%}">
+        <span class="hello">안녕</span>
+      </div>
+      {% endif %}
     </section>
   </body> 
 </html>
+

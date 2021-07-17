@@ -1,6 +1,42 @@
 html, body{
     height: 100%;
-    font-family: 'Noto Sans KR', sans-serif;
+}
+
+header {
+    text-align: right;
+    font-weight: 500;
+    color: black;
+    display: block;
+}
+
+header .buttons {
+    padding:1rem 1.25rem ;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+}
+
+header a, a:visited {
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+header .signup:visited {
+    color: black;
+}
+
+header .login {
+    padding: 8px 13px;
+    border-radius: 4px;
+    background-color: rgb(253, 187, 89);
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+}
+
+header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
+    margin-left: 5px;
+    color: black;
 }
 
 #cursor {
@@ -135,4 +171,41 @@ html, body{
     resize : both;
     width: 54px;
     height: 54px;
+}
+
+.newLeaf {
+    position: absolute;
+    width: 300px;
+    height: 500px;
+    left: 0;
+    bottom: 0;
+}
+
+.balloon {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 150px;
+    bottom: 400px;
+}
+
+.myDrawing .hello {
+    position: absolute;
+    left: 230px;
+    bottom: 490px;
+    text-align: center;
+}
+
+.myDrawing {
+    animation: fadein 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
