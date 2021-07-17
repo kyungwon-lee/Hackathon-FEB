@@ -9,7 +9,7 @@
     </div>
     <section class="mainTitle">
       <div class="mainTitle-title">
-        <h1 id=segmentTitle>금융</h1>
+        <h1 id=segmentTitle>{{post.section_title}}</h1>
       </div>
       <div class="mainTitle-title-sentence">
         지금 FEB와 함께 시작해보세요!
@@ -32,7 +32,7 @@
       <ul class="mainMenu-menus">
         <li class="mainMenu-icons">
           <div class="mainMenu-icons-container">
-            <a href="" id="mainMenu-icons-tag">
+            <a href="/mainPage/3/" id="mainMenu-icons-tag">
               <img src="{%static 'blogPosts/img/icons/economics2.png'%}" id="mainMenu-iconimg"/>
               <p id="mainMenu-icons-title">금융</p>
             </a>
@@ -40,7 +40,7 @@
         </li>
         <li class="mainMenu-icons">
           <div class="mainMenu-icons-container">
-            <a href="" id="mainMenu-icons-tag">
+            <a href="/mainPage/4/" id="mainMenu-icons-tag">
               <img src="{%static 'blogPosts/img/icons/love2.png'%}" id="mainMenu-iconimg"/>
               <p id="mainMenu-icons-title">사랑</p>
             </a>
@@ -48,7 +48,7 @@
         </li>
         <li class="mainMenu-icons">
           <div class="mainMenu-icons-container">
-            <a href="" id="mainMenu-icons-tag">
+            <a href="/mainPage/5/" id="mainMenu-icons-tag">
               <img src="{%static 'blogPosts/img/icons/exercise2.png'%}" id="mainMenu-iconimg"/>
               <p id="mainMenu-icons-title">운동</p>
             </a>
@@ -56,7 +56,7 @@
         </li>
         <li class="mainMenu-icons">
           <div class="mainMenu-icons-container">
-            <a href="" id="mainMenu-icons-tag">
+            <a href="/mainPage/6/" id="mainMenu-icons-tag">
               <img src="{%static 'blogPosts/img/icons/hobby2.png'%}" id="mainMenu-iconimg"/>
               <p id="mainMenu-icons-title">취미</p>
             </a>
@@ -64,7 +64,7 @@
         </li>
         <li class="mainMenu-icons">
           <div class="mainMenu-icons-container">
-            <a href="" id="mainMenu-icons-tag">
+            <a href="/mainPage/7/" id="mainMenu-icons-tag">
               <img src="{%static 'blogPosts/img/icons/study2.png'%}" id="mainMenu-iconimg"/>
               <p id="mainMenu-icons-title">학습</p>
             </a>
@@ -72,7 +72,7 @@
         </li>
         <li class="mainMenu-icons">
           <div class="mainMenu-icons-container">
-            <a href="" id="mainMenu-icons-tag">
+            <a href="/mainPage/8/" id="mainMenu-icons-tag">
               <img src="{%static 'blogPosts/img/icons/electrons2.png'%}" id="mainMenu-iconimg"/>
               <p id="mainMenu-icons-title">전자기기</p>
             </a>
@@ -80,7 +80,7 @@
         </li>
         <li class="mainMenu-icons">
           <div class="mainMenu-icons-container">
-            <a href="" id="mainMenu-icons-tag">
+            <a href="/mainPage/9/" id="mainMenu-icons-tag">
               <img src="{%static 'blogPosts/img/icons/application2.png'%}" id="mainMenu-iconimg"/>
               <p id="mainMenu-icons-title">어플리케이션</p>
             </a>
@@ -88,7 +88,7 @@
         </li>
         <li class="mainMenu-icons">
           <div class="mainMenu-icons-container">
-            <a href="" id="mainMenu-icons-tag">
+            <a href="/mainPage/10/" id="mainMenu-icons-tag">
               <img src="{%static 'blogPosts/img/icons/etc2.png'%}" id="mainMenu-iconimg"/>
               <p id="mainMenu-icons-title">기타</p>
             </a>
@@ -101,7 +101,7 @@
 
     <section class="mainBody">
       <h2 id="mainBody-title">인기 게시판&nbsp
-        <a href="#"><img id="mainBody-plus-btn" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjUxMnB0IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMnB0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0yNTYgMGMtMTQxLjE2NDA2MiAwLTI1NiAxMTQuODM1OTM4LTI1NiAyNTZzMTE0LjgzNTkzOCAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNTkzOCAyNTYtMjU2LTExNC44MzU5MzgtMjU2LTI1Ni0yNTZ6bTExMiAyNzcuMzMyMDMxaC05MC42Njc5Njl2OTAuNjY3OTY5YzAgMTEuNzc3MzQ0LTkuNTU0Njg3IDIxLjMzMjAzMS0yMS4zMzIwMzEgMjEuMzMyMDMxcy0yMS4zMzIwMzEtOS41NTQ2ODctMjEuMzMyMDMxLTIxLjMzMjAzMXYtOTAuNjY3OTY5aC05MC42Njc5NjljLTExLjc3NzM0NCAwLTIxLjMzMjAzMS05LjU1NDY4Ny0yMS4zMzIwMzEtMjEuMzMyMDMxczkuNTU0Njg3LTIxLjMzMjAzMSAyMS4zMzIwMzEtMjEuMzMyMDMxaDkwLjY2Nzk2OXYtOTAuNjY3OTY5YzAtMTEuNzc3MzQ0IDkuNTU0Njg3LTIxLjMzMjAzMSAyMS4zMzIwMzEtMjEuMzMyMDMxczIxLjMzMjAzMSA5LjU1NDY4NyAyMS4zMzIwMzEgMjEuMzMyMDMxdjkwLjY2Nzk2OWg5MC42Njc5NjljMTEuNzc3MzQ0IDAgMjEuMzMyMDMxIDkuNTU0Njg3IDIxLjMzMjAzMSAyMS4zMzIwMzFzLTkuNTU0Njg3IDIxLjMzMjAzMS0yMS4zMzIwMzEgMjEuMzMyMDMxem0wIDAiLz48L3N2Zz4=" /></a>
+        <a href={% url 'blogPosts:new'%}><img id="mainBody-plus-btn" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjUxMnB0IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMnB0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0yNTYgMGMtMTQxLjE2NDA2MiAwLTI1NiAxMTQuODM1OTM4LTI1NiAyNTZzMTE0LjgzNTkzOCAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNTkzOCAyNTYtMjU2LTExNC44MzU5MzgtMjU2LTI1Ni0yNTZ6bTExMiAyNzcuMzMyMDMxaC05MC42Njc5Njl2OTAuNjY3OTY5YzAgMTEuNzc3MzQ0LTkuNTU0Njg3IDIxLjMzMjAzMS0yMS4zMzIwMzEgMjEuMzMyMDMxcy0yMS4zMzIwMzEtOS41NTQ2ODctMjEuMzMyMDMxLTIxLjMzMjAzMXYtOTAuNjY3OTY5aC05MC42Njc5NjljLTExLjc3NzM0NCAwLTIxLjMzMjAzMS05LjU1NDY4Ny0yMS4zMzIwMzEtMjEuMzMyMDMxczkuNTU0Njg3LTIxLjMzMjAzMSAyMS4zMzIwMzEtMjEuMzMyMDMxaDkwLjY2Nzk2OXYtOTAuNjY3OTY5YzAtMTEuNzc3MzQ0IDkuNTU0Njg3LTIxLjMzMjAzMSAyMS4zMzIwMzEtMjEuMzMyMDMxczIxLjMzMjAzMSA5LjU1NDY4NyAyMS4zMzIwMzEgMjEuMzMyMDMxdjkwLjY2Nzk2OWg5MC42Njc5NjljMTEuNzc3MzQ0IDAgMjEuMzMyMDMxIDkuNTU0Njg3IDIxLjMzMjAzMSAyMS4zMzIwMzFzLTkuNTU0Njg3IDIxLjMzMjAzMS0yMS4zMzIwMzEgMjEuMzMyMDMxem0wIDAiLz48L3N2Zz4=" /></a>
       </h2>
       <br>
 
@@ -152,6 +152,15 @@
     <section class="allServices">
       <h2 id="allServices-title">모든 게시판</h2>
       <ul class="categories">
+        {% for post in posts %} {% comment %} 이전 view에서 index.html에 모든 포스트를 불러와 'posts'라는 이름으로 전달해주었기 때문에 posts라는 이름으로 사용할 수 있습니다. {% endcomment %}
+        <div style="border: 1px solid grey;">
+            <a href="/posts/{{ post.id }}/"> {% comment %} 포스트 제목을 누르면 내용을 확인할 수 있도록 링크를 설정해주었습니다. 아직은 확인할 수 없지만 곧 구현할거에요! {% endcomment %}
+                <h3>{{ post.title }}</h3>
+            </a>
+          {{post.brief_description}}
+        </div> 
+        {% endfor %}
+
         <li>
           <h3>음쥬</h3>
           <ul>
@@ -212,66 +221,8 @@
             <li>이과두주</li>
           </ul>
         </li>
-        <li>
-          <h3>음쥬</h3>
-          <ul>
-            <li>소주</li>
-            <li>맥주</li>
-            <li>양주</li>
-            <li>고량주</li>
-            <li>이과두주</li>
-          </ul>
-        </li>
-        <li>
-          <h3>음쥬</h3>
-          <ul>
-            <li>소주</li>
-            <li>맥주</li>
-            <li>양주</li>
-            <li>고량주</li>
-            <li>이과두주</li>
-          </ul>
-        </li>
-        <li>
-          <h3>음쥬</h3>
-          <ul>
-            <li>소주</li>
-            <li>맥주</li>
-            <li>양주</li>
-            <li>고량주</li>
-            <li>이과두주</li>
-          </ul>
-        </li>
-        <li>
-          <h3>음쥬</h3>
-          <ul>
-            <li>소주</li>
-            <li>맥주</li>
-            <li>양주</li>
-            <li>고량주</li>
-            <li>이과두주</li>
-          </ul>
-        </li>
-        <li>
-          <h3>음쥬</h3>
-          <ul>
-            <li>소주</li>
-            <li>맥주</li>
-            <li>양주</li>
-            <li>고량주</li>
-            <li>이과두주</li>
-          </ul>
-        </li>
-        <li>
-          <h3>음쥬</h3>
-          <ul>
-            <li>소주</li>
-            <li>맥주</li>
-            <li>양주</li>
-            <li>고량주</li>
-            <li>이과두주</li>
-          </ul>
-        </li>
+        
+        
       </ul>
       </div> 
     </section>
