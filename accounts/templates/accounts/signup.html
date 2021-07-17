@@ -13,13 +13,25 @@
     <div class="signupPage">
       <h2>새싹 여러분, 환영합니다!</h2>
       <div class="card">
-        <div class="formRow">
-          <legend p>이름</legend>
-          <input type="text" name="userId" placeholder="이름(실명)을 입력해주세요" onfocus="this.placeholder=''" onblur="this.placeholder='이름(실명)을 입력해주세요'"<br>
+        <form action="{%url 'signup' %}" method="post" class="formRow">
+          {% csrf_token %}
+          <legend>이름</legend>
+          <input type="text" name="username" placeholder="이름(실명)을 입력해주세요" onfocus="this.placeholder=''" onblur="this.placeholder='이름(실명)을 입력해주세요'"<br>
           <legend class="emailLegend">이메일</legend>
-          <input type="text" name="userId" placeholder="example@feb.com" onfocus="this.placeholder=''" onblur="this.placeholder='example@feb.com'"<br>
+          <input type="text" name="email" placeholder="example@feb.riz" onfocus="this.placeholder=''" onblur="this.placeholder='example@feb.com'"<br>
           <legend class="pwLegend">비밀번호</legend>
-          <input type="password" name="userPass" placeholder="영문+숫자 조합 8자리 이상 입력해주세요.">
+          <input type="password" name="password" placeholder="영문+숫자 조합 8자리 이상 입력해주세요.">
+          <legend class="interestLegend">관심분야</legend>
+          <select name="interest" class="interest">
+            <option value="금융" class="test1">금융</option>
+            <option value="사랑" class="test1">사랑</option>
+            <option value="운동" class="test1">운동</option>
+            <option value="취미" class="test1">취미</option>
+            <option value="학습" class="test1">학습</option>
+            <option value="전자기기" class="test1">전자기기</option>
+            <option value="어플리케이션" class="test1">어플리케이션</option>
+            <option value="기타" class="test1">기타</option>
+          </select>
           <br>
           <small>배추는 포기 셀 때나 하는 말입니다.</small>
           <small>FEB의 <a href=#>이용약관</a> 및 <a href=#>개인정보처리방침</a>에 동의합니다.</small>
@@ -29,7 +41,7 @@
             <img src="https://assets.cdn.soomgo.com/icons/icon-login-facebook-btn.svg"></img>
             <span>Facebook으로 가입하기</span>
           </button>
-        </div>
+        </form>
       </div>
     </div>
   </body>
