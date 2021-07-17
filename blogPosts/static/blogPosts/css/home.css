@@ -191,7 +191,7 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
 
 .myDrawing .hello {
     position: absolute;
-    left: 200px;
+    left: 230px;
     bottom: 490px;
     text-align: center;
 }

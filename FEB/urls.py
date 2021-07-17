@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include 
+from django.conf import settings 
+from django.conf.urls.static import static
 import blogPosts.views
 import accounts.views
 
@@ -23,18 +25,26 @@ app_name= "blogPosts"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', blogPosts.views.index, name='index'),
+    path('', blogPosts.views.home, name='home'),
     path('main/', blogPosts.views.main, name='main'),
-    path('home/', blogPosts.views.home, name='home'),
-    path('textPage/', blogPosts.views.textPage, name='textPage'),
-    path('example/', blogPosts.views.example, name='example'),
+    #path('main/', include('mainPages.urls')),
+    #path('textPage/', blogPosts.views.textPage, name='textPage'),
     path('posts/', include('blogPosts.urls')),
+    path('mainPage/', include('mainPages.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup/', accounts.views.signup, name="signup"),
     path('accounts/mypage/', accounts.views.mypage, name="mypage"),
     path('accounts/mypage/editname/', accounts.views.editname, name="editname"),
     path('accounts/mypage/email/', accounts.views.editemail, name="editemail"),
     path('accounts/mypage/password/', accounts.views.editpassword, name="editpassword"),
-]
+
+
+
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) #은주_자료_이미지 
+    
+urlpatterns +=  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+    
 
 
