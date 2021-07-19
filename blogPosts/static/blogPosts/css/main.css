@@ -71,39 +71,45 @@
 .homeMiddle{
   display: flex;
   justify-content: center;
-  padding: 10px 10px;
-  margin-bottom: 20px;
+  padding: 10px 10px 20px 10px;
+  margin-bottom: 0px;
+  z-index: 2;
 }
 
 .homeMiddle .search{
   display: flex;
   flex-direction: row;
   border-radius: 24px;
-  border: 2px solid #dfe1e5;
+  border: 2px solid #ffbf00;
   width: 35vw;
   height: 5vh;
   z-index: 3;
   margin: 15px;
+  background-color: white;
 }
 
 .homeMiddle .search_inside{
   display: flex;
   height: 100%;
+  z-index: 2;
+  background-color: white;
+  border-radius: 50px;
 }
 
 .homeMiddle .magnifying-icon img{
   display: flex;
   resize: both;
   width: 1.5vw;
-  height: 70%;
+  height: 65%;
   margin-left: 14px;
   margin-top: 6px;
   margin-right: 5px;
+  z-index: 2;
 }
 
 .homeMiddle .search_input input{
   border: none;
-  height: 90%;
+  height: 91%;
   width: 30vw;
   text-align: center;
   outline: none;
@@ -115,24 +121,43 @@
 
 .mainTitle {
   text-align: center;
+  position: relative;
+  height: 400px;
+  color: black;
+}
+
+.mainTitle::before {
+  content: "";
+  background-image: url('../img/background/bg_finance.jpg');
+  background-size: cover;
+  opacity: 0.5;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
 }
 
 .mainTitle .mainTitle-title {
   font-size: 30px;
   font-weight: bolder;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .mainTitle #segmentTitle {
   margin-bottom: 15px;
-  margin-top: 150px;
+  margin-top: 0px;
+  padding-top: 150px;
   font-weight: 900;
+  position: relative;
 }
 
 .mainTitle .mainTitle-title-sentence {
   font-size: 16px;
   margin-top: 0px;
   font-weight: 100;
+  position: relative;
 }
 
 .mainMenu {
