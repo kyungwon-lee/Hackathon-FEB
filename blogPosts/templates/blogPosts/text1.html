@@ -24,7 +24,8 @@
     <article class="article">
     <section class="article-info">
       <div class="article-image">
-        <img src="{%static 'blogPosts/img/Bin.png' %}">
+        <!-- <img src="{[post.image}}" /> -->
+        <img src={{post.image.url}}>
       </div>
       <div class="article-content">
         {{post.content}}
