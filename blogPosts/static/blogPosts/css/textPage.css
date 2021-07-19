@@ -828,3 +828,22 @@ body .textPage-history {
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 100;
 }
+
+/*update-textPage*/
+#update-textPage {
+    font-family: Noto Sans, sans-serif;
+    font-weight: 100;
+    display: flex;
+}
+
+.article-image img {
+    float: right;
+    width: 250px;
+    height: 250px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+#update-textarea {
+    border: .5px dashed #dfe1e5
+}
