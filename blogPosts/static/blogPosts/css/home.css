@@ -127,6 +127,7 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     height: 90%;
     width: 25vw;
     text-align: center;
+    outline: none;
 }
 
 .homeBottom .categories{
@@ -195,6 +196,7 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     bottom: 490px;
     text-align: center;
 }
+
 
 .myDrawing {
     animation: fadein 3s;

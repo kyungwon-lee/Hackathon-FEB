@@ -12,12 +12,28 @@
     </style>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="{% static 'blogPosts/js/cursor.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{% static 'blogPosts/js/data.js' %}"></script>
   </head>
+  <script>
+	
+	$(function () {	//화면 로딩후 시작
+		$("#homeSearch").autocomplete({  //오토 컴플릿트 시작
+			source: List,	// source는 data.js파일 내부의 List 배열
+			focus : function(event, ui) { // 방향키로 자동완성단어 선택 가능하게 만들어줌	
+				return false;
+			},
+			minLength: 1,// 최소 글자수
+			delay: 100,	//autocomplete 딜레이 시간(ms)
+			//disabled: true, //자동완성 기능 끄기
+		});
+	});
+</script>
   <body>
     <header>
       <div class="buttons">
         {% if user.is_authenticated %}
-          {% comment %} {{user.get_username}}님, 안녕하세요 {% endcomment %}
           <a class="mypage" href="{% url 'mypage' %}">마이페이지</a>
           <a class="logout" href="{% url 'logout' %}">로그아웃</a>
         {% else %}
@@ -26,10 +42,6 @@
         {% endif %}
       </div>
     </header>
-    {% comment %} <div id="cursor">
-      <img src="http://superkts.pe.kr/images/helper/huk.gif"
-      alt="헉"/>
-    </div> {% endcomment %}
     <section class="home">
       <div class="loginButton">
       </div>
@@ -45,7 +57,7 @@
               <img src="{%static 'blogPosts/img/magnifying_glass2.png'%}" />
             </div>
             <div class="search_input">
-              <input type="text" placeholder="원하는 내용을 찾아보세요">
+              <input id="homeSearch" type="text" placeholder="원하는 내용을 찾아보세요" onfocus="this.placeholder=''" onblur="this.placeholder='원하는 내용을 찾아보세요'">
             </div>
           </div>
         </div>
@@ -123,10 +135,9 @@
       <div class="myDrawing">
         <img class="newLeaf" src="{%static 'blogPosts/img/쇄싹이.svg'%}">
         <img class="balloon" src="{%static 'blogPosts/img/말풍선.svg'%}">
-        <span class="hello">안녕</span>
+        <span class="hello">안녕~<br>~<br>~~~</span>
       </div>
       {% endif %}
     </section>
   </body> 
 </html>
-

@@ -106,6 +106,7 @@
   height: 90%;
   width: 30vw;
   text-align: center;
+  outline: none;
 }
 
 .main-body {

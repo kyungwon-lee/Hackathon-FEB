@@ -1,38 +1,67 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-    
-    <form enctype = "multipart/form-data" action="{% url 'blogPosts:main' %}" method="POST">
-
-        {% csrf_token %}
-        <p>분류</p>
-        <select name = "section" class="myselect">
-            <option value="금융" class="test1">금융</option>
-            <option value="사랑" class="test1">사랑</option>
-            <option value="운동" class="test1">운동</option>
-            <option value="취미" class="test1">취미</option>
-            <option value="학습" class="test1">학습</option>
-            <option value="전자기기" class="test1">전자기기</option>
-            <option value="어플리케이션" class="test1">어플리케이션</option>
-            <option value="기타" class="test1">기타</option>
-        </select>
-
-
-        
-        <p>제목</p>
-        <input name="title" /> <br />
-        <p class="brief-description">한줄 요약</p>
-        <textarea name="brief_description" rows="1" cols="50"></textarea> <br />
-        <p>이미지</p>
-        <input type="file" name="image" /> <br />
-
-        <p>내용</p>
-        <textarea name="content" rows="30" cols="50"></textarea> <br />
-
-        <input type="submit" value="submit" />
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>FEB</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/blogPosts/css/newTextPage.css' %}">  
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100,300,500,700,900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+    </style>
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="{% static 'blogPosts/js/cursor.js' %}"></script>
+    <script src="{% static 'blogPosts/js/newTextPage.js' %}"></script>
+  </head>
+  <body>
+    <form class="edit-form" enctype = "multipart/form-data" action="{% url 'blogPosts:main' %}" method="POST">
+    {% csrf_token %}
+    <nav class="header">
+      <div class="header-logo">
+        <a href="/">
+          <img src="{%static 'blogPosts/img/logo.png'%}" />
+        </a>
+      </div>
+      <input type="submit" value="글쓰기" class="edit-complete" />
+    </nav>
+    <div class="newTextPage-editor">
+        <div class="blog-editor">
+            <div class="toolbar">
+              <div class="categories">
+                  <label for="myselect">분류</label>
+                  <select name = "section" class="myselect">
+                  <option value="금융" class="test1">금융</option>
+                  <option value="사랑" class="test1">사랑</option>
+                  <option value="운동" class="test1">운동</option>
+                  <option value="취미" class="test1">취미</option>
+                  <option value="학습" class="test1">학습</option>
+                  <option value="전자기기" class="test1">전자기기</option>
+                  <option value="어플리케이션" class="test1">어플리케이션</option>
+                  <option value="기타" class="test1">기타</option>
+                  </select>
+              </div>
+              <div class="images preview-image">
+                  <input class="upload-name" value="대표 이미지를 등록하세요" disabled="disabled">
+                  <label for="input_file">찾기</label>
+                  <input type="file" name="image" id="input_file" class="upload-hidden"/>
+              </div>
+            </div>
+            <div class="content-container">        
+                <div class="editor-guide">
+                    <div class="title-editor">
+                        <input autocomplete="off" class="title" name="title" placeholder="제목"/>
+                    </div>
+                    <div class="brief-description-editor">
+                        <textarea class="brief-description" name="brief_description" rows="1" cols="50" placeholder="부제목"></textarea>
+                    </div>
+                    <div class="maintext-editor">
+                        <textarea class="content" name="content" rows="30" cols="50" placeholder="헛소리 쓰지마세요"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
-    
   </body>
 </html>
-
-{% endblock %}
