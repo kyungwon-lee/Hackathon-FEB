@@ -38,3 +38,11 @@ def editemail(request):
 
 def editpassword(request):
     return render(request, 'accounts/editPassword.html')
+
+def trapcard(request):
+    return render(request, 'accounts/deleteAccount.html')
+
+def editinterest(request):
+    return render(request, 'accounts/editInterest.html')
+
+

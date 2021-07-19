@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>FEB</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/accounts/css/editInterest.css' %}">  
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+    </style>
+  </head>
+  <body>
+    <a href="{%url 'home'%}">홈으로</a>
+    <div class="editNameContainer">
+      <div class="nameInfo">
+        <h1>관심 분야 수정</h1>
+        <section class="inputName">
+          <fieldset>
+            <legend>분야</legend>
+            <div>
+              <select name="interest" class="interest" value="{{}}">
+                <option value="금융" class="test1">금융</option>
+                <option value="사랑" class="test1">사랑</option>
+                <option value="운동" class="test1">운동</option>
+                <option value="취미" class="test1">취미</option>
+                <option value="학습" class="test1">학습</option>
+                <option value="전자기기" class="test1">전자기기</option>
+                <option value="어플리케이션" class="test1">어플리케이션</option>
+                <option value="기타" class="test1">기타</option>
+              </select>
+            </div>
+          </fieldset>
+        </section>
+        <footer class="buttonGroup">
+          <a class="cancel" href="{% url 'mypage' %}">취소</a>
+          <button class="confirm" type="button">수정 완료</button>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

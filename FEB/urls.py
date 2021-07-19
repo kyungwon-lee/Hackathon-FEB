@@ -37,6 +37,8 @@ urlpatterns = [
     path('accounts/mypage/editname/', accounts.views.editname, name="editname"),
     path('accounts/mypage/email/', accounts.views.editemail, name="editemail"),
     path('accounts/mypage/password/', accounts.views.editpassword, name="editpassword"),
+    path('accounts/mypage/interest/', accounts.views.editinterest, name="editinterest"),
+    path('accounts/mypage/trapcard/', accounts.views.trapcard, name='trapcard')
 
 
 
