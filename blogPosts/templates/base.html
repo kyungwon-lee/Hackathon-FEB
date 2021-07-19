@@ -30,7 +30,7 @@
     
     <nav class="header">
       <div class="header-logo">
-        <a href="/">
+        <a href="/home">
           <img src="{%static 'blogPosts/img/logo.png'%}" />
         </a>
       </div>
@@ -39,7 +39,7 @@
         <ul>
           {% if user.is_authenticated %}
           <li class="header-menu">
-            <a href= "{% url 'logout' %}">
+            <a href= "{% url 'main' %}">
               <span>로그아웃</span>
             </a>
           </li>
