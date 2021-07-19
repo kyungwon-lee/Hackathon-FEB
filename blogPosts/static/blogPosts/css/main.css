@@ -112,7 +112,7 @@
   height: 91%;
   width: 30vw;
   text-align: center;
-  z-index: 2;
+  outline: none;
 }
 
 .main-body {

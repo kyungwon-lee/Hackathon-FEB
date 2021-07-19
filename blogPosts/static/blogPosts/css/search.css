@@ -14,10 +14,9 @@
   vertical-align: middle;
   margin: 0 auto;
   height: 40px;
-  border: none;
+  border-bottom: 1px solid #e1e1e1;
   background-color: #fff;
   padding: 1rem 1rem;
-  align-items: center !important;
 
   /* position: fixed;
   top: 0;
@@ -35,13 +34,11 @@
 
 .header-menus{
   text-align: center;
-  display: inline;
-  vertical-align: middle;
 }
 
 .header-menus ul{
   vertical-align: middle;
-  padding: 0;
+  padding-top: 10px;
   margin: 0;
 }
 
