@@ -50,12 +50,13 @@ def update(request, id) :
         post = Post.objects.get(id=id)
         return render(request, 'blogPosts/updateTextPage.html', {'post':post})
     elif request.method == 'POST':
-        section = request.POST['section']
-        title = request.POST['title']
-        brief_description = request.POST['brief_description']
+        #section = request.POST['section']
+        #title = request.POST['title']
+        #brief_description = request.POST['brief_description']
         content = request.POST['content']
-        Post.objects.filter(id=id).update(section = section, title = title, brief_description = brief_description, content = content )
-        return redirect('blogPosts:show', id=id)
+        content = content.replace("\r\n", "<br>")
+        Post.objects.filter(id=id).update(content = content)#section = section, title = title, brief_description = brief_description, content = content )
+        return redirect('blogPosts:text1', id=id)
     
 
 
@@ -73,14 +74,17 @@ def example(request):
         return redirect('blogPosts:example') 
 
 
-def text1(request) :
-    return render(request, 'blogPosts/text1.html')
+def text1(request, id) :
+    post = Post.objects.get(id = id)
+    return render(request, 'blogPosts/text1.html', {'post':post})
 
-def text2(request) :
-    return render(request, 'blogPosts/text2.html')
+def text2(request, id) :
+    post = Post.objects.get(id = id)
+    return render(request, 'blogPosts/text2.html', {'post':post})
 
-def text3(request) :
-    return render(request, 'blogPosts/text3.html')
+def text3(request, id) :
+    post = Post.objects.get(id = id)
+    return render(request, 'blogPosts/text3.html', {'post':post})
 
 
 
