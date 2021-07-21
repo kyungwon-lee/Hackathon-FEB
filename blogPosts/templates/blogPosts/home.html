@@ -8,14 +8,14 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
     </style>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="{% static 'blogPosts/js/cursor.js' %}"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="{% static 'blogPosts/js/data.js' %}"></script>
     <script src="{% static 'blogPosts/js/home.js' %}"></script>
+   
   </head>
   <body>
     <header>
@@ -46,11 +46,18 @@
             <div class = "magnifying-icon">
               <img src="{%static 'blogPosts/img/magnifying_glass2.png'%}" />
             </div>
-            <div class="search_input">
-              <input id="homeSearch" type="text" placeholder="원하는 내용을 찾아보세요" onkeydown="autoMaker()" onfocus="this.placeholder=''" onblur="this.placeholder='원하는 내용을 찾아보세요'">
-              <select name = "section" class="myselect" style="display: none;"> 
-              </select>
-            </div>
+            {% comment %} <form autocomplete="off" class="search_input">
+              <input id="homeSearch" type="text" placeholder="원하는 내용을 찾아보세요" onfocus="this.placeholder=''" onblur="this.placeholder='원하는 내용을 찾아보세요'">
+              <div name = "section" class="myselect" style="display: none;"> 
+              </div>
+            </form> {% endcomment %}
+            <!--Make sure the form has the autocomplete function switched off:-->
+            <form autocomplete="off">
+              <div class="autocomplete" style="width:300px;">
+                <input href="javascript:;" onclick="load_titles({{titles}}, {{categoryId}}, {{rId}});" id="myInput" type="text" name="myCountry" placeholder="Country">
+              </div>
+              <input type="submit">
+            </form>
           </div>
         </div>
       </div>
@@ -60,7 +67,7 @@
           <li class="category">
             <a href = "/mainPage/1/">
               <div class = "category-icon">
-                <img class="icon-hover" src="{%static 'blogPosts/img/icons/economics.png'%}" />
+                <img src="{%static 'blogPosts/img/icons/economics.png'%}" />
                 <p class="category-title">금융</p>
               </div>
             </a>
@@ -123,6 +130,18 @@
           </li>
         </ul>
       </div>
+      {% if user.is_authenticated %}
+      <div class="myDrawing">
+        <img class="newLeaf" src="{%static 'blogPosts/img/쇄싹이.svg'%}">
+        <img class="balloon" src="{%static 'blogPosts/img/말풍선.svg'%}">
+        <span class="hello">안녕~<br>~<br>~~~</span>
+      </div>
+      {% endif %}
     </section>
   </body> 
+    <script> 
+      function load_titles(titles, categoryId, rId) { 
+      autocomplete(document.getElementById("myInput"), titles , categoryId, rId);
+    }
+    </script> 
 </html>

@@ -14,6 +14,7 @@ import os
 import json 
 #from .forms import PostForm
 
+sections_dict = {"금융" : 1, "인간관계" : 2, "운동" : 3, "취미" : 4, "학습" : 5, "전자기기" : 6, "어플리케이션" : 7, "기타": 8 }
 
 class Page_Sections:
     def __init__(self) :
@@ -47,7 +48,7 @@ class Page_Sections:
 def bring_section_data_form_json(id) :
     id = id - 1
     file_path = os.path.join(settings.STATIC_ROOT, 'blogPosts/json/page_section_info.json')
-    mainPageInfo_json_data = open(file_path, encoding='utf-8')
+    mainPageInfo_json_data = open(file_path, encoding='UTF-8')
     mainPageInfo_data = json.load(mainPageInfo_json_data)
     data_id = mainPageInfo_data[id]['id']
     section = mainPageInfo_data[id]['section']
@@ -81,7 +82,15 @@ def main(request, id) :
 
 
 def home(request):
-    return render(request, 'blogPosts/home.html')  
+    posts = Post.objects.all()
+    titles = []
+    categoryId = []
+    rId = []
+    for post in posts:
+        categoryId.append(sections_dict[post.section])
+        rId.append(post.id)
+        titles.append(post.title)
+    return render(request, 'blogPosts/home.html', {'titles' : titles, 'categoryId' : categoryId, 'rId' : rId})  
 
 # def textPage(request, id):
 #     post = Post.objects.get(id = id)
