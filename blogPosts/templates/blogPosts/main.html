@@ -169,9 +169,15 @@
     <section class="allServices">
       <h2 id="allServices-title">모든 게시판</h2>
       <ul class="categories">
-     
-        
-    
+        {% comment %} {% for post in posts %} 
+        <div style="border: 1px solid grey;">
+            <a href="/posts/{{ post.id }}/"> 
+                <h3>{{ post.title }}</h3>
+            </a>
+          {{post.brief_description}}
+        </div> 
+        {% endfor %} {% endcomment %}
+
 
         <li>
           <h3>{{sections.sub_section.0}}</h3>

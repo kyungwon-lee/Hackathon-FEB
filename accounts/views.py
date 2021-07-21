@@ -42,7 +42,7 @@ def login(request):
     password = request.POST.get('password')
     user=User.Profile.objects.filter(email=email)
     auth.login(request, user)
-    return render(request, 'blogPosts/home.html')
+    return render(request, '/home.html')
 
 def logout(request):
     if request.method == 'POST':
