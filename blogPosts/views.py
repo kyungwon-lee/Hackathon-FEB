@@ -75,7 +75,7 @@ class CommentView:
             comment = Comment.objects.create(post_id=id, content=content, author=request.user)
             post = Post.objects.get(id=id)
             KST = datetime.now()
-            current_time = KST.strftime('%Y년 %m월 %d일 %:%M %p'.encode('unicode-escape').decode()).encode().decode('unicode-escape')
+            current_time = KST.strftime('%Y년 %m월 %d일 %H:%M %p'.encode('unicode-escape').decode()).encode().decode('unicode-escape')
             return JsonResponse({
                 'commentId': comment.id,
                 'commentCount': post.comment_set.count(),
