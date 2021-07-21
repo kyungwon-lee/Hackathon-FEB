@@ -24,14 +24,14 @@
       <nav class="sub-nav">
         <ol class="breadcrumbs">
           <li title="금융">
-            <a>{{post.section}}</a>
+            <a href = 'http://127.0.0.1:8000/' >  {{post.section}}</a>
           </li>
           <li title="주식">
-            <a>{{post.sub_section}}</a>
+            <a href = 'http://127.0.0.1:8000/mainPage/{{sections.data_id}}'>{{post.sub_section}}</a>
           </li> 
         </ol>
       </nav>
-     
+    
       <div class="article-container">
         <section class="sidebar">
           <h3>경원님을 위한 추천 글</h3>
@@ -60,7 +60,7 @@
               <span>{{post.brief_description}}</span>
             </td>
             <td align="center">
-              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/posts/text3/{{post.id}}')">
+              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/text3/{{post.id}}/')">
                 <div class="button_base
                 b02_slide_in">
                   <div>력사 보기</div>
@@ -68,11 +68,11 @@
                   <div>력사 보기</div>
                 </div>
               </button>
-              <!-- <button type="button" class="navyBtn" onClick="change_src('http://127.0.0.1:8000/posts/text3/')">력사 보기 -->
+              <!-- <button type="button" class="navyBtn" onClick="change_src('http://127.0.0.1:8000/blogPosts/text3/')">력사 보기 -->
             </td>
                     
             <td align="center">
-              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/posts/text2/{{post.id}}')">
+              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/text2/{{post.id}}/')">
                 <div class="button_base
                 b02_slide_in">
                   <div>편집</div>
@@ -80,11 +80,11 @@
                   <div>편집</div>
                 </div>
               </button>
-                <!-- <button type="button" class="navyBtn" onClick="change_src('http://127.0.0.1:8000/posts/text2/')">편집 -->
+                <!-- <button type="button" class="navyBtn" onClick="change_src('http://127.0.0.1:8000/blogPosts/text2/')">편집 -->
             </td>
                     
             <td align="center">
-              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/posts/text1/{{post.id}}')">
+              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/text1/{{post.id}}')">
                 <div class="button_base
                 b02_slide_in">
                   <div>읽기</div>
@@ -92,11 +92,11 @@
                   <div>읽기</div>
                 </div>
               </button>
-              <!-- <button type="button" class="navyBtn" onClick="change_src('http://127.0.0.1:8000/posts/text1/')">읽기 -->
+              <!-- <button type="button" class="navyBtn" onClick="change_src('http://127.0.0.1:8000/blogPosts/text1/')">읽기 -->
             </td>
           </table>
 
-          <iframe id='my_frame' src='http://127.0.0.1:8000/posts/text1/{{post.id}}' style="width:100%; height:600px; border:none;"></iframe>
+          <iframe id='my_frame' src='http://127.0.0.1:8000/mainPage/text1/{{post.id}}' style="width:100%; height:600px; border:none;"></iframe>
         
           <footer>
             <div class="article-footer">
@@ -123,7 +123,7 @@
             <div class="article-votes">
               <span class="article-votes-question">도움이 되었습니까?</span>
               <div class="article-votes-controls">
-                <a class="realButton" onclick="onClickLikeButton({{post.id}})" id="{{post.id}}-like-button">예</a>
+                <a class="realButton" onclick="onClickLikeButton({{post.id}}, {{post.rid}})" id="{{post.id}}-like-button">예</a>
                 <a class="realButton" onclick="onClickDislikeButton({{post.id}})" id="{{post.id}}-dislike-button">아니오</a>
               <br>
               <small class="article-votes-count" id = "{{post.id}}-votes-count">

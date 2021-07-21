@@ -1,8 +1,8 @@
-const onClickLikeButton = async (postId) => {
+const onClickLikeButton = async (postId, rid) => {
     const postLikeButton = document.getElementById(`${postId}-like-button`);
     const postDisLikeButton = document.getElementById(`${postId}-dislike-button`);
 
-    const response = await axios.post(`/posts/${postId}/like/`);
+    const response = await axios.post(`/mainpage/${rid}/posts/${postId}/like/`);
     const { postLikeOfUser, flag, voteTotalCount, voteLikeCount } = response.data;
     if (postLikeOfUser == 1) {
         if (flag) {
