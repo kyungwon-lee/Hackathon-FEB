@@ -93,8 +93,9 @@ def new(request, id) :
 
 def show(request, id, rid) : ### 여기서 (request, id) 이 정보는 어디서 받아오고 있는가?
     post = Post.objects.get(id = rid)
+    sections = bring_section_data_form_json(id)
     comments = post.comment_set.all().order_by('-created_at')
-    return render(request, 'blogPosts/textPage.html', {'post':post, 'comments':comments})
+    return render(request, 'blogPosts/textPage.html', {'post':post, 'sections':sections, 'comments':comments})
 
 
 def delete(request, id) :
