@@ -137,7 +137,7 @@ class CommentView:
             comment = Comment.objects.create(post_id=id, content=content, author=request.user)
             post = Post.objects.get(id=id)
             KST = datetime.now()
-            current_time = KST.strftime('%Y년 %m월 %d일 %:%M %p'.encode('unicode-escape').decode()).encode().decode('unicode-escape')
+            current_time = KST.strftime('%Y년 %m월 %d일 %H:%M %p'.encode('unicode-escape').decode()).encode().decode('unicode-escape')
             return JsonResponse({
                 'commentId': comment.id,
                 'commentCount': post.comment_set.count(),
@@ -146,7 +146,7 @@ class CommentView:
                 'author_profile' : request.user.profile.profile_image.url
             })
         else:
-            return render(f'/posts/{id}')
+            return render(f'/mainPage/<int:id>/post/{int:rid}')
     
     def delete(request, id, cid):
         post=Post.objects.get(id=id)
@@ -184,7 +184,7 @@ class LikeView:
                 'voteLikeCount' : post.get_total_like()
             })
         else:
-            return redirect (f'/posts/{id}')
+            return redirect (f'/mainPage/<int:id>/post/{int:rid}')
     
     def create_dislike(request, id):
         if request.method == 'POST':
@@ -211,9 +211,10 @@ class LikeView:
                 'voteLikeCount' : post.get_total_like()
             })
         else:
-            return redirect (f'/posts/{id}')
+            return redirect (f'/mainPage/<int:id>/post/{int:rid}')
 
 def text1(request, id) :
+    print('debug')
     post = Post.objects.get(id = id)
     return render(request, 'blogPosts/text1.html', {'post':post})
 
