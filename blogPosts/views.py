@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
-from .models import Post
+from .models import Post, Comment, LikeOrDislike
+from django.http import JsonResponse
+from datetime import datetime
+from django.utils import timezone
 
 
 def index(request):
@@ -11,16 +14,18 @@ def main(request):
 def home(request):
     return render(request, 'blogPosts/home.html')  
 
-def textPage(request):
-    posts = Post.objects.all()
-    return render(request, 'blogPosts/textPage.html') 
+# def textPage(request):
+#     posts = Post.objects.all()
+#     return render(request, 'blogPosts/textPage.html') 
+# textPage 이거 왜 필요,,? 어디서 오는거지?
     
 def new(request) :
     return render(request, 'blogPosts/newTextPage.html')
 
 def show(request, id) :
     post = Post.objects.get(id = id)
-    return render(request, 'blogPosts/textPage.html', {'post':post})
+    comments = post.comment_set.all().order_by('-created_at')
+    return render(request, 'blogPosts/textPage.html', {'post':post, 'comments':comments})
 
 def delete(request, id) :
     post = Post.objects.get(id = id)
@@ -38,9 +43,6 @@ def update(request, id) :
         content = request.POST['content']
         Post.objects.filter(id=id).update(section = section, title = title, brief_description = brief_description, content = content )
         return redirect('blogPosts:show', id=id)
-    
-
-
 
 def example(request):
     if request.method == 'GET' :
@@ -54,9 +56,86 @@ def example(request):
         Post.objects.create(section = section, title = title, brief_description = brief_description, content = content )
         return redirect('blogPosts:example') 
 
+class CommentView:
+    def create(request, id):
+        if request.method == 'POST':
+            content = request.POST['content']
+            comment = Comment.objects.create(post_id=id, content=content, author=request.user)
+            post = Post.objects.get(id=id)
+            KST = datetime.now()
+            current_time = KST.strftime('%Y년 %m월 %d일 %:%M %p')
+            return JsonResponse({
+                'commentId': comment.id,
+                'commentCount': post.comment_set.count(),
+                'createdTime': current_time,
+                'author': request.user.profile.email,
+                'author_profile' : request.user.profile.profile_image.url
+            })
+        else:
+            return render(f'/posts/{id}')
+    
+    def delete(request, id, cid):
+        post=Post.objects.get(id=id)
+        comment = Comment.objects.get(id=cid)
+        comment.delete()
+        return JsonResponse({
+            'commentId':comment.id,
+            'commentNum':post.comment_set.count()
+        })
 
-
-
-
-
+class LikeView:
+    def create_like(request, id):
+        if request.method == 'POST':
+            post = Post.objects.get(id=id)
+            flag = 0
+            like_list = post.likeordislike_set.filter(user = request.user)
+            # 이미 좋아요 / 싫어요를 누른 User
+            if like_list.count() > 0:
+                # 좋아요를 누른 User
+                if post.likeordislike_set.get(user=request.user).like == True:
+                    post.likeordislike_set.get(user = request.user).delete()
+                # 싫어요를 누른 User
+                else:
+                    flag = 1
+                    post.likeordislike_set.filter(user = request.user).update(like = True)
+                    post.likeordislike_set.filter(user = request.user).update(dislike = False)
+                    post.likeordislike_set.get(user = request.user).save()
+            # 좋아요 / 싫어요 를 누르지 않은 User
+            else:
+                LikeOrDislike.objects.create(user=request.user, post=post, like = True, dislike = False)
+            return JsonResponse({
+                'postLikeOfUser': like_list.count(), 
+                'flag' : flag,
+                'voteTotalCount': post.like_dislike.count(),
+                'voteLikeCount' : post.get_total_like()
+            })
+        else:
+            return redirect (f'/posts/{id}')
+    
+    def create_dislike(request, id):
+        if request.method == 'POST':
+            post = Post.objects.get(id=id)
+            flag = 0
+            like_list = post.likeordislike_set.filter(user = request.user)
+            if like_list.count() > 0:
+                # 좋아요를 누른 User
+                if post.likeordislike_set.get(user=request.user).like == True:
+                    flag = 1
+                    post.likeordislike_set.filter(user = request.user).update(like = False)
+                    post.likeordislike_set.filter(user = request.user).update(dislike = True)
+                    post.likeordislike_set.get(user = request.user).save()
+                # 싫어요를 누른 User
+                else:
+                    post.likeordislike_set.get(user = request.user).delete()
+            else:
+                LikeOrDislike.objects.create(user=request.user, post=post, like = False, dislike = True)
+            # return redirect (f'/posts/{id}')
+            return JsonResponse({
+                'postLikeOfUser': like_list.count(), 
+                'flag' : flag,
+                'voteTotalCount': post.like_dislike.count(),
+                'voteLikeCount' : post.get_total_like()
+            })
+        else:
+            return redirect (f'/posts/{id}')
 

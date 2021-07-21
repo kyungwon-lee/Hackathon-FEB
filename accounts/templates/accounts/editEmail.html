@@ -4,12 +4,14 @@
     <meta charset='utf-8'>
     <title>FEB</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static '/blogPosts/css/editEmail.css' %}">  
+    <link rel="stylesheet" href="{% static '/accounts/css/editEmail.css' %}">  
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
     </style>
   </head>
   <body>
+    <form method="POST" action="{%url 'editemail' %}">
+    {% csrf_token %}
     <div class="editEmailContainer">
       <div class="emailInfo">
         <h1>이메일 수정</h1>
@@ -17,16 +19,17 @@
           <fieldset>
             <legend>이메일</legend>
             <div>
-              <input name="email" type="text" placeholder="example@feb.riz" autocomplete="off">
+              <input name="email" type="text" placeholder= {{user.profile.email}} autocomplete="off">
               <div class="invalidFeedback"></div>
             </div>
           </fieldset>
         </section>
         <footer class="buttonGroup">
-          <a class="cancel" href="#">취소</a>
-          <button class="confirm" type="button">수정 완료</button>
+          <a class="cancel" href="{% url 'mypage' %}">취소</a>
+          <button class="confirm" type="submit">수정 완료</button>
         </footer>
       </div>
     </div>
+    </form>
   </body>
 </html>
