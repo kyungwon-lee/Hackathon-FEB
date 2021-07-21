@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sass_processor',
+    'mainPages',
     'blogPosts.apps.BlogpostsConfig',
     'accounts.apps.AccountsConfig',
 ]
@@ -63,7 +64,7 @@ ROOT_URLCONF = 'FEB.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [str(BASE_DIR.joinpath('templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,11 +128,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT =  os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'FEB', 'static'),) 
+STATIC_ROOT =  os.path.join(BASE_DIR, 'static') #은주_자료_이미지
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'FEB', 'static'),) #은주_자료_이미지
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+
+
+
 
 
 # Default primary key field type
@@ -144,3 +148,6 @@ SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'blogPosts', 'static')
 
 LOGIN_REDIRECT_URL = "/home"
 LOGOUT_REDIRECT_URL= "/home"
+
+X_FRAME_OPTIONS = 'ALLOWALL'
+XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']

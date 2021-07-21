@@ -14,6 +14,7 @@
     {% endblock js %} {% endcomment %}
   </head>
   <body>
+    <a href="{%url 'home'%}">홈으로</a>
     <div class="accountSetting">
       <h1>계정 설정</h1>
       <div class="accountProfileImage">
@@ -72,7 +73,7 @@
         <br><br>
 
         <ul class="deleteAccount">
-          <div class="item">계정 탈퇴</div>
+          <div class="item"><a href="{% url 'trapcard' %}">계정 탈퇴</a></div>
           <div>
             <img src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
           </div>

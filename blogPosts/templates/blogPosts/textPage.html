@@ -52,15 +52,15 @@
         </section>
           <article class="article">
             <header class="article-header">
-              <h1 class="article-title">[금융] For Every 주식 Beginner</h1>
+              <h1 class="article-title">[{{post.section}}] {{post.title}}</h1>
             </header>
             
           <table class="main_selector" align="center" width="100%">
             <td id="article-sub-title">
-              <span>복리의 법칙은 위대하다 !</span>
+              <span>{{post.brief_description}}</span>
             </td>
             <td align="center">
-              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/posts/text3/')">
+              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/posts/text3/{{post.id}}')">
                 <div class="button_base
                 b02_slide_in">
                   <div>력사 보기</div>
@@ -72,7 +72,7 @@
             </td>
                     
             <td align="center">
-              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/posts/text2/')">
+              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/posts/text2/{{post.id}}')">
                 <div class="button_base
                 b02_slide_in">
                   <div>편집</div>
@@ -84,7 +84,7 @@
             </td>
                     
             <td align="center">
-              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/posts/text1/')">
+              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/posts/text1/{{post.id}}')">
                 <div class="button_base
                 b02_slide_in">
                   <div>읽기</div>
@@ -96,7 +96,7 @@
             </td>
           </table>
 
-          <iframe id='my_frame' src='http://127.0.0.1:8000/posts/text1/' style="width:100%; height:600px; border:none;"></iframe>
+          <iframe id='my_frame' src='http://127.0.0.1:8000/posts/text1/{{post.id}}' style="width:100%; height:600px; border:none;"></iframe>
         
           <footer>
             <div class="article-footer">

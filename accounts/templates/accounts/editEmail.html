@@ -12,6 +12,7 @@
   <body>
     <form method="POST" action="{%url 'editemail' %}">
     {% csrf_token %}
+    <a href="{%url 'home'%}">홈으로</a>
     <div class="editEmailContainer">
       <div class="emailInfo">
         <h1>이메일 수정</h1>

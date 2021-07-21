@@ -102,4 +102,8 @@ def editinterest(request):
         return redirect('/accounts/mypage')
     else:
         return render(request, 'accounts/editInterest.html')
+    return render(request, 'accounts/editPassword.html')
+
+def trapcard(request):
+    return render(request, 'accounts/deleteAccount.html')
 

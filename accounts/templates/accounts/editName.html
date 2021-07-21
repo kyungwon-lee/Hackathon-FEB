@@ -12,6 +12,7 @@
   <body>
   <form method="POST" action="{%url 'editname' %}">
     {% csrf_token %}
+    <a href="{%url 'home'%}">홈으로</a>
     <div class="editNameContainer">
       <div class="nameInfo">
         <h1>이름 수정</h1>

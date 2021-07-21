@@ -3,26 +3,34 @@ from .models import Post, Comment, LikeOrDislike
 from django.http import JsonResponse
 from datetime import datetime
 from django.utils import timezone
+from .models import Post
+from django.http import HttpResponse
+from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
 
 
-def index(request):
-    return render(request, 'blogPosts/home.html')
+def main(request): 
+    if request.method == 'GET' :
+        posts = Post.objects.all()
+        return render(request, 'blogPosts/main.html', {'posts': posts})  
+    elif request.method == 'POST':
+        section = request.POST['section']
+        title = request.POST['title']
+        brief_description = request.POST['brief_description']
+        image = request.FILES.get('image', False)
+        content = request.POST['content']
+        Post.objects.create(section = section, title = title, brief_description = brief_description, image = image,  content = content )
+        return redirect('blogPosts:main') 
 
-def main(request):
-    return render(request, 'blogPosts/main.html')  
+
 
 def home(request):
     return render(request, 'blogPosts/home.html')  
 
-# def textPage(request):
-#     posts = Post.objects.all()
-#     return render(request, 'blogPosts/textPage.html') 
-# textPage 이거 왜 필요,,? 어디서 오는거지?
-    
 def new(request) :
     return render(request, 'blogPosts/newTextPage.html')
 
-def show(request, id) :
+def show(request, id) : ### 여기서 (request, id) 이 정보는 어디서 받아오고 있는가?
     post = Post.objects.get(id = id)
     comments = post.comment_set.all().order_by('-created_at')
     return render(request, 'blogPosts/textPage.html', {'post':post, 'comments':comments})
@@ -37,12 +45,16 @@ def update(request, id) :
         post = Post.objects.get(id=id)
         return render(request, 'blogPosts/updateTextPage.html', {'post':post})
     elif request.method == 'POST':
-        section = request.POST['section']
-        title = request.POST['title']
-        brief_description = request.POST['brief_description']
+        #section = request.POST['section']
+        #title = request.POST['title']
+        #brief_description = request.POST['brief_description']
         content = request.POST['content']
-        Post.objects.filter(id=id).update(section = section, title = title, brief_description = brief_description, content = content )
-        return redirect('blogPosts:show', id=id)
+        content = content.replace("\r\n", "<br>")
+        Post.objects.filter(id=id).update(content = content)#section = section, title = title, brief_description = brief_description, content = content )
+        return redirect('blogPosts:text1', id=id)
+    
+
+
 
 def example(request):
     if request.method == 'GET' :
@@ -138,4 +150,19 @@ class LikeView:
             })
         else:
             return redirect (f'/posts/{id}')
+
+def text1(request, id) :
+    post = Post.objects.get(id = id)
+    return render(request, 'blogPosts/text1.html', {'post':post})
+
+def text2(request, id) :
+    post = Post.objects.get(id = id)
+    return render(request, 'blogPosts/text2.html', {'post':post})
+
+def text3(request, id) :
+    post = Post.objects.get(id = id)
+    return render(request, 'blogPosts/text3.html', {'post':post})
+
+
+
 
