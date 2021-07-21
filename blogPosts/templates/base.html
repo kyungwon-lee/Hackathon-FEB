@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% static 'blogPosts/css/base.css' %}">  
     <link rel="stylesheet" href="{% static 'blogPosts/css/home.css' %}">  
     <link rel="stylesheet" href="{% static 'blogPosts/css/main.css' %}">
-    <link rel="stylesheet" href="{% static '/blogPosts/css/textPage.css' %}">  
+    <link rel="stylesheet" href="{% static 'blogPosts/css/textPage.css' %}">  
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300&display=swap');
@@ -16,6 +16,10 @@
     </style>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="{% static 'blogPosts/js/cursor.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="{% static 'blogPosts/js/comment.js' %}"></script>
+    <script src="{% static 'blogPosts/js/base.js' %}"></script>
+    <script src="{% static 'blogPosts/js/like.js' %}"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
         function change_src(url){
@@ -38,28 +42,28 @@
       <div class="header-menus">
         <ul>
           {% if user.is_authenticated %}
-          <li class="header-menu">
-            <a href= "{% url 'main' %}">
-              <span>로그아웃</span>
-            </a>
-          </li>
-          <li class="header-menu">
-            <a href= "{% url 'mypage' %}">
-              <span>마이페이지</span>
-            </a>
-          </li>
+            <li class="header-menu">
+              <a href= "{% url 'logout' %}">
+                <span>로그아웃</span>
+              </a>
+            </li>
+            <li class="header-menu">
+              <a href= "{% url 'mypage' %}">
+                <span>마이페이지</span>
+              </a>
+            </li>
           {% else %}
-          {% comment %} <li class="header-menu">
-            <a href="{% url 'signup' %}">
-              <span>회원가입</span>
-            </a>
-          </li> {% endcomment %}
+            <li class="header-menu">
+              <a href="{% url 'signup' %}">
+                <span>회원가입</span>
+              </a>
+            </li>
 
-          <li class="header-menu">
-            <a href= "{% url 'login' %}">
-              <span>로그인</span>
-            </a>
-          </li>
+            <li class="header-menu">
+              <a href= "{% url 'login' %}">
+                <span>로그인</span>
+              </a>
+            </li>
           {% endif %}
 
         </ul>

@@ -28,6 +28,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODELS = "accounts.Profile"
+# AUTHENTICATION_BACKENDS = (
+#     # 'django.contrib.auth.backends.ModelBackend',
+#     'accounts.models.MyUserAuth',
+# )
 
 # Application definition
 

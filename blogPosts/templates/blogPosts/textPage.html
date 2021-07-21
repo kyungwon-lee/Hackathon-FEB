@@ -123,81 +123,69 @@
             <div class="article-votes">
               <span class="article-votes-question">도움이 되었습니까?</span>
               <div class="article-votes-controls">
-                <a class="realButton">예</a>
-                <a class="realButton">아니오</a>
+                <a class="realButton" onclick="onClickLikeButton({{post.id}})" id="{{post.id}}-like-button">예</a>
+                <a class="realButton" onclick="onClickDislikeButton({{post.id}})" id="{{post.id}}-dislike-button">아니오</a>
               <br>
-              <small class="article-votes-count">
-                <span class="article-vote-label">5억 명 중 5억 명은 도움이 되었다고 했습니다.</span>
+              <small class="article-votes-count" id = "{{post.id}}-votes-count">
+                <span class="article-vote-label">{{post.like_dislike.count}} 명 중 {{post.get_total_like}} 명은 도움이 되었다고 했습니다.</span>
               </small>
 
             <div class="article-review">
-              <h2>
-                게시판 후기&nbsp;<em>(2)</em>
+              <h2 id = "commentset-num">
+                게시판 후기&nbsp;<em>({{post.comment_set.count}})</em>
               </h2>
 
               <div class="rv-1st">
                 <div class="user-info">
                   <span class="img">
                     <div class="profile">
-                      <img src = "{%static 'blogPosts/img/Bin.png' %}">
+                      <img src = {{user.profile.profile_image.url}}>
                     </div>
                   </span>
                   <div class="txt">
-                    <span class="username">빈더코더</span>
+                    <span class="username">{{user.profile.email}}</span>
                   </div>
                 </div>
+                {% csrf_token %}
                 <div class="content">
                   <div class="content-input">
-                    <textarea id="review-input-type" type="text" placeholder="댓글을 달아달아 밝은달아"></textarea>
+                    <input name = "content" id="review-input-type" type="text" placeholder="댓글을 달아달아 밝은달아"/>
                   </div>
-                  <button type="button" id="review-input-btn">리뷰작성</button>
+                  <button onclick = "onAddComment({{post.id}})" id="review-input-btn">리뷰작성</button>
                 </div>
               </div>
             
-              <ul class="review-1st">
-                <li class="1st">
-                  <div class="user-info">
-                    <span class="img">
-                      <div class="profile">
-                        <img src = "{%static 'blogPosts/img/Bin.png' %}">
+            <div id = "comment_list">
+              <div id = "async_comment">
+              </div>
+              {% for comment in comments %}
+                <ul class="review-1st" id="post{{post.id}}-comment{{comment.id}}">
+                  <li class="1st">
+                    <div class="user-info">
+                      <span class="img">
+                        <div class="profile">
+                          <img src = {{user.profile.profile_image.url}}>
+                        </div>
+                      </span>
+                      <div class="txt">
+                        <span class="username">{{ comment.author.profile.email }}</span>
+                        <p class="date">{{ comment.created_at }}</p>
                       </div>
-                    </span>
-                    <div class="txt">
-                      <span class="username">빈더코더</span>
-                      <p class="date">2021-07-17 5:10</p>
                     </div>
-                  </div>
-                  <div class="content">
-                    <p> 야 나 대학교 5학년이다 건들지 마라 </p>
-                  </div>
-                  <div class="btn-box">
-                    <button class="likebtn" type="button">0</button>
-                    <span class="reply">0</button>
-                  </div>
-                </li>
-              </ul>
-              <ul class="review-1st">
-                <li class="1st">
-                  <div class="user-info">
-                    <span class="img">
-                      <div class="profile">
-                        <img src = "{%static 'blogPosts/img/Bin.png' %}">
-                      </div>
-                    </span>
-                    <div class="txt">
-                      <span class="username">더코더빈</span>
-                      <p class="date">2017-07-17 5:10</p>
+                    <div class="content">
+                      <p> {{ comment.content }} </p>
                     </div>
-                  </div>
-                  <div class="content">
-                    <p> 대학교에 5학년이 어딨음 ㅋㅋ </p>
-                  </div>
-                  <div class="btn-box">
-                    <button class="likebtn" type="button">0</button>
-                    <span class="reply">0</button>
-                  </div>
-                </li>
-              </ul>
+                    <div class="btn-box">
+                      <button class="likebtn" type="button">0</button>
+                      <span class="reply">0</button>
+                    </div>
+                    {% if request.user == comment.author %}
+                      <button onclick="onDeleteComment({{post.id}},{{comment.id}})">댓글 삭제</button>
+                    {% endif %}
+                  </li>
+                </ul>
+              {% endfor %}
+            </div>
               <div class="page-num">
                 <a class="page l"></a>
                 <a class="active">1</a>

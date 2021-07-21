@@ -13,7 +13,7 @@
     <div class="signupPage">
       <h2>새싹 여러분, 환영합니다!</h2>
       <div class="card">
-        <form action="{%url 'signup' %}" method="post" class="formRow">
+        <form action="{%url 'signup' %}" method="POST" class="formRow">
           {% csrf_token %}
           <legend>이름</legend>
           <input type="text" name="email" placeholder="이름(실명)을 입력해주세요" onfocus="this.placeholder=''" onblur="this.placeholder='이름(실명)을 입력해주세요'"<br>
