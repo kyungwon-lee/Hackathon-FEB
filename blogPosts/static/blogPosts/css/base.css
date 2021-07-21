@@ -18,6 +18,7 @@
   background-color: #fff;
   padding: 1rem 1rem;
   align-items: center !important;
+  font-family: "Noto Sans KR";
 
   /* position: fixed;
   top: 0;
@@ -60,4 +61,76 @@
 
 .header-menu a{
   text-decoration: none;
+}
+
+.usermenu-dropdown {
+  position: absolute;
+  right: 10px;
+  transform: translateY(20px);
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  z-index: 1;
+  border-radius: 4px;
+  padding: 1.3125rem;
+  width: 240px;
+  overflow: visible;
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 10%);
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.usermenu-dropdown h4 {
+  font-size: 1rem;
+  line-height: 1.3125rem;
+  letter-spacing: -.0125rem;
+}
+
+.usermenu-control a {
+  text-decoration: none;
+}
+
+.usermenu-control .mypage, .usermenu-logout {
+  margin: 0.65625rem 15px 0.65625rem 0;
+  font-size: .875rem;
+  line-height: 1.3125rem;
+  letter-spacing: -.0125rem;
+}
+
+.header-menus .profile-image {
+  width: 40px;
+  height: 40px;
+  margin-right: 1.25rem;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.user-menu .user-photo {
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+.header-menus .user-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center!important;
+}
+
+.header-menus .user-menu span {
+font-family: inherit;
+vertical-align: middle;
+letter-spacing: -.1rem;
+line-height: 1.5;
+box-sizing: border-box;
+font-family: inherit;
+font-weight: 500;
+}
+
+.header-menus .user-menu .click-icon {
+  margin-left: 5px;
+  padding-bottom: 2px;
 }

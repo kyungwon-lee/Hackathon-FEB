@@ -506,6 +506,11 @@ h2 em {
     cursor: text;
 }
 
+review-input-type::placeholder {
+    text-align: center;
+    vertical-align: middle;
+}
+
 #review-input-btn {
     width: 20%;
     border: 0;
@@ -594,7 +599,10 @@ h2 em {
 .article-review .btn-box {
     padding-left: 35px;
     margin: 0;
-    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-top: 20px;
 }
 
 .article-review button {

@@ -15,21 +15,8 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="{% static 'blogPosts/js/data.js' %}"></script>
+    <script src="{% static 'blogPosts/js/home.js' %}"></script>
   </head>
-  <script>
-	
-	$(function () {	//화면 로딩후 시작
-		$("#homeSearch").autocomplete({  //오토 컴플릿트 시작
-			source: List,	// source는 data.js파일 내부의 List 배열
-			focus : function(event, ui) { // 방향키로 자동완성단어 선택 가능하게 만들어줌	
-				return false;
-			},
-			minLength: 1,// 최소 글자수
-			delay: 100,	//autocomplete 딜레이 시간(ms)
-			//disabled: true, //자동완성 기능 끄기
-		});
-	});
-</script>
   <body>
     <header>
       <div class="buttons">
@@ -60,7 +47,9 @@
               <img src="{%static 'blogPosts/img/magnifying_glass2.png'%}" />
             </div>
             <div class="search_input">
-              <input id="homeSearch" type="text" placeholder="원하는 내용을 찾아보세요" onfocus="this.placeholder=''" onblur="this.placeholder='원하는 내용을 찾아보세요'">
+              <input id="homeSearch" type="text" placeholder="원하는 내용을 찾아보세요" onkeydown="autoMaker()" onfocus="this.placeholder=''" onblur="this.placeholder='원하는 내용을 찾아보세요'">
+              <select name = "section" class="myselect" style="display: none;"> 
+              </select>
             </div>
           </div>
         </div>
@@ -71,7 +60,7 @@
           <li class="category">
             <a href = "/mainPage/1/">
               <div class = "category-icon">
-                <img src="{%static 'blogPosts/img/icons/economics.png'%}" />
+                <img class="icon-hover" src="{%static 'blogPosts/img/icons/economics.png'%}" />
                 <p class="category-title">금융</p>
               </div>
             </a>
@@ -134,13 +123,6 @@
           </li>
         </ul>
       </div>
-      {% if user.is_authenticated %}
-      <div class="myDrawing">
-        <img class="newLeaf" src="{%static 'blogPosts/img/쇄싹이.svg'%}">
-        <img class="balloon" src="{%static 'blogPosts/img/말풍선.svg'%}">
-        <span class="hello">안녕~<br>~<br>~~~</span>
-      </div>
-      {% endif %}
     </section>
   </body> 
 </html>

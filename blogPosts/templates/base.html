@@ -36,9 +36,8 @@
       </div>
     
       <div class="header-menus">
-        <ul>
           {% if user.is_authenticated %}
-          <li class="header-menu">
+          {% comment %} <li class="header-menu">
             <a href= "{% url 'main' %}">
               <span>로그아웃</span>
             </a>
@@ -47,14 +46,27 @@
             <a href= "{% url 'mypage' %}">
               <span>마이페이지</span>
             </a>
-          </li>
-          {% else %}
-          {% comment %} <li class="header-menu">
-            <a href="{% url 'signup' %}">
-              <span>회원가입</span>
-            </a>
           </li> {% endcomment %}
-
+          <a>
+            <div class="user-menu">
+              <img class="user-photo" src="{% static 'blogPosts/img/Bin.png' %}">
+              <span>윤재빈 새싹님</span>
+              <span><img class="click-icon" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE1IDlMOCAyIDEgOSIgc3Ryb2tlPSIjOTk5IiBzdHJva2Utd2lkdGg9IjEuNiIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"/></span>
+            </div>
+            <div class="usermenu-dropdown">
+              <h4 class="user-info">안녕, 윤재빈 새싹아🌱</h4>
+              <div class="usermenu-control">
+                <div class="mypage">
+                  <a href="{% url 'mypage' %}">마이페이지</a>
+                </div>
+                <div class="usermenu-logout">
+                  <a href="{% url 'logout' %}">로그아웃</a>
+                </div>
+              </div>
+            </div>
+          </a>
+          {% else %}
+        <ul>
           <li class="header-menu">
             <a href= "{% url 'login' %}">
               <span>로그인</span>
