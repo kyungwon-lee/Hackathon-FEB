@@ -130,6 +130,19 @@ font-family: inherit;
 font-weight: 500;
 }
 
+.header-menus .user-menu button{
+  font-family: inherit;
+  vertical-align: middle;
+  letter-spacing: -.1rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-weight: 500;
+  border: none;
+  background-color: transparent;
+  /* visibility: hidden; */
+}
+
 .header-menus .user-menu .click-icon {
   margin-left: 5px;
   padding-bottom: 2px;

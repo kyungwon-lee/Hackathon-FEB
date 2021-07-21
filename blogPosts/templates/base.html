@@ -19,6 +19,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
     <script src="{% static 'blogPosts/js/comment.js' %}"></script>
     <script src="{% static 'blogPosts/js/base.js' %}"></script>
+    <script src="{% static 'blogPosts/js/base2.js' %}"></script>
     <script src="{% static 'blogPosts/js/like.js' %}"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
@@ -53,18 +54,20 @@
           </li> {% endcomment %}
           <a>
             <div class="user-menu">
-              <img class="user-photo" src="{% static 'blogPosts/img/Bin.png' %}">
-              <span>윤재빈 새싹님</span>
-              <span><img class="click-icon" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE1IDlMOCAyIDEgOSIgc3Ryb2tlPSIjOTk5IiBzdHJva2Utd2lkdGg9IjEuNiIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"/></span>
+              <img class="user-photo" src = "{{user.profile.profile_image.url}}">
+              <span>{{user.profile.email}} 새싹님</span>
+              <button onclick = "onMypageElement()"><img class="click-icon" id = "click_icon" src="{%static 'blogPosts/img/down_arrow.svg'%}" dataup="{% static 'blogPosts/img/up_arrow.svg'%}" datadown="{% static 'blogPosts/img/down_arrow.svg' %}"/></button>
             </div>
-            <div class="usermenu-dropdown">
-              <h4 class="user-info">안녕, 윤재빈 새싹아🌱</h4>
-              <div class="usermenu-control">
-                <div class="mypage">
-                  <a href="{% url 'mypage' %}">마이페이지</a>
-                </div>
-                <div class="usermenu-logout">
-                  <a href="{% url 'logout' %}">로그아웃</a>
+            <div class = "dropdown">
+              <div class="usermenu-dropdown" id = "usermenu-dropdown" style="display:none;">
+                <h4 class="user-info">안녕, {{user.profile.email}} 새싹아🌱</h4>
+                <div class="usermenu-control">
+                  <div class="mypage">
+                    <a href="{% url 'mypage' %}">마이페이지</a>
+                  </div>
+                  <div class="usermenu-logout">
+                    <a href="{% url 'logout' %}">로그아웃</a>
+                  </div>
                 </div>
               </div>
             </div>
