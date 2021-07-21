@@ -146,7 +146,7 @@ class CommentView:
                 'author_profile' : request.user.profile.profile_image.url
             })
         else:
-            return render(f'/posts/{id}')
+            return render(f'/mainPage/<int:id>/post/{int:rid}')
     
     def delete(request, id, cid):
         post=Post.objects.get(id=id)
@@ -184,7 +184,7 @@ class LikeView:
                 'voteLikeCount' : post.get_total_like()
             })
         else:
-            return redirect (f'/posts/{id}')
+            return redirect (f'/mainPage/<int:id>/post/{int:rid}')
     
     def create_dislike(request, id):
         if request.method == 'POST':
@@ -211,9 +211,10 @@ class LikeView:
                 'voteLikeCount' : post.get_total_like()
             })
         else:
-            return redirect (f'/posts/{id}')
+            return redirect (f'/mainPage/<int:id>/post/{int:rid}')
 
 def text1(request, id) :
+    print('debug')
     post = Post.objects.get(id = id)
     return render(request, 'blogPosts/text1.html', {'post':post})
 
