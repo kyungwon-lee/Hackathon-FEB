@@ -16,17 +16,14 @@ class Post(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(blank=True, null=True)
     like_dislike = models.ManyToManyField(User, blank=True, related_name='like_posts', through='LikeOrDislike')
-    # author = models.ForeignKey(User, null=True, on_delete = models.CASCADE)
-    #like_users = models.ManyToManyField(User,blank=True, related_name='like_feeds',through='Like')
-
-    #likes = models.ManyToManyField(User, related_name='blog_Posts')
+    
     
     def get_total_like(self):
         return LikeOrDislike.objects.filter(post_id = self.id, like=True).count()
 
     def get_total_dislike(self):
         return LikeOrDislike.objects.filter(post_id = self.id, dislike=True).count()
-        
+
     def __str__(self):
         return self.title
 
