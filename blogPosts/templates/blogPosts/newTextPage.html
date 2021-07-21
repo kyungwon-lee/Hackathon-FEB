@@ -1,3 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>FEB</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/blogPosts/css/newTextPage.css' %}">  
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100,300,500,700,900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+    </style>
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="{% static 'blogPosts/js/cursor.js' %}"></script>
+    <script src="{% static 'blogPosts/js/newTextPage.js' %}"></script>
+  </head>
+  <body>
+    <form class="edit-form" enctype = "multipart/form-data" action="{% url 'blogPosts:main' id=sections.data_id %}" method="POST">
+    {% csrf_token %}
+
+      <nav class="header">
+        <div class="header-logo">
+          <a href="/">
+            <img src="{%static 'blogPosts/img/logo.png'%}" />
+          </a>
+        </div>
+        <input type="submit" value="글쓰기" class="edit-complete" />
+      </nav>
+      <div class="newTextPage-editor">
+          <div class="blog-editor">
+              <div class="toolbar">
+                <div class="categories">
+                  <div class= "section" name = "section" > {{sections.section}}</div>
+                    <label for="myselect">소분류</label>
+                    <select name = "sub_section" class="myselect">
+                    <option value="{{sections.sub_section.0}}" class="test1">{{sections.sub_section.0}}</option>
+                    <option value="{{sections.sub_section.1}}" class="test1">{{sections.sub_section.1}}</option>
+                    <option value="{{sections.sub_section.2}}" class="test1">{{sections.sub_section.2}}</option>
+                    <option value="{{sections.sub_section.3}}" class="test1">{{sections.sub_section.3}}</option>
+                    <option value="{{sections.sub_section.4}}" class="test1">{{sections.sub_section.4}}</option>
+                    <option value="{{sections.sub_section.5}}" class="test1">{{sections.sub_section.5}}</option>
+                    </select>
+                </div>
+                <div class="images preview-image">
+                    <input class="upload-name" value="대표 이미지를 등록하세요" disabled="disabled">
+                    <label for="input_file">찾기</label>
+                    <input type="file" name="image" id="input_file" class="upload-hidden"/>
+                </div>
+              </div>
+              <div class="content-container">        
+                  <div class="editor-guide">
+                      <div class="title-editor">
+                          <input autocomplete="off" class="title" name="title" placeholder="제목"/>
+                      </div>
+                      <div class="brief-description-editor">
+                          <textarea class="brief-description" name="brief_description" rows="1" cols="50" placeholder="부제목"></textarea>
+                      </div>
+                      <div class="maintext-editor">
+                          <textarea class="content" name="content" rows="30" cols="50" placeholder="헛소리 쓰지마세요"></textarea>
+                      </div>
+                  </div>
+              </div>
+          </div>
+    </form>
+  </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} 
+
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
@@ -6,6 +117,9 @@
 
         {% csrf_token %}
         <p>분류</p>
+        
+
+        <p>소분류</p>
         <select name = "section" class="myselect">
             <option value="금융" class="test1">금융</option>
             <option value="사랑" class="test1">사랑</option>
@@ -35,4 +149,4 @@
   </body>
 </html>
 
-{% endblock %}
+{% endblock %} {% endcomment %}

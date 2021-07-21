@@ -1,11 +1,13 @@
 from django.db import models
 from django.utils import timezone
 
+    
 
 
 class Post(models.Model): 
     
     section = models.CharField(max_length=256, null=True)
+    sub_section = models.CharField(max_length=256, null=True)
     title = models.CharField(max_length=256)
     brief_description = models.CharField(max_length=256, null=True)
     image = models.ImageField(upload_to='feed_image', blank = True, null=True)
@@ -19,12 +21,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-
-
-
-
-
-
 
 
 

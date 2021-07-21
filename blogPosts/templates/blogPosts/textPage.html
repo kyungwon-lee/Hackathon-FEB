@@ -98,10 +98,10 @@
       <nav class="sub-nav">
         <ol class="breadcrumbs">
           <li title="금융">
-            <a>금융</a>
+            <a>{{post.section}}</a>
           </li>
           <li title="주식">
-            <a>주식</a>
+            <a>{{post.sub_section}}</a>
           </li> 
         </ol>
       </nav>
@@ -125,8 +125,8 @@
         </section>
         <article class="article">
           <header class="article-header">
-            <h1 class="article-title">[금융] For Every 주식 Beginner</h1>
-            <span class="article-sub-title">복리의 법칙은 위대하다 !</span>
+            <h1 class="article-title">[{{post.section}}] {{post.title}}</h1>
+            <span class="article-sub-title">{{post.brief_description}}</span>
           </header>
           <section class="article-info">
             <div class="article-image">
@@ -134,51 +134,7 @@
             </div>
             <div class="article-content">
               <p>
-                <span>주식을 처음 시작하시는 <strong>주식 초보</strong>들을 위한 지침 안내서</span>
-              </p>
-              <p>
-                <span>[증권] 증권 : 유가증권, 주식 (주식의 종류, 주식을 세는 단위 주), 채권</span>
-              </p>
-              <p>
-                <span>[주주의 권리와 책임] 주주, 배당 (주식배당), 투표권, 잔여재산청구권 주주의 책임</span>
-              </p>
-              <p>
-                <span>[주식의 종류] 보통주 · 우선주 · 신형우선주 · 후배주 자사주</span>
-              </p>
-              <p>
-                <span>[주식투자] 주가와 주가의 결정요인, 주식투자방법</span>
-              </p>
-              <p>&nbsp;</p>
-              <p>
-                <span>주식을 처음 시작하시는 <strong>주식 초보</strong>들을 위한 지침 안내서</span>
-              </p>
-              <p>
-                <span>[증권] 증권 : 유가증권, 주식 (주식의 종류, 주식을 세는 단위 주), 채권</span>
-              </p>
-              <p>
-                <span>[주주의 권리와 책임] 주주, 배당 (주식배당), 투표권, 잔여재산청구권 주주의 책임</span>
-              </p>
-              <p>
-                <span>[주식의 종류] 보통주 · 우선주 · 신형우선주 · 후배주 자사주</span>
-              </p>
-              <p>
-                <span>[주식투자] 주가와 주가의 결정요인, 주식투자방법</span>
-              </p>
-              <p>&nbsp;</p>
-              <p>
-                <span>주식을 처음 시작하시는 <strong>주식 초보</strong>들을 위한 지침 안내서</span>
-              </p>
-              <p>
-                <span>[증권] 증권 : 유가증권, 주식 (주식의 종류, 주식을 세는 단위 주), 채권</span>
-              </p>
-              <p>
-                <span>[주주의 권리와 책임] 주주, 배당 (주식배당), 투표권, 잔여재산청구권 주주의 책임</span>
-              </p>
-              <p>
-                <span>[주식의 종류] 보통주 · 우선주 · 신형우선주 · 후배주 자사주</span>
-              </p>
-              <p>
-                <span>[주식투자] 주가와 주가의 결정요인, 주식투자방법</span>
+                {{post.content}}
               </p>
             </div>
           </section>

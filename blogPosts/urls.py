@@ -9,16 +9,12 @@ from django.conf.urls import include
 app_name = 'blogPosts'
 urlpatterns = [
     #path('', HomePageView.as_view(), name='main'), # 'localhost:8000/posts/'
-    path('', views.main, name='main'), # 'localhost:8000/posts/'
-    path('new/', views.new, name= 'new'),
-    path('<int:id>/', views.show, name= 'show'), 
-    path('<int:id>/delete', views.delete, name= 'delete'), 
-    path('<int:id>/update', views.update, name= 'update'), 
-    path('accounts/', include('accounts.urls')),
+    #path('', views.main, name='main'), # 'local host:8000/mainPage/
+    path('<int:id>/', views.main, name = 'main'),
+    path('<int:id>/new/', views.new, name= 'new'),
+    path('<int:id>/post/<int:rid>/', views.show, name= 'show'), 
+    #path('<int:id>/delete', views.delete, name= 'delete'), 
+    #path('<int:id>/update', views.update, name= 'update'), 
+    #path('post/', include('accounts.urls')),
 ]
-
-
-
-
-
 
