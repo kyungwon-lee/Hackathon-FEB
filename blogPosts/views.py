@@ -47,7 +47,7 @@ class Page_Sections:
 def bring_section_data_form_json(id) :
     id = id - 1
     file_path = os.path.join(settings.STATIC_ROOT, 'blogPosts/json/page_section_info.json')
-    mainPageInfo_json_data = open(file_path)
+    mainPageInfo_json_data = open(file_path, encoding = 'utf-8')
     mainPageInfo_data = json.load(mainPageInfo_json_data)
     data_id = mainPageInfo_data[id]['id']
     section = mainPageInfo_data[id]['section']

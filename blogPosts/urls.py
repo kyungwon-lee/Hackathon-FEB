@@ -26,8 +26,11 @@ urlpatterns = [
     path('<int:id>/comments/<int:cid>/', views.CommentView.delete, name='comment_delete'),
     path('<int:id>/like/', views.LikeView.create_like, name='like'),
     path('<int:id>/dislike/', views.LikeView.create_dislike, name='dislike'),
-    path('text1/<int:id>', views.text1, name = "text1"),
-    path('text2/<int:id>', views.update, name = "update"),
-    path('text3/<int:id>', views.text3, name = "text3"),
+    #path('text1/<int:id>', views.text1, name = "text1"),
+    #path('text2/<int:id>', views.update, name = "update"),
+    #path('text3/<int:id>', views.text3, name = "text3"),
+    path('posts/text1/<int:id>', views.text1, name = "text1"),
+    path('posts/text2/<int:id>', views.update, name = "update"),
+    path('posts/text3/<int:id>', views.text3, name = "text3"),
 ]
 
