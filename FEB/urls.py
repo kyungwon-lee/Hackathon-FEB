@@ -19,7 +19,9 @@ from django.conf.urls import include
 from django.conf import settings 
 from django.conf.urls.static import static
 import blogPosts.views
-import accounts.views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 app_name= "blogPosts"
 
@@ -35,19 +37,9 @@ urlpatterns = [
 
 
     path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/signup/', accounts.views.signup, name="signup"),
-    path('accounts/mypage/', accounts.views.mypage, name="mypage"),
-    path('accounts/mypage/editname/', accounts.views.editname, name="editname"),
-    path('accounts/mypage/email/', accounts.views.editemail, name="editemail"),
-    path('accounts/mypage/password/', accounts.views.editpassword, name="editpassword"),
+    path('accounts/', include('accounts.urls')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-
-
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) #은주_자료_이미지 
-    
-urlpatterns +=  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
-    
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
 

@@ -28,6 +28,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODELS = "accounts.Profile"
+# AUTHENTICATION_BACKENDS = (
+#     # 'django.contrib.auth.backends.ModelBackend',
+#     'accounts.models.MyUserAuth',
+# )
 
 # Application definition
 
@@ -140,5 +145,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SASS_PROCESSOR_ENABLED = True
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'blogPosts', 'static')
 
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL= "/"
+LOGIN_REDIRECT_URL = "/home"
+LOGOUT_REDIRECT_URL= "/home"
+
+X_FRAME_OPTIONS = 'ALLOWALL'
+XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']

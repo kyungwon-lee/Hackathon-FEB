@@ -10,6 +10,9 @@
     </style>
   </head>
   <body>
+  <form method="POST" action="{%url 'editname' %}">
+    {% csrf_token %}
+    <a href="{%url 'home'%}">홈으로</a>
     <div class="editNameContainer">
       <div class="nameInfo">
         <h1>이름 수정</h1>
@@ -21,16 +24,18 @@
           <fieldset>
             <legend>이름</legend>
             <div>
-              <input name="username" type="text" placeholder="이름(실명)을 입력해주세요" autocomplete="off" maxlength="7">
+              <input name="username" type="text" placeholder= {{user.get_username}} autocomplete="off">
               <div class="invalidFeedback"></div>
             </div>
           </fieldset>
         </section>
         <footer class="buttonGroup">
-          <a class="cancel" href="#">취소</a>
-          <button class="confirm" type="button">수정 완료</button>
+          <a class="cancel" href="{% url 'mypage' %}">취소</a>
+          {% comment %} <input type="submit" value="Save!"> {% endcomment %}
+          <button class="confirm" type="submit">수정 완료</button>
         </footer>
       </div>
     </div>
+  </form>
   </body>
 </html>

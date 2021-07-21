@@ -48,6 +48,11 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     height: 50px;
     display: none;
   }
+
+#cursor-img {
+    width: 50px;
+    height: 50px;
+}
   
 
 .home {
@@ -127,6 +132,7 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     height: 90%;
     width: 25vw;
     text-align: center;
+    outline: none;
 }
 
 .homeBottom .categories{
@@ -154,11 +160,12 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     margin: 0 auto;
     letter-spacing: normal;
     color: #323232;
-    font-family: 'Gaegu', cursive;
+    font-family: Noto sans, sans-serif;
+    /* font-family: 'Gaegu', cursive; */
     /* font-family: 'Nanum Gothic Coding', monospace; */
     /* font-size: medium; */
-    font-size: large;
-    font-weight: 800;
+    font-size: 15px;
+    font-weight: 700;
 }
 
 .homeBottom .category .category-icon{
@@ -195,6 +202,7 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     bottom: 490px;
     text-align: center;
 }
+
 
 .myDrawing {
     animation: fadein 3s;
