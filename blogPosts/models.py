@@ -18,7 +18,13 @@ class Post(models.Model):
     #like_users = models.ManyToManyField(User,blank=True, related_name='like_feeds',through='Like')
 
     #likes = models.ManyToManyField(User, related_name='blog_Posts')
+    
+    def get_total_like(self):
+        return LikeOrDislike.objects.filter(post_id = self.id, like=True).count()
 
+    def get_total_dislike(self):
+        return LikeOrDislike.objects.filter(post_id = self.id, dislike=True).count()
+        
     def __str__(self):
         return self.title
 
@@ -30,12 +36,6 @@ class Photo(models.Model):
     def update_date(self): 
         self.updated_at = timezone.now()
         self.save()
-    
-    def get_total_like(self):
-        return LikeOrDislike.objects.filter(post_id = self.id, like=True).count()
-
-    def get_total_dislike(self):
-        return LikeOrDislike.objects.filter(post_id = self.id, dislike=True).count()
 
     
 
