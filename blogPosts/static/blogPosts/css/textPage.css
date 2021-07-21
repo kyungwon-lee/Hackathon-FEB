@@ -1,82 +1,88 @@
-/* .text-body{
-    display: block;
-    overflow-y: scroll;
-    font-family: 'Noto Sans KR', sans-serif;
-}
-
-.text-main-container{
-    padding-left: 1.875em;
-    padding-right: 1.875em;
-    padding-top: 80px;
-}
-
-.text-navigator .nav-sidebar{
-    background-image: linear-gradient(to bottom,#ffffff 0%,#f8f9fa 10%,#f8f9fa 90%,#ffffff 100%);
+#cursor {
     position: absolute;
-    left: -1.875em;
-    width: 15em;
-    height: 100%;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 70px 0 40px 40px;
-    z-index: 1;
-}
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    width: 50px;
+    height: 50px;
+    display: none;
+  }
+/*   
+  nav{
+    z-index: 1000;
+  } */
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    margin: 0 auto;
+    height: 40px;
+    background-color: #fff;
+    padding: 1rem 1rem;
+    align-items: baseline;
 
-.text-navigator .nav-head{
-    max-width: 70em;
-    margin: 10px auto;
-}
+    /* position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; */
+    /* z-index: 1000; */
+  }
 
-.text-navigator .nav-head::after{
-    clear: both;
-    content: '';
-    display: block;
-}
+  .header .search-box {
+      display: flex;
+      flex-direction: row;
+      border-radius: 24px;
+      border: 2px solid #dfe1e5;
+      width: 30vw;
+      height: 4vh;
+      z-index: 3;
+  }
 
-.text-navigator .nav-head .left-nav{
-    background-repeat: no-repeat;
-    background-size: 1px 100%;
-    background-image: none;
-    padding-left: 0;
-}
+  .header .search-box input {
+      border: none;
+      height: 90%;
+      width: 25vw;
+      text-align: center;
+  }
 
-.text-navigator .nav-head .left-nav ul{
-    float: left;
-    list-style: none none;
+  .header .search-box input:focus {
+    outline: none;
+    }
+
+  
+  .header-logo img{
+    resize: both;
+    width: 250px;
+    height:  40px;
+    text-align: center;
+  }
+  
+  .header-menus{
+    text-align: center;
+  }
+  
+  .header-menus ul{
+    vertical-align: middle;
     margin: 0;
-    padding: 0;
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-    list-style: none none;
-    display: block;
-}
-
-.text-content {
-    max-width: 70em;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.text-content main{
-    display: block;
-}
-
-.text-content .text-body{
-    border-top: 1px solid rgb(253, 187, 89);
-    margin-top: -1px;
-    padding: 1.25em 0 1.5em 0;
-}
-
-.text-content .text-body .body-header h1{
-    font-size: 1.8em;
-    border-bottom: 1px solid #a2a9b1;
-    margin-bottom: 0.5em;
-    padding: 0;
-} */
+  }
+  
+  .header-menu {
+    display: inline-block;
+    margin-right: 36px;
+  }
+  
+  .header-menu span{
+    font-family: 'Nanum Gothic Coding', monospace;
+    /* font-family: 'Gaegu', cursive; */
+    font-weight: 900;
+    font-size: large;
+    color: black;
+  }
+  
+  .header-menu a{
+    text-decoration: none;
+  }
 
 /* body {
     font-family: 'Noto Sans KR';

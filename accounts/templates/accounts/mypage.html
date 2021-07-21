@@ -8,21 +8,34 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    {% comment %} {% block js %}
+    		<script type="module" src="{% static 'accounts/js/mypage.js' %}"></script>
+    {% endblock js %} {% endcomment %}
   </head>
   <body>
     <a href="{%url 'home'%}">홈으로</a>
     <div class="accountSetting">
       <h1>계정 설정</h1>
       <div class="accountProfileImage">
-       <img src = "{%static 'blogPosts/img/Bin.png' %}" class="profileImage">
-       <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGc+CiAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYwMyAtMjg2KSB0cmFuc2xhdGUoNTM1IDIxOCkgdHJhbnNsYXRlKDY4IDY4KSB0cmFuc2xhdGUoMSAxKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjE1IiBmaWxsPSIjRkZGIiBzdHJva2U9IiNGMkYyRjIiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgICAgICAgICAgICAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTAgMEwxOCAwIDE4IDE4IDAgMTh6IiBvcGFjaXR5PSIuNCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNiA2KSIvPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZmlsbD0iI0I1QjVCNSIgZmlsbC1ydWxlPSJub256ZXJvIiBkPSJNMTEuNCAybDEuNDY0IDEuNTU2SDE1LjRjLjg4IDAgMS42LjcgMS42IDEuNTU1djkuMzMzQzE3IDE1LjMgMTYuMjggMTYgMTUuNCAxNkgyLjZjLS44OCAwLTEuNi0uNy0xLjYtMS41NTZWNS4xMTFjMC0uODU1LjcyLTEuNTU1IDEuNi0xLjU1NWgyLjUzNkw2LjYgMmg0Ljh6TTkgN2MtMS42NTYgMC0zIDEuMzQ0LTMgM3MxLjM0NCAzIDMgMyAzLTEuMzQ0IDMtMy0xLjM0NC0zLTMtM3oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYgNikiLz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg==" class="cameraIcon">
+        <form name = "profile_image_form" enctype="multipart/form-data" action="/accounts/mypage/" method="POST">
+        {% csrf_token %}
+          <img src = "{{user.profile.profile_image.url}}", class="profileImage">
+          <label class = "photo_button" >
+            <input name="photo" type="file" class = "photo_input" onChange="profile_image_form.submit()" />
+            <div class = "button" >
+              <img src="{%static 'accounts/img/camera.svg'%}" class="cameraIcon"/>
+            </div> 
+          </label>
+        </form>
+          {% comment %} <input type = "submit"> {% endcomment %}
       </div>
       <section class="accountDetails">
         <ul class="accountInfo">
           <a href="{% url 'editname' %}" class="itemContainer">
             <div>
-              <div class="itemTitle">이름</div>
-              <div class="itemInfo">윤재빈</div>
+              <div class="itemTitle">이메일</div>
+              <div class="itemInfo">{{user.get_username}}</div>
             </div>
             <div>
               <img src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
@@ -30,8 +43,8 @@
           </a>
           <a href="{% url 'editemail' %}" class="itemContainer">
             <div>
-              <div class="itemTitle">이메일</div>
-              <div class="itemInfo">dbswoqls89@snu.ac.kr</div>
+              <div class="itemTitle">이름</div>
+              <div class="itemInfo">{{user.profile.email}}</div>
             </div>
             <div>
               <img src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
@@ -41,6 +54,16 @@
             <div>
               <div class="itemTitle">비밀번호</div>
               <div class="itemInfo">•••••••</div>
+            </div>
+            <div>
+              <img src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+            </div>
+          </a>
+
+          <a href="{% url 'editinterest' %}" class="itemContainer">
+            <div>
+              <div class="itemTitle">관심분야</div>
+              <div class="itemInfo">{{user.profile.interest}}</div>
             </div>
             <div>
               <img src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
