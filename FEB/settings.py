@@ -29,10 +29,15 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 AUTH_USER_MODELS = "accounts.Profile"
-# AUTHENTICATION_BACKENDS = (
-#     # 'django.contrib.auth.backends.ModelBackend',
-#     'accounts.models.MyUserAuth',
-# )
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+ )
+
+SITE_ID = 1
+
+ACCOUNT_LOGOUT_ON_GET = True
 
 # Application definition
 
@@ -46,6 +51,15 @@ INSTALLED_APPS = [
     'sass_processor',
     'blogPosts.apps.BlogpostsConfig',
     'accounts.apps.AccountsConfig',
+    'django.contrib.sites',
+
+    #allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    #provider
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [

@@ -36,7 +36,7 @@ urlpatterns = [
     #path('mainPage/<int:id>/', include('blogPosts.urls')),
     #path('mainPage/', include('mainPages.urls')), 
     
-
+    path('social_accounts/', include('allauth.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
