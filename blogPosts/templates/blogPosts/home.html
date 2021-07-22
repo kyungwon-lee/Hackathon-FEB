@@ -15,6 +15,11 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="{% static 'blogPosts/js/home.js' %}"></script>
+    <script> 
+      function load_titles(titles, categoryId, rId) { 
+      autocomplete(document.getElementById("myInput"), titles , categoryId, rId);
+    }
+    </script> 
    
   </head>
   <body>
@@ -54,9 +59,9 @@
             <!--Make sure the form has the autocomplete function switched off:-->
             <form autocomplete="off">
               <div class="autocomplete" style="width:300px;">
-                <input href="javascript:;" onclick="load_titles({{titles}}, {{categoryId}}, {{rId}});" id="myInput" type="text" name="myCountry" placeholder="Country">
+                <input href="javascript:;" onclick="load_titles({{titles}}, {{categoryId}}, {{rId}});" id="myInput" type="text" name="myCountry" placeholder="검색어를 입력해주세요.">
               </div>
-              <input type="submit">
+              <input type="submit" style="display:none;">
             </form>
           </div>
         </div>
@@ -130,18 +135,6 @@
           </li>
         </ul>
       </div>
-      {% if user.is_authenticated %}
-      <div class="myDrawing">
-        <img class="newLeaf" src="{%static 'blogPosts/img/쇄싹이.svg'%}">
-        <img class="balloon" src="{%static 'blogPosts/img/말풍선.svg'%}">
-        <span class="hello">안녕~<br>~<br>~~~</span>
-      </div>
-      {% endif %}
     </section>
   </body> 
-    <script> 
-      function load_titles(titles, categoryId, rId) { 
-      autocomplete(document.getElementById("myInput"), titles , categoryId, rId);
-    }
-    </script> 
 </html>
