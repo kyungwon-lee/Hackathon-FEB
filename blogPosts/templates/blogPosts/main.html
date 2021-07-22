@@ -119,63 +119,16 @@
       <br>
 
       <div class="mainBody-container">
-        <a href="" class="mainBody-factors">
-          <div class="mainBody-factors-top">
-            <img src="{%static 'blogPosts/img/main_content/app_facebook.png' %}" id="maincontent"/>
-          </div>
-          <div class="mainBody-factors-bottom">FACEBOOK</div>
-        </a>
-        <a href="" class="mainBody-factors">
-          <div class="mainBody-factors-top">
-            <img src="{%static 'blogPosts/img/main_content/app_kream.png' %}" id="maincontent"/>
-          </div>
-          <div class="mainBody-factors-bottom">KREAM</div>
-        </a>
-        <a href="" class="mainBody-factors">
-          <div class="mainBody-factors-top">
-            <img src="{%static 'blogPosts/img/main_content/app_rocketpunch.png' %}" id="maincontent"/>
-          </div>
-          <div class="mainBody-factors-bottom">로켓펀치</div>
-        </a>
-        <a href="" class="mainBody-factors">
-          <div class="mainBody-factors-top">
-            <img src="{%static 'blogPosts/img/main_content/app_appletoolbox.png' %}" id="maincontent"/>
-          </div>
-          <div class="mainBody-factors-bottom">애플 toolbox</div>
-        </a>
-        <a href="" class="mainBody-factors">
-          <div class="mainBody-factors-top">
-            <img src="{%static 'blogPosts/img/main_content/app_todayhouse.png' %}" id="maincontent"/>
-          </div>
-          <div class="mainBody-factors-bottom">오늘의집</div>
-        </a>
-        <a href="" class="mainBody-factors">
-          <div class="mainBody-factors-top">
-            <img src="{%static 'blogPosts/img/main_content/app_telegram.png' %}" id="maincontent"/>
-          </div>
-          <div class="mainBody-factors-bottom">텔레그램</div>
-        </a>
-        <a href="" class="mainBody-factors">
-          <div class="mainBody-factors-top">
-            <img src="{%static 'blogPosts/img/main_content/app_zigzag.jpg' %}" id="maincontent"/>
-          </div>
-          <div class="mainBody-factors-bottom">지그재그</div>
-        </a>
-        <a href="" class="mainBody-factors">
-          <div class="mainBody-factors-top">
-            <img src="{%static 'blogPosts/img/main_content/app_marketkurly.png' %}" id="maincontent"/>
-          </div>
-          <div class="mainBody-factors-bottom">마켓컬리</div>
-        </a>
-        <a href="" class="mainBody-factors">
-          <div class="mainBody-factors-top">
-            <img src="{%static 'blogPosts/img/main_content/app_instagram.png' %}" id="maincontent"/>
-          </div>
-          <div class="mainBody-factors-bottom">Instagram</div>
-        </a>
-      </div>
+        {% for section_posts in section_posts_inorder_top_ten %}
+          <a href= "post/{{ section_posts.id }}/" class="mainBody-factors">
+            <div class="mainBody-factors-top">
+              {% comment %} <img src="{%static 'blogPosts/img/main_content/app_facebook.png' %}" id="maincontent"/> {% endcomment %}
+              <img src={{section_posts.image.url}} id="maincontent" onError="this.style.visibility='hidden' "/>
+            </div>
+            <div class="mainBody-factors-bottom">{{section_posts.title}}</div>
+          </a>
+        {% endfor%}
     </section>
-
     <br><br>
     <section class="allServices">
       <h2 id="allServices-title">모든 게시판</h2>
