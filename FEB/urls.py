@@ -19,8 +19,6 @@ from django.conf.urls import include
 from django.conf import settings 
 from django.conf.urls.static import static
 import blogPosts.views
-from django.conf import settings
-from django.conf.urls.static import static
 
 
 app_name= "blogPosts"
@@ -34,8 +32,6 @@ urlpatterns = [
     path('mainPage/', include('blogPosts.urls')),
     #path('mainPage/<int:id>/', include('blogPosts.urls')),
     #path('mainPage/', include('mainPages.urls')), 
-
-
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
