@@ -31,8 +31,8 @@
           <div class="blog-editor">
               <div class="toolbar">
                 <div class="categories">
-                  <div class= "section" name = "section" > {{sections.section}}</div>
-                    <label for="myselect">소분류</label>
+                  <div class="category-section" name = "section" > {{sections.section}} > </div>
+                    <label for="myselect"></label>
                     <select name = "sub_section" class="myselect">
                     <option value="{{sections.sub_section.0}}" class="test1">{{sections.sub_section.0}}</option>
                     <option value="{{sections.sub_section.1}}" class="test1">{{sections.sub_section.1}}</option>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="images preview-image">
                     <input class="upload-name" value="대표 이미지를 등록하세요" disabled="disabled">
-                    <label for="input_file">찾기</label>
+                    <label for="input_file"><p id="new_inputbox">찾기</p></label>
                     <input type="file" name="image" id="input_file" class="upload-hidden"/>
                 </div>
               </div>

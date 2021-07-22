@@ -16,7 +16,12 @@
               <img src="{%static 'blogPosts/img/magnifying_glass2.png'%}" />
             </div>
             <div class="search_input">
-              <input type="text" placeholder="원하는 내용을 찾아보세요">
+              <form autocomplete="off">
+                <div class="autocomplete" style="width:300px;">
+                  <input href="javascript:;" onclick="load_titles({{titles}}, {{categoryId}}, {{rId}});" id="myInput" type="text" name="myCountry" placeholder="검색어를 입력해주세요.">
+                </div>
+                <input type="submit" style="display:none;">
+              </form>
             </div>
           </div>
         </div>
@@ -24,30 +29,24 @@
       <nav class="sub-nav">
         <ol class="breadcrumbs">
           <li title="금융">
-            <a>{{post.section}}</a>
+            <a href = 'http://127.0.0.1:8000/' >  {{post.section}}</a>
           </li>
           <li title="주식">
-            <a>{{post.sub_section}}</a>
+            <a href = 'http://127.0.0.1:8000/mainPage/{{sections.data_id}}'>{{post.sub_section}}</a>
           </li> 
         </ol>
       </nav>
-     
+    
       <div class="article-container">
         <section class="sidebar">
-          <h3>경원님을 위한 추천 글</h3>
+          <h3>{{user.profile.email}}님을 위한 추천 글</h3>
           <ul>
+            {%for interest_post in interest_posts_inorder_top_ten %}
             <li>
-              <a href class="list-item">[금융] 금융에서의 추천 게시글</a>
+              <a href = "http://127.0.0.1:8000/mainPage/{{interest_id}}/post/{{interest_post.id}}/" class="list-item">[{{interest_post.section}}] {{interest_post.title}}</a>
+              {% comment %} <a href = "/mainPage/{{interest_id}}/post/{{interest_post.id}}" class="list-item">[{{interest_post.section}}] {{interest_post.title}}</a> {% endcomment %}
             </li>
-            <li>
-              <a href class="list-item">[사랑] 사랑에서의 추천 게시글</a>
-            </li>
-            <li>
-              <a href class="list-item">[운동] 운동에서의 추천 게시글</a>
-            </li>
-            <li>
-              <a href class="list-item">[어플리케이션] 어플리케이션에서의 추천 게시글</a>
-            </li>
+            {% endfor %}
           </ul>
         </section>
           <article class="article">
@@ -70,7 +69,7 @@
               </button>
               <!-- <button type="button" class="navyBtn" onClick="change_src('http://127.0.0.1:8000/blogPosts/text3/')">력사 보기 -->
             </td>
-                    
+            {% if user.is_authenticated %}
             <td align="center">
               <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/update/{{post.id}}/')">
                 <div class="button_base
@@ -82,7 +81,7 @@
               </button>
                 <!-- <button type="button" class="navyBtn" onClick="change_src('http://127.0.0.1:8000/blogPosts/text2/')">편집 -->
             </td>
-                    
+            {% endif %}
             <td align="center">
               <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/content/{{post.id}}')">
                 <div class="button_base
@@ -103,18 +102,18 @@
               <div class="article-share">
                 <ul class="share">
                   <li>
-                    <a href>
-                      <img src="{%static 'blogPosts/img/facebook.svg'%}" />
+                    <a href="" onclick="window.open(url_combine_fb, '', 'scrollbars=no, width=600, height=600'); return false;">
+                      <img src="{% static 'blogPosts/img/facebook.svg'%}" title="페이스북으로 공유하기" class="sharebtn_custom"">
                     </a>
                   </li>
                   <li>
-                    <a href>
-                      <img src="{%static 'blogPosts/img/instagram.svg'%}" />
+                    <a href="" onclick="window.open(url_combine_naver, '', 'scrollbars=no, width=600, height=600'); return false;">
+                      <img src="{% static 'blogPosts/img/naver.png'%}" title="네이버로 공유하기" class="sharebtn_custom">
                     </a>
                   </li>
                   <li>
-                    <a href>
-                      <img src="{%static 'blogPosts/img/twitter.svg'%}" />
+                    <a href="" onclick="window.open(url_combine_tw, '', 'scrollbars=no, width=600, height=600'); return false;">
+                      <img src="{% static 'blogPosts/img/twitter.svg'%}" title="트위터로 공유하기" class="sharebtn_custom">
                     </a>
                   </li>
                 </ul>
@@ -192,8 +191,46 @@
                 <a class="page r"></a>
               </div>
           </footer>
+          <br>
+
+          <section>
+            <div class="main-footer">
+              <h4>FEB Makers |&nbsp&nbsp</h4>
+              <div class="footer-insta">
+                <a href="https://www.instagram.com/seoseongq" >
+                  <img id="insta-icon" src="{%static 'blogPosts/img/profile/ssk.jpg'%}" 
+                  /></a>&nbsp
+                <a href="https://www.instagram.com/inkyu_o" >
+                  <img id="insta-icon" src="{%static 'blogPosts/img/profile/oik.jpg'%}" 
+                  /></a>&nbsp
+                <a href="https://www.instagram.com/_binthect_" >
+                  <img id="insta-icon" src="{%static 'blogPosts/img/profile/yjb.jpg'%}" 
+                  /></a>&nbsp
+                <a href="https://www.instagram.com/gdori__s2" >
+                  <img id="insta-icon" src="{%static 'blogPosts/img/profile/lkw.jpg'%}" 
+                  /></a>
+              </div>
+            </div>
+          </section>
         </article>
       </div>
     </div>
   </body>
+  <script type="text/javascript" async>
+    var url_default_ks = "https://story.kakao.com/share?url=";
+    var url_default_fb = "https://www.facebook.com/sharer/sharer.php?u=";
+    var url_default_tw_txt = "https://twitter.com/intent/tweet?text=";
+    var url_default_tw_url = "&url=";
+    var url_default_band = "http://band.us/plugin/share?body=";
+    var url_route_band = "&route=";
+    var url_default_naver = "http://share.naver.com/web/shareView.nhn?url=";
+    var title_default_naver = "&title=";
+    var url_this_page = location.href;
+    var title_this_page = document.title
+    var url_combine_ks = url_default_ks + url_this_page;
+    var url_combine_fb = url_default_fb + url_this_page;
+    var url_combine_tw = url_default_tw_txt + document.title + url_default_tw_url + url_this_page;
+    var url_combine_band = url_default_band + encodeURI(url_this_page)+ '%0A' + encodeURI(title_this_page)+'%0A' + '&route=tistory.com';
+    var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_default_naver + encodeURI(title_this_page);
+   </script>
 {% endblock content%}

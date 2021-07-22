@@ -1,5 +1,6 @@
 html, body{
     height: 100%;
+    box-sizing: border-box;
 }
 
 header {
@@ -86,14 +87,17 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
 
 .homeTitle{
     text-align: center;
-
-    font-family: 'Shadows Into Light', cursive;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 64px;
+    font-family: 'Fredoka One';
     line-height: 64px;
     /* identical to box height */
-    color: rgb(253, 187, 89);
+    color: white;
+}
+
+.homeTitle h1 {
+    -webkit-text-stroke-width: 0.01px;
+	-webkit-text-stroke-color: black;
+    font-size: 64px;
+    margin: 0;
 }
 
 .homeMiddle{
@@ -107,7 +111,6 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     border: 2px solid #dfe1e5;
     width: 30vw;
     height: 4vh;
-    z-index: 3;
     margin: 15px;
 }
 
@@ -160,12 +163,9 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     margin: 0 auto;
     letter-spacing: normal;
     color: #323232;
-    font-family: Noto sans, sans-serif;
-    /* font-family: 'Gaegu', cursive; */
-    /* font-family: 'Nanum Gothic Coding', monospace; */
-    /* font-size: medium; */
-    font-size: 15px;
-    font-weight: 700;
+    font-family: Noto Sans, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .homeBottom .category .category-icon{
@@ -216,4 +216,81 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     to {
         opacity: 1;
     }
+}
+
+.autocomplete {
+/*the container must be positioned relative:*/
+position: relative;
+display: inline-block;
+}
+
+input {
+border: 1px solid transparent;
+background:none;
+padding: 10px;
+font-size: 16px;
+height:4vh;
+outline:none;
+}
+
+input[type=text] {
+background-color: transparent;
+width: 100%;
+padding: 0;
+}
+
+.autocomplete-items {
+position: absolute;
+border: 1px solid #d4d4d4;
+border-bottom: none;
+border-top: none;
+z-index: 99;
+/*position the autocomplete items to be the same width as the container:*/
+top: 100%;
+left: 0;
+right: 0;
+}
+.autocomplete-items div {
+padding: 10px;
+cursor: pointer;
+background-color: #fff;
+border: 1px solid #d4d4d4;
+width: calc(25vw - 5px)
+}
+.autocomplete-items div:hover {
+/*when hovering an item:*/
+background-color: #FDBB59;
+}
+.autocomplete-active {
+/*when navigating through the items using the arrow keys:*/
+background-color: DodgerBlue !important;
+color: #ffffff;
+}
+
+.autocomplete-items div a, a:visited {
+text-decoration: none;
+color: black;
+}
+
+div .center {
+    display: none;
+}
+
+.sketchbook {
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+
+#home-footer {
+    padding-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    border-top: 2px solid #dfe1e5;
+    justify-content: flex-end;
+}
+  
+#insta-icon {
+    width: 50px;
 }

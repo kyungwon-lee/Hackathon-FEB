@@ -31,7 +31,7 @@ def signup(request):
         user.profile.interest = request.POST['interest']
         user.profile.email = request.POST['email']
         user.save()
-        auth.login(request, user)
+        auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend')
         return redirect('/')
     else:
         return render(request, 'accounts/signup.html')
@@ -41,7 +41,7 @@ def login(request):
     email = request.POST.get('email')
     password = request.POST.get('password')
     user=User.Profile.objects.filter(email=email)
-    auth.login(request, user)
+    auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend')
     return render(request, '/home.html')
 
 def logout(request):

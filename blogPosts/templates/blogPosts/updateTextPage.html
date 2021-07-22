@@ -47,7 +47,7 @@
                 <input type="submit" name = "action" value="update" />
             </div>
             <div class="article-image">
-                <img src={{post.image.url}}>
+                <img src={{post.image.url}} onError="this.style.visibility='hidden'">
             </div> 
         </form>
     </body>

@@ -23,10 +23,15 @@
     </div>
     <article class="article">
     <section class="article-info">
-      <div class="article-image">
+      
         <!-- <img src="{[post.image]}" /> -->
-        <img src={{post.image.url}}>
-      </div>
+        
+        
+          <div class="article-image">
+            <img src={{post.image.url}} onError="this.style.visibility='hidden'">
+          </div>
+
+      
       <div class="article-content">
         {{post.content}}
       </div>

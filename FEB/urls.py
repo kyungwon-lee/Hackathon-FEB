@@ -21,17 +21,20 @@ from django.conf.urls.static import static
 import blogPosts.views
 
 
-app_name= "blogPosts"
+app_name= "FEB"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', blogPosts.views.home, name='home'),
+
     #path('main/', blogPosts.views.main, name='main'), 
     #path('main/', include('mainPages.urls')),
     #path('textPage/', blogPosts.views.textPage, name='textPage'),
     path('mainPage/', include('blogPosts.urls')),
     #path('mainPage/<int:id>/', include('blogPosts.urls')),
     #path('mainPage/', include('mainPages.urls')), 
+    
+    path('social_accounts/', include('allauth.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

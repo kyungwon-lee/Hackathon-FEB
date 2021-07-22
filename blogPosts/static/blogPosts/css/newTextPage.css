@@ -8,89 +8,111 @@
     display: none;
   }
   
-  * {
-      font-family: "Noto Sans KR"!important;
-  }
+* {
+    font-family: "Noto Sans KR"!important;
+}
 
-  .header {
-    display: flex;
-    justify-content: space-between;
-    vertical-align: middle;
-    margin: 0 auto;
-    height: 40px;
-    border-bottom: 1px solid #e1e1e1;
-    background-color: #fff;
-    padding: 1rem 1rem;
-  }
-  
-  .header-logo img{
-    resize: both;
-    width: 250px;
-    height:  40px;
-    text-align: center;
-  }
-  
-  .header-menus{
-    text-align: center;
-  }
-  
-  .header-menus ul{
-    vertical-align: middle;
-    padding-top: 10px;
-    margin: 0;
-  }
-  
-  .header-menu {
-    display: inline-block;
-    margin-right: 36px;
-  }
-  
-  .header-menu span{
-    font-family: 'Nanum Gothic Coding', monospace;
-    /* font-family: 'Gaegu', cursive; */
-    font-weight: 900;
-    font-size: large;
-    color: black;
-  }
-  
-  .header-menu a{
-    text-decoration: none;
-  }
+.header {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+  margin: 0 auto;
+  height: 40px;
+  border-bottom: 1px solid #e1e1e1;
+  background-color: #fff;
+  padding: 1rem 1rem;
+}
 
-  .toolbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 13px;
-  }
+.header-logo img{
+  resize: both;
+  width: 250px;
+  height:  40px;
+  text-align: center;
+}
 
-  .toolbar .myselect {
-    background-color: #e5e5e5;
-    border-radius: 3px;
-    font-size: 13px;
-    text-align-last: center;
-    text-align: center;
-    -ms-text-align-last: center;
-    -moz-text-align-last: center;
-  }
+.header-menus{
+  text-align: center;
+}
 
-  .toolbar div {
-    padding: 10px;
-  }
+.header-menus ul{
+  vertical-align: middle;
+  padding-top: 10px;
+  margin: 0;
+}
 
-  .toolbar .images label {
-    display: inline-block;
-    color: #999;
-    font-size: 13px;
-    padding: 1px;
-    line-height: normal;
-    vertical-align: middle;
-    background-color: #fdfdfd;
-    cursor: pointer;
-    border: 1px solid #ebebeb;
-    border-bottom-color: #e2e2e2;
-    border-radius: .25em;
-  }
+.header-menu {
+  display: inline-block;
+  margin-right: 36px;
+}
+
+.header-menu span{
+  font-family: 'Nanum Gothic Coding', monospace;
+  /* font-family: 'Gaegu', cursive; */
+  font-weight: 900;
+  font-size: large;
+  color: black;
+}
+
+.header-menu a{
+  text-decoration: none;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.toolbar .myselect {
+  background-color: #e5e5e5;
+  border-radius: 3px;
+  font-size: 13px;
+  text-align-last: center;
+  text-align: center;
+  -ms-text-align-last: center;
+  -moz-text-align-last: center;
+}
+
+.toolbar div {
+  padding: 10px;
+}
+
+.toolbar .categories {
+  display: flex;
+}
+
+.toolbar .categories .category-section {
+  font-family: Noto Sans, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.toolbar .categories .myselect {
+  font-family: Noto Sans, sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  background-color: white;
+  height: 45px;
+}
+
+.toolbar .images label {
+  display: inline-block;
+  background-color: rgb(253, 187, 89);
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  outline: none;
+  border-color: rgb(253, 187, 89);
+  border-style: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: Noto Sans, sans-serif;
+  text-align: center;
+  vertical-align: middle;
+  width: 45px;
+  height: 45px;
+}
 
 .toolbar .images input[type="file"] {
   position: absolute; 
@@ -106,8 +128,14 @@
 .toolbar .images .upload-name {
   display: inline-block; 
   font-size: 13px; 
-  width: 155px;
-  font-family: inherit; 
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: white;
+  font-family: Noto Sans, sans-serif;
+  font-weight: 700;
+  text-align: center;
+  /* font-family: inherit; 
   line-height: normal; 
   vertical-align: middle; 
   background-color: #f5f5f5; 
@@ -116,7 +144,7 @@
   border-radius: .25em; 
   -webkit-appearance: none;
   -moz-appearance: none; 
-  appearance: none;
+  appearance: none; */
 }
 
 .toolbar .images .upload-display {

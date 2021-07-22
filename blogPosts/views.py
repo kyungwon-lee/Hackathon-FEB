@@ -15,17 +15,21 @@ import os
 import json 
 #from .forms import PostForm
 
+sections_dict = {"금융" : 1, "사랑" : 2, "운동" : 3, "취미" : 4, "학습" : 5, "전자기기" : 6, "어플리케이션" : 7, "기타": 8 }
 
 class Page_Sections:
     def __init__(self) :
         data_id = 0
         section = ""
         sub_section = []
+        photo_dir = ""
 
-    def setdata(self, data_id, section, sub_section) :
+    def setdata(self, data_id, section, sub_section, photo_dir) :
         self.data_id = data_id
         self.section = section
         self.sub_section = sub_section
+        self.photo_dir = photo_dir
+
     
 # def index(request):
 #     return render(request, 'blogPosts/home.html')
@@ -47,20 +51,39 @@ class Page_Sections:
 def bring_section_data_form_json(id) :
     id = id - 1
     file_path = os.path.join(settings.STATIC_ROOT, 'blogPosts/json/page_section_info.json')
-    mainPageInfo_json_data = open(file_path, encoding='utf-8')
+    mainPageInfo_json_data = open(file_path, encoding='UTF-8')
     mainPageInfo_data = json.load(mainPageInfo_json_data)
     data_id = mainPageInfo_data[id]['id']
     section = mainPageInfo_data[id]['section']
     sub_section = mainPageInfo_data[id]['subSection']
+    photo_dir = mainPageInfo_data[id]['photo_dir']
     sections = Page_Sections()
-    sections.setdata(data_id, section, sub_section)
+    sections.setdata(data_id, section, sub_section, photo_dir)
+    #print(sections.photo_dir)
     return sections
 
 def main(request, id) :
     sections = bring_section_data_form_json(id)
+    posts = Post.objects.all()
+    titles = []
+    categoryId = []
+    rId = []
+    section_posts = Post.objects.filter(section=sections.section)
+    print(section_posts)
+    section_posts_inorder = sorted(section_posts, key=lambda x: x.get_total_like())
+    section_posts_inorder_top_ten = section_posts_inorder[0:9]
+    for post in posts:
+        categoryId.append(sections_dict[post.section])
+        rId.append(post.id)
+        titles.append(post.title)
+
     if request.method == 'GET' :
+        #posts = Post.objects.get(id = id)
+        #print(posts)
+        #print(sections.section)
         posts = Post.objects.filter(section=sections.section)
-        return render(request, 'blogPosts/main.html', {'sections': sections, 'posts': posts}) # 
+        #print(sections.photo_dir)        
+        return render(request, 'blogPosts/main.html', {'sections': sections, 'posts': posts, 'section_posts_inorder_top_ten':section_posts_inorder_top_ten }) # 
     elif request.method == 'POST':
         section = sections.section
         sub_section = request.POST['sub_section']
@@ -69,19 +92,55 @@ def main(request, id) :
         image = request.FILES.get('image', False)
         content = request.POST['content']
         Post.objects.create(section = section, sub_section = sub_section, title = title, brief_description = brief_description, image = image,  content = content )
-        return redirect('blogPosts:main', id = id) 
+        return redirect('blogPosts:main', id = id)
+
+# def mainPage(request) :
+#     return render(request, 'blogPosts/main.html')
+
 
 def home(request):
-    return render(request, 'blogPosts/home.html')  
- 
+    posts = Post.objects.all()
+    titles = []
+    categoryId = []
+    rId = []
+    #print(posts)
+    for post in posts:
+        categoryId.append(sections_dict[post.section])
+        rId.append(post.id)
+        titles.append(post.title)
+    return render(request, 'blogPosts/home.html', {'titles' : titles, 'categoryId' : categoryId, 'rId' : rId})  
+
+# def textPage(request, id):
+#     post = Post.objects.get(id = id)
+#     return render(request, 'blogPosts/textPage.html', {'post':post}) 
+    
 def new(request, id) :
     sections = bring_section_data_form_json(id)
     return render(request, 'blogPosts/newTextPage.html', {'sections': sections})
 
 def show(request, id, rid) : ### 여기서 (request, id) 이 정보는 어디서 받아오고 있는가?
     post = Post.objects.get(id = rid)
+    sections = bring_section_data_form_json(id)
     comments = post.comment_set.all().order_by('-created_at')
-    return render(request, 'blogPosts/textPage.html', {'post':post, 'comments': comments, 'id' : id})
+    posts = Post.objects.all()
+    interest = request.user.profile.interest
+
+    interest_id = sections_dict[interest]
+    interest_posts = Post.objects.filter(section=interest)
+    #print(interest_posts)
+    interest_posts_inorder = sorted(interest_posts, key=lambda x: x.get_total_like())
+    #print(interest_posts_inorder)
+    interest_posts_inorder_top_ten = interest_posts_inorder[0:10]
+    #print(interest_posts_inorder_top_ten)
+    titles = []
+    categoryId = []
+    rId = []
+    for each in posts:
+        categoryId.append(sections_dict[each.section])
+        rId.append(each.id)
+        titles.append(each.title)
+    return render(request, 'blogPosts/textPage.html', {'post':post, 'sections':sections, 'comments':comments, 'titles':titles, 'categoryId' : categoryId, 'rId' : rId, 'interest_posts_inorder_top_ten' : interest_posts_inorder_top_ten, 'interest_id': interest_id})
+
 
 def delete(request, id) :
     post = Post.objects.get(id = id)
@@ -138,7 +197,9 @@ class CommentView:
 
 class LikeView:
     def create_like(request, id, rid):
+        sections = bring_section_data_form_json(id)
         if request.method == 'POST':
+            #mainPage_section = Sections.########################## 
             post = Post.objects.get(id=rid)
             flag = 0
             like_list = post.likeordislike_set.filter(user = request.user)
