@@ -14,7 +14,7 @@ import os
 import json 
 #from .forms import PostForm
 
-sections_dict = {"금융" : 1, "인간관계" : 2, "운동" : 3, "취미" : 4, "학습" : 5, "전자기기" : 6, "어플리케이션" : 7, "기타": 8 }
+sections_dict = {"금융" : 1, "사랑" : 2, "운동" : 3, "취미" : 4, "학습" : 5, "전자기기" : 6, "어플리케이션" : 7, "기타": 8 }
 
 class Page_Sections:
     def __init__(self) :
@@ -86,7 +86,7 @@ def main(request, id) :
         image = request.FILES.get('image', False)
         content = request.POST['content']
         Post.objects.create(section = section, sub_section = sub_section, title = title, brief_description = brief_description, image = image,  content = content )
-        return render(request, 'blogPosts/main.html', {'sections': sections, 'posts': posts, 'titles' : titles, 'categoryId' : categoryId, 'rId' : rId}) 
+        return redirect('blogPosts:main', id=id) 
 
 
 # def mainPage(request) :
@@ -98,6 +98,7 @@ def home(request):
     titles = []
     categoryId = []
     rId = []
+    #print(posts)
     for post in posts:
         categoryId.append(sections_dict[post.section])
         rId.append(post.id)
