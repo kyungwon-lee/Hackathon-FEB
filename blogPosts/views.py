@@ -86,8 +86,7 @@ def main(request, id) :
         image = request.FILES.get('image', False)
         content = request.POST['content']
         Post.objects.create(section = section, sub_section = sub_section, title = title, brief_description = brief_description, image = image,  content = content )
-        return redirect('blogPosts:main', id=id)
-
+        return redirect('blogPosts:main', id = id)
 
 # def mainPage(request) :
 #     return render(request, 'blogPosts/main.html')
