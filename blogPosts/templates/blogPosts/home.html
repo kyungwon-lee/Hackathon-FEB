@@ -2,13 +2,15 @@
 <html>
   <head>
     <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FEB</title>
     {% load static %}
     <link rel="stylesheet" href="{% static '/blogPosts/css/home.css' %}">  
+    <link rel="stylesheet" href="{% static '/blogPosts/css/style.css' %}">
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300&display=swap');
-       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
     </style>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="{% static 'blogPosts/js/cursor.js' %}"></script>
@@ -20,6 +22,12 @@
       autocomplete(document.getElementById("myInput"), titles , categoryId, rId);
     }
     </script> 
+    <script src="{% static 'blogPosts/js/modernizr.js' %}"></script> <!-- Modernizr -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    {% comment %} <script>
+	    if( !window.jQuery ) document.write('<script src="{% static js/jquery-2.2.1-min.js %}"><\/script>');
+    </script> {% endcomment %}
+    <script src="{% static 'blogPosts/js/main.js' %}"></script>
    
   </head>
   <body>
@@ -42,7 +50,9 @@
       </div>
       <div class="homeTop">
         <div class="homeTitle">
-          For Every Beginner
+          <h1>
+            For Every Beginner
+          </h1>
         </div>
       </div>
       <div class = "homeMiddle">
@@ -72,69 +82,161 @@
           <li class="category">
             <a href = "/mainPage/1/">
               <div class = "category-icon">
-                <img src="{%static 'blogPosts/img/icons/economics.png'%}" />
-                <p class="category-title">금융</p>
+                
+                <div class="gooey-transition">
+                  <div class="cd-main-content">
+                    <div class="center">
+                      <a href="#modal-1" class="cd-btn cd-modal-trigger">
+                        <img src="{%static 'blogPosts/img/icons/economics.png'%}" />
+                        <p class="category-title">금융</p>
+                      </a>
+                    </div>
+                  </div> <!-- .cd-main-content -->
+                </div>
+
               </div>
             </a>
           </li>
           <li class="category">
             <a href = "/mainPage/2/">
               <div class = "category-icon">
-                <img src="{%static 'blogPosts/img/icons/love.png'%}" />
-                <p class="category-title">사랑</p>
+
+                <div class="gooey-transition">
+                  <div class="cd-main-content">
+                    <div class="center">
+                      <a href="#modal-1" class="cd-btn cd-modal-trigger">
+                        <img src="{%static 'blogPosts/img/icons/love.png'%}" />
+                        <p class="category-title">사랑</p>
+                      </a>
+                    </div>
+                  </div> <!-- .cd-main-content -->
+                </div>
+
               </div>
             </a>
           </li>
           <li class="category">
             <a href = "/mainPage/3/">
               <div class = "category-icon">
-                <img src="{%static 'blogPosts/img/icons/exercise.png'%}" />
-                <p class="category-title">운동</p>
+
+                <div class="gooey-transition">
+                  <div class="cd-main-content">
+                    <div class="center">
+                      <a href="#modal-1" class="cd-btn cd-modal-trigger">
+                        <img src="{%static 'blogPosts/img/icons/exercise.png'%}" />
+                        <p class="category-title">운동</p>
+                      </a>
+                    </div>
+                  </div> <!-- .cd-main-content -->
+                </div>
+
               </div>
             </a>
           </li>
           <li class="category">
             <a href = "/mainPage/4/">
               <div class = "category-icon">
-                <img src="{%static 'blogPosts/img/icons/hobby.png'%}" />
-                <p class="category-title">취미</p>
+
+                <div class="gooey-transition">
+                  <div class="cd-main-content">
+                    <div class="center">
+                      <a href="#modal-1" class="cd-btn cd-modal-trigger">
+                        <img src="{%static 'blogPosts/img/icons/hobby.png'%}" />
+                        <p class="category-title">취미</p>
+                      </a>
+                    </div>
+                  </div> <!-- .cd-main-content -->
+                </div>
+
               </div>
             </a>
           </li>
           <li class="category">
             <a href = "/mainPage/5/">
               <div class = "category-icon">
-                <img src="{%static 'blogPosts/img/icons/study.png'%}" />
-                <p class="category-title">학습</p>
+
+                <div class="gooey-transition">
+                  <div class="cd-main-content">
+                    <div class="center">
+                      <a href="#modal-1" class="cd-btn cd-modal-trigger">
+                        <img src="{%static 'blogPosts/img/icons/study.png'%}" />
+                        <p class="category-title">학습</p>
+                      </a>
+                    </div>
+                  </div> <!-- .cd-main-content -->
+                </div>
+
               </div>
             </a>
           </li>
           <li class="category">
             <a href = "/mainPage/6/">
               <div class = "category-icon">
-                <img src="{%static 'blogPosts/img/icons/electrons.png'%}" />
-                <p class="category-title">전자기기</p>
+
+                <div class="gooey-transition">
+                  <div class="cd-main-content">
+                    <div class="center">
+                      <a href="#modal-1" class="cd-btn cd-modal-trigger">
+                        <img src="{%static 'blogPosts/img/icons/electrons.png'%}" />
+                        <p class="category-title">전자기기</p>
+                      </a>
+                    </div>
+                  </div> <!-- .cd-main-content -->
+                </div>
+
               </div>
             </a>
           </li>
           <li class="category">
             <a href = "/mainPage/7/">
               <div class = "category-icon">
-                <img src="{%static 'blogPosts/img/icons/application.png'%}" />
-                <p class="category-title">어플리케이션</p>
+
+                <div class="gooey-transition">
+                  <div class="cd-main-content">
+                    <div class="center">
+                      <a href="#modal-1" class="cd-btn cd-modal-trigger">
+                        <img src="{%static 'blogPosts/img/icons/application.png'%}" />
+                        <p class="category-title">어플리케이션</p>
+                      </a>
+                    </div>
+                  </div> <!-- .cd-main-content -->
+                </div>
+
               </div>
             </a>
           </li>
           <li class="category">
             <a href = "/mainPage/8/">
               <div class = "category-icon">
-                <img src="{%static 'blogPosts/img/icons/etc.png'%}" />
-                <p class="category-title">기타</p>
+
+                <div class="gooey-transition">
+                  <div class="cd-main-content">
+                    <div class="center">
+                      <a href="#modal-1" class="cd-btn cd-modal-trigger">
+                        <img src="{%static 'blogPosts/img/icons/etc.png'%}" />
+                        <p class="category-title">기타</p>
+                      </a>
+                    </div>
+                  </div> <!-- .cd-main-content -->
+                </div>
+
               </div>
             </a>
           </li>
         </ul>
       </div>
     </section>
+    <div class="gooey-transition">
+	    <div class="cd-main-content">
+		    <div class="center">
+			    <a href="#modal-1" class="cd-btn cd-modal-trigger"></a>
+		    </div>
+	    </div> <!-- .cd-main-content -->
+
+	    <div class="cd-transition-layer" data-frame="25"> 
+		    <div class="bg-layer"></div>
+	    </div> <!-- .cd-transition-layer -->
+    </div>
+    <img class="sketchbook" src="{% static 'blogPosts/img/sketchbook.png'%}"/>
   </body> 
 </html>
