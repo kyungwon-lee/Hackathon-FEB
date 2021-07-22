@@ -48,18 +48,48 @@
 
 .allServices h3 {
   font-size: 24px;
-  margin-bottom:8px;
+  margin-bottom: 10px;
   font-family: 'Noto Sans KR', sans-serif;
 }
 
 .categories {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
-  padding-left:0%;
+  justify-content: space-between;
+  padding: 0%;
+  margin: 10px 0px 0px 0px;
   width: 1200px;
-  height: 1096.25px;
+  /* height: 1096.25px; */
+  font-family: Noto Sans, sans-serif;
+  font-weight: 700;
 
+}
+
+.categories li {
+  width: 30%;
+  height: 100px;
+  display: inline-table;
+
+
+}
+
+.categories li ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.categories li ul li {
+  height: 20px;
+}
+
+.categories li ul li h3{
+  font-family: Noto Sans, sans-serif;
+  font-weight: 100;
+  font-size: 15px;
+}
+
+.categories li ul li a {
+  text-decoration: none;
 }
 
 .contentsPage {
@@ -164,7 +194,7 @@
 .mainTitle .mainTitle-title-sentence {
   font-size: 16px;
   margin-top: 0px;
-  font-weight: 100;
+  font-weight: 500;
   position: relative;
 }
 
