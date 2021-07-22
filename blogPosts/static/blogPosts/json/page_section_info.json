@@ -2,41 +2,49 @@
 {   
     "id" : 1 ,
     "section" : "금융" ,
-    "subSection" : ["개인 투자", "세금", "부동산", "암호화폐", "대출", "금융 자격증"]
+    "subSection" : ["개인 투자", "세금", "부동산", "암호화폐", "대출", "금융 자격증"],
+    "photo_dir" : "blogPosts/img/background/bg_finance.jpg"
 },
 {   
     "id" : 2,
     "section" : "사랑",
-    "subSection" : ["연인", "친구", "육아", "대학생활", "회사생활", "결혼생활"]
+    "subSection" : ["연인", "친구", "육아", "대학생활", "회사생활", "결혼생활"],
+    "photo_dir" : "blogPosts/img/background/bg_love.png"
 },
 {   
     "id" : 3 ,
     "section" : "운동",
-    "subSection" : ["헬스", "카리스데닉스", "구기종목", "달리기", "유연성", "액티비티"]
+    "subSection" : ["헬스", "카리스데닉스", "구기종목", "달리기", "유연성", "액티비티"],
+    "photo_dir" : "blogPosts/img/background/bg_exercise.jpg"
 },
 {   
     "id" : 4,
     "section" : "취미",
-    "subSection" : ["게임", "음악", "미술", "패션", "DIY", "악기연주"]
+    "subSection" : ["게임", "음악", "미술", "패션", "DIY", "악기연주"],
+    "photo_dir" : "blogPosts/img/background/bg_hobby.jpg"
 },
 {   
     "id" : 5,
     "section" : "학습",
-    "subSection" : ["개발", "외국어", "대학과목", "고등과목", "중등과목", "초등과목"]
+    "subSection" : ["개발", "외국어", "대학과목", "고등과목", "중등과목", "초등과목"],
+    "photo_dir" : "blogPosts/img/background/bg_study.jpeg"
 },
 {   
     "id" : 6,
     "section" : "전자기기",
-    "subSection" : ["맥북", "아이패드", "아이폰", "공학용계산기", "삐삐", "갤럭시탭"]
+    "subSection" : ["맥북", "아이패드", "아이폰", "공학용계산기", "삐삐", "갤럭시탭"],
+    "photo_dir" : "blogPosts/img/background/bg_electros.jpg"
 },
 {   
     "id" : 7,   
     "section" : "어플리케이션",
-    "subSection" : ["SNS", "배달", "쇼핑몰", "도구", "채팅", "직장"]
+    "subSection" : ["SNS", "배달", "쇼핑몰", "도구", "채팅", "직장"],
+    "photo_dir" : "blogPosts/img/background/bg_apps.jpeg"
 }, 
 {   
     "id" : 8,
     "section" : "기타",
-    "subSection" : ["자취", "홈파티", "해외직구", "알쓸신잡", "멋쟁이사자처럼", "FEB"]
+    "subSection" : ["자취", "홈파티", "해외직구", "알쓸신잡", "멋쟁이사자처럼", "FEB"],
+    "photo_dir" : "blogPosts/img/background/bg_etc.jpg"
 }
 ]
