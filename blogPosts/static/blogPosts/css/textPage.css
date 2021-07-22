@@ -299,6 +299,18 @@ max-width: 1160px;
 margin: 0 auto;
 }
 
+.container .homeMiddle .search {
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#myInput {
+    padding-top: 12px;
+    padding-left: 10px;
+}
+
 .container .sub-nav{
 display: flex;
 justify-content: space-between;
@@ -974,3 +986,15 @@ body .textPage-history {
 #update-textarea {
     border: .5px dashed #dfe1e5
 }
+
+.main-footer {
+    padding-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    border-top: 2px solid #dfe1e5;
+    justify-content: flex-end;
+  }
+  
+  #insta-icon {
+    width: 50px;
+  }
