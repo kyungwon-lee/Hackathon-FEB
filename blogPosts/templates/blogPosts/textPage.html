@@ -75,7 +75,7 @@
               </button>
               <!-- <button type="button" class="navyBtn" onClick="change_src('http://127.0.0.1:8000/blogPosts/text3/')">력사 보기 -->
             </td>
-                    
+            {% if user.is_authenticated %}
             <td align="center">
               <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/text2/{{post.id}}/')">
                 <div class="button_base
@@ -87,7 +87,7 @@
               </button>
                 <!-- <button type="button" class="navyBtn" onClick="change_src('http://127.0.0.1:8000/blogPosts/text2/')">편집 -->
             </td>
-                    
+            {% endif %}
             <td align="center">
               <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/text1/{{post.id}}')">
                 <div class="button_base

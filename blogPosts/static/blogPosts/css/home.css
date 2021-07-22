@@ -87,14 +87,17 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
 
 .homeTitle{
     text-align: center;
-
-    font-family: 'Shadows Into Light', cursive;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 64px;
+    font-family: 'Fredoka One';
     line-height: 64px;
     /* identical to box height */
-    color: rgb(253, 187, 89);
+    color: white;
+}
+
+.homeTitle h1 {
+    -webkit-text-stroke-width: 0.01px;
+	-webkit-text-stroke-color: black;
+    font-size: 64px;
+    margin: 0;
 }
 
 .homeMiddle{
@@ -108,7 +111,6 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     border: 2px solid #dfe1e5;
     width: 30vw;
     height: 4vh;
-    z-index: 3;
     margin: 15px;
 }
 
@@ -270,15 +272,26 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     color: black;
   }
 
+  div .center {
+      display: none;
+  }
 
-  .main-footer {
+  .sketchbook {
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      position: absolute;
+      top: 0;
+
+/* .main-footer {
     padding-top: 10px;
     margin-bottom: 10px;
     display: flex;
     border-top: 2px solid #dfe1e5;
     justify-content: flex-end;
-  }
+  } */
   
-  #insta-icon {
+  /* #insta-icon {
     width: 50px;
-  }
+  } */
+  
