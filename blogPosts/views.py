@@ -21,11 +21,13 @@ class Page_Sections:
         data_id = 0
         section = ""
         sub_section = []
+        photo_dir = ""
 
-    def setdata(self, data_id, section, sub_section) :
+    def setdata(self, data_id, section, sub_section, photo_dir) :
         self.data_id = data_id
         self.section = section
         self.sub_section = sub_section
+        self.photo_dir = photo_dir
 
     
 # def index(request):
@@ -53,8 +55,10 @@ def bring_section_data_form_json(id) :
     data_id = mainPageInfo_data[id]['id']
     section = mainPageInfo_data[id]['section']
     sub_section = mainPageInfo_data[id]['subSection']
+    photo_dir = mainPageInfo_data[id]['photo_dir']
     sections = Page_Sections()
-    sections.setdata(data_id, section, sub_section)
+    sections.setdata(data_id, section, sub_section, photo_dir)
+    print(sections.photo_dir)
     return sections
 
 def main(request, id) :
@@ -72,8 +76,8 @@ def main(request, id) :
         # print(posts)
         #print(sections.section)
         posts = Post.objects.filter(section=sections.section)
-        #print(posts)        
-        return render(request, 'blogPosts/main.html', {'sections': sections, 'posts': posts, 'titles' : titles, 'categoryId' : categoryId, 'rId' : rId}) # 
+        print(sections.photo_dir)        
+        return render(request, 'blogPosts/main.html', {'sections': sections, 'posts': posts}) # 
     elif request.method == 'POST':
         section = sections.section
         sub_section = request.POST['sub_section']
@@ -184,9 +188,11 @@ class CommentView:
         })
 
 class LikeView:
-    def create_like(request, id):
+    def create_like(request, id, rid):
+        sections = bring_section_data_form_json(id)
         if request.method == 'POST':
-            post = Post.objects.get(id=id)
+            #mainPage_section = Sections.########################## 
+            post = Post.objects.get(id=rid)
             flag = 0
             like_list = post.likeordislike_set.filter(user = request.user)
             # 이미 좋아요 / 싫어요를 누른 User
@@ -240,7 +246,7 @@ class LikeView:
             return redirect (f'/mainPage/<int:id>/post/{int:rid}')
 
 def text1(request, id) :
-    print('debug')
+    
     post = Post.objects.get(id = id)
     return render(request, 'blogPosts/text1.html', {'post':post})
 
