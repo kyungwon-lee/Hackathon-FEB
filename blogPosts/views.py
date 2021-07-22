@@ -69,7 +69,7 @@ def main(request, id) :
         titles.append(post.title)
     if request.method == 'GET' :
         #posts = Post.objects.get(id = id)
-        # print(posts)
+        #print(posts)
         #print(sections.section)
         posts = Post.objects.filter(section=sections.section)
         #print(posts)        
@@ -82,7 +82,7 @@ def main(request, id) :
         image = request.FILES.get('image', False)
         content = request.POST['content']
         Post.objects.create(section = section, sub_section = sub_section, title = title, brief_description = brief_description, image = image,  content = content )
-        return render(request, 'blogPosts/main.html', {'sections': sections, 'posts': posts, 'titles' : titles, 'categoryId' : categoryId, 'rId' : rId}) 
+        return redirect('blogPosts:main', id=id)
 
 
 # def mainPage(request) :

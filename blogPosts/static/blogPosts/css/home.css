@@ -269,3 +269,16 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     text-decoration: none;
     color: black;
   }
+
+
+  .main-footer {
+    padding-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    border-top: 2px solid #dfe1e5;
+    justify-content: flex-end;
+  }
+  
+  #insta-icon {
+    width: 50px;
+  }
