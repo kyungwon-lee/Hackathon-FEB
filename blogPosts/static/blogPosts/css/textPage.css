@@ -330,7 +330,7 @@ box-sizing: border-box;
 }
 
 .sub-nav .breadcrumbs li {
-    color: #ffbf00;
+    color: #b5e550;
     font-weight: 500;
     font-size: 13px;
     max-width: 450px;
@@ -397,11 +397,13 @@ display: block;
 font-weight: 300;
 margin-bottom: 10px;
 padding: 10px;
+font-family: Noto Sans, sans-serif;
 }
 
 .article-container .sidebar .list-item:hover{
-background-color: rgba(253, 187, 89, 0.1);
-color: #ffbf00;
+background-color: rgba(181, 229, 80, 0.1);
+color: black;
+font-weight: bolder;
 text-decoration: none;
 border-radius: 0.3em;
 }
@@ -524,8 +526,8 @@ color:black;
 
 .article-votes .realButton {
 background: transparent;
-border: 1px solid rgb(253, 187, 89);
-color: rgb(253, 187, 89);
+border: 1px solid #b5e550;
+color: #b5e550;
 margin: 10px 5px;
 min-width: 90px;
 width: auto;
@@ -576,7 +578,7 @@ text-align: left;
 }
 
 h2 em {
-color:rgb(253, 187, 89)!important;
+color:#b5e550 !important;
 font-style: normal;
 }
 
@@ -647,11 +649,12 @@ review-input-type::placeholder {
     border: 0;
     line-height: 2.5;
     padding: 0 20px;
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: 700;
     text-align: center;
     color: #fff;
     border-radius: 10px;
-    background-color: #ffbf00;
+    background-color: #b5e550;
 }
 
 .article-review .user-info {
@@ -803,7 +806,7 @@ background: url(https://front-img.taling.me/Content/app3/images/btn/btn_page_nex
     position: relative;
     z-index: 1;
     color: #fff;
-    background-color: rgb(253, 187, 89);
+    background-color: #b5e550;
 }
 
 .main_selector {
@@ -910,7 +913,8 @@ background: url(https://front-img.taling.me/Content/app3/images/btn/btn_page_nex
 }
 
 .b02_slide_in div:nth-child(2) {
-    background-color: rgba(253, 187, 89, 0.1);
+    background-color: #b5e550;
+    opacity: 0.1;
     
     transition: top 0.1s ease;
     -webkit-transition: top 0.1s ease;
@@ -919,7 +923,8 @@ background: url(https://front-img.taling.me/Content/app3/images/btn/btn_page_nex
 }
 
 .b02_slide_in div:nth-child(3) {
-    color: #ffbf00;
+    color: black;
+    font-weight: bolder;
     transition: opacity 0.1s ease;
     -webkit-transition: opacity 0.1s ease;
     -moz-transition: opacity 0.1s ease;
