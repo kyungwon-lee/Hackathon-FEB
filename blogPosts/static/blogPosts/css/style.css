@@ -201,7 +201,7 @@ Gooey Effect
 .gooey-transition .cd-transition-layer .bg-layer {
   /* sprite composed of 25 frames */
   width: 2500%;
-  background-image: url(../img/gooey.png);
+  background-image: url(../img/gooey.svg);
 }
 .gooey-transition .cd-transition-layer.opening .bg-layer {
   -webkit-animation: cd-sequence 2s steps(24) forwards;
