@@ -28,6 +28,13 @@
             $('#my_frame').attr('src', url);
         }
     </script>
+    <script> 
+      function load_titles(titles, categoryId, rId) { 
+      autocomplete(document.getElementById("myInput"), titles , categoryId, rId);
+    }
+    </script> 
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="{% static 'blogPosts/js/home.js' %}"></script>
   </head>
   <body>

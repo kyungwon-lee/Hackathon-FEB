@@ -15,10 +15,24 @@ function autocomplete(inp, arr, categoryId, rId) {
       a.setAttribute("class", "autocomplete-items");
       /*append the DIV element as a child of the autocomplete container:*/
       this.parentNode.appendChild(a);
+
+      // Add ~에 대한 검색 결과 html
+      searchTitle = document.createElement("div");
+      searchTitle.setAttribute("id", this.id + "autocomplete-title");
+      searchTitle.setAttribute("class", "autocomplete-title");
+      searchTitle.innerHTML = `"${val}"에 대한 검색결과가 없습니다.`;
+      a.appendChild(searchTitle);
+
+      var fl
       /*for each item in the array...*/
       for (i = 0; i < arr.length; i++) {
         /*check if the item starts with the same letters as the text field value:*/
-        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+        console.log(arr[i].toUpperCase());
+        if (arr[i].toUpperCase().indexOf(val.toUpperCase()) != -1 ) {
+          searchTitle.innerHTML = `"${val}"에 대한 검색결과`;
+          // a.appendChild(searchTitle);
+        
+    
           /*create a DIV element for each matching element:*/
           b = document.createElement("div");
           /*make the matching letters bold:*/
@@ -36,6 +50,8 @@ function autocomplete(inp, arr, categoryId, rId) {
           a.appendChild(b);
         }
       }
+
+      
   });
   /*execute a function presses a key on the keyboard:*/
   inp.addEventListener("keydown", function(e) {

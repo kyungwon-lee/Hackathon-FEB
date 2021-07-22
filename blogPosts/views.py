@@ -59,13 +59,21 @@ def bring_section_data_form_json(id) :
 
 def main(request, id) :
     sections = bring_section_data_form_json(id)
+    posts = Post.objects.all()
+    titles = []
+    categoryId = []
+    rId = []
+    for post in posts:
+        categoryId.append(sections_dict[post.section])
+        rId.append(post.id)
+        titles.append(post.title)
     if request.method == 'GET' :
         #posts = Post.objects.get(id = id)
         # print(posts)
         #print(sections.section)
         posts = Post.objects.filter(section=sections.section)
         #print(posts)        
-        return render(request, 'blogPosts/main.html', {'sections': sections, 'posts': posts}) # 
+        return render(request, 'blogPosts/main.html', {'sections': sections, 'posts': posts, 'titles' : titles, 'categoryId' : categoryId, 'rId' : rId}) # 
     elif request.method == 'POST':
         section = sections.section
         sub_section = request.POST['sub_section']
@@ -74,7 +82,7 @@ def main(request, id) :
         image = request.FILES.get('image', False)
         content = request.POST['content']
         Post.objects.create(section = section, sub_section = sub_section, title = title, brief_description = brief_description, image = image,  content = content )
-        return redirect('blogPosts:main', id = id) 
+        return render(request, 'blogPosts/main.html', {'sections': sections, 'posts': posts, 'titles' : titles, 'categoryId' : categoryId, 'rId' : rId}) 
 
 
 # def mainPage(request) :
@@ -104,7 +112,15 @@ def show(request, id, rid) : ### 여기서 (request, id) 이 정보는 어디서
     post = Post.objects.get(id = rid)
     sections = bring_section_data_form_json(id)
     comments = post.comment_set.all().order_by('-created_at')
-    return render(request, 'blogPosts/textPage.html', {'post':post, 'sections':sections, 'comments':comments})
+    posts = Post.objects.all()
+    titles = []
+    categoryId = []
+    rId = []
+    for post in posts:
+        categoryId.append(sections_dict[post.section])
+        rId.append(post.id)
+        titles.append(post.title)
+    return render(request, 'blogPosts/textPage.html', {'post':post, 'sections':sections, 'comments':comments, 'titles':titles, 'categoryId' : categoryId, 'rId' : rId})
 
 
 def delete(request, id) :
