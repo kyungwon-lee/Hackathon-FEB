@@ -2,7 +2,7 @@ const onClickLikeButton = async (postId, rid) => {
     const postLikeButton = document.getElementById(`${postId}-like-button`);
     const postDisLikeButton = document.getElementById(`${postId}-dislike-button`);
 
-    const response = await axios.post(`/mainpage/${rid}/posts/${postId}/like/`);
+    const response = await axios.post(`/mainPage/${rid}/post/${postId}/like/`);
     const { postLikeOfUser, flag, voteTotalCount, voteLikeCount } = response.data;
     if (postLikeOfUser == 1) {
         if (flag) {
@@ -18,11 +18,11 @@ const onClickLikeButton = async (postId, rid) => {
     voteCount.innerHTML = `<span class="article-vote-label">${voteTotalCount} 명 중 ${voteLikeCount} 명은 도움이 되었다고 했습니다.</span>`;
 };
 
-const onClickDislikeButton = async (postId) => {
+const onClickDislikeButton = async (postId, rid) => {
     const postLikeButton = document.getElementById(`${postId}-like-button`);
     const postDisLikeButton = document.getElementById(`${postId}-dislike-button`);
 
-    const response = await axios.post(`/posts/${postId}/dislike/`);
+    const response = await axios.post(`/mainPage/${rid}/post/${postId}/dislike/`);
     const { postLikeOfUser, flag, voteTotalCount, voteLikeCount } = response.data;
     if (postLikeOfUser == 1) {
         if (flag) {

@@ -1,8 +1,3 @@
-{% comment %} {% extends 'base.html' %}
-{% block content %}
-{% load static %} {% endcomment %}
-
-
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -27,23 +22,34 @@
                 $('#my_frame').attr('src', url);
             }
         </script>
+        <script>
+            function submit_multiple(){
+                original = multiple_form.action;
+                ageform.action="handler1";
+                ageform.target="result1";
+                ageform.submit();
+                window.alert("done the first");
+                ageform.action="handler2";
+                ageform.target="result2"
+                ageform.submit();
+                window.alert("done the second");
+                ageform.action = original;
+            }
+        </script>
     </head>
 
     <body>
         <h3>내맘대로 편집하기!!!!!!!!!!!!!!!!</h3>
-        
-
-        <form id="update-textPage" action="{% url 'blogPosts:update' id=post.id %}" method="POST"> 
-            {% csrf_token %}
+        <form id="update-textPage" name = "multiple_form" method="POST" action="{% url 'blogPosts:update' id=post.id %}">
+        {% csrf_token %}
             <div class="update-editor">
                 <textarea id="update-textarea" name="content" rows="30" cols="85" >{{post.content}}</textarea> <br/>
-                <input type="submit" value="submit" />
+                <input type="submit" name = "action" value="update" />
             </div>
-            
             <div class="article-image">
                 <img src={{post.image.url}} onError="this.style.visibility='hidden'">
             </div> 
         </form>
-        
     </body>
 </html>
+
