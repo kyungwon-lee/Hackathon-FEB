@@ -246,7 +246,6 @@ class LikeView:
             return redirect (f'/mainPage/<int:id>/post/{int:rid}')
 
 def text1(request, id) :
-    
     post = Post.objects.get(id = id)
     return render(request, 'blogPosts/text1.html', {'post':post})
 

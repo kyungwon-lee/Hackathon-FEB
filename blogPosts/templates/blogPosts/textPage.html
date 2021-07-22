@@ -108,18 +108,18 @@
               <div class="article-share">
                 <ul class="share">
                   <li>
-                    <a href>
-                      <img src="{%static 'blogPosts/img/facebook.svg'%}" />
+                    <a href="" onclick="window.open(url_combine_fb, '', 'scrollbars=no, width=600, height=600'); return false;">
+                      <img src="{% static 'blogPosts/img/facebook.svg'%}" title="페이스북으로 공유하기" class="sharebtn_custom"">
                     </a>
                   </li>
                   <li>
-                    <a href>
-                      <img src="{%static 'blogPosts/img/instagram.svg'%}" />
+                    <a href="" onclick="window.open(url_combine_naver, '', 'scrollbars=no, width=600, height=600'); return false;">
+                      <img src="{% static 'blogPosts/img/naver.png'%}" title="네이버로 공유하기" class="sharebtn_custom">
                     </a>
                   </li>
                   <li>
-                    <a href>
-                      <img src="{%static 'blogPosts/img/twitter.svg'%}" />
+                    <a href="" onclick="window.open(url_combine_tw, '', 'scrollbars=no, width=600, height=600'); return false;">
+                      <img src="{% static 'blogPosts/img/twitter.svg'%}" title="트위터로 공유하기" class="sharebtn_custom">
                     </a>
                   </li>
                 </ul>
@@ -222,4 +222,21 @@
       </div>
     </div>
   </body>
+  <script type="text/javascript" async>
+    var url_default_ks = "https://story.kakao.com/share?url=";
+    var url_default_fb = "https://www.facebook.com/sharer/sharer.php?u=";
+    var url_default_tw_txt = "https://twitter.com/intent/tweet?text=";
+    var url_default_tw_url = "&url=";
+    var url_default_band = "http://band.us/plugin/share?body=";
+    var url_route_band = "&route=";
+    var url_default_naver = "http://share.naver.com/web/shareView.nhn?url=";
+    var title_default_naver = "&title=";
+    var url_this_page = location.href;
+    var title_this_page = document.title
+    var url_combine_ks = url_default_ks + url_this_page;
+    var url_combine_fb = url_default_fb + url_this_page;
+    var url_combine_tw = url_default_tw_txt + document.title + url_default_tw_url + url_this_page;
+    var url_combine_band = url_default_band + encodeURI(url_this_page)+ '%0A' + encodeURI(title_this_page)+'%0A' + '&route=tistory.com';
+    var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_default_naver + encodeURI(title_this_page);
+   </script>
 {% endblock content%}
