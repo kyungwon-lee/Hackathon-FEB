@@ -1,11 +1,11 @@
-const onAddComment = async (postId) => {
+const onAddComment = async (postId, rid) => {
     const commentInputElement = document.getElementById("review-input-type");
     if (commentInputElement.value) {
         let data = new FormData();
         data.append("content", commentInputElement.value);
-        const response = await axios.post(`/posts/${postId}/comments/`, data);
+        const response = await axios.post(`/mainPage/${rid}/post/${postId}/comments/`, data);
         const { commentId, commentCount, createdTime, author, author_profile } = response.data;
-        const commentElement = getCommentElement(postId, commentId, commentInputElement.value, createdTime, author, author_profile);
+        const commentElement = getCommentElement(postId, rid, commentId, commentInputElement.value, createdTime, author, author_profile);
         document.getElementById("async_comment").appendChild(commentElement);
         commentInputElement.value = '';
         const postCommentNum = document.getElementById(`commentset-num`);
@@ -13,7 +13,7 @@ const onAddComment = async (postId) => {
     }
 };
 
-const getCommentElement = (postId, commentId, comment, createdTime, author, author_profile) => {
+const getCommentElement = (postId, rid, commentId, comment, createdTime, author, author_profile) => {
     // 새로 Element 만들기
     let newCommentElement = document.createElement("ul");
     newCommentElement.setAttribute('class', `review-1st`);
@@ -38,15 +38,15 @@ const getCommentElement = (postId, commentId, comment, createdTime, author, auth
             <button class="likebtn" type="button">0</button>
             <span class="reply">0</button>
             </div>
-            <button onclick="onDeleteComment(${postId},${commentId})">댓글 삭제</button>
+            <button onclick="onDeleteComment(${postId}, ${rid}, ${commentId})">댓글 삭제</button>
         </li>`
     return newCommentElement;
 };
 
-const onDeleteComment = async (postId, commentId) => {
+const onDeleteComment = async (postId, rid, commentId) => {
     const alert = window.confirm("정말 삭제하시겠습니까?");
     if (alert) {
-        const response = await axios.delete(`/posts/${postId}/comments/${commentId}/`);
+        const response = await axios.delete(`/mainPage/${rid}/post/${postId}/comments/${commentId}/`);
         document.getElementById(`post${postId}-comment${commentId}`).remove();
         const postCommentNum = document.getElementById(`commentset-num`);
         postCommentNum.innerHTML = `게시판 후기&nbsp;<em>(${response.data.commentNum})</em>`;
