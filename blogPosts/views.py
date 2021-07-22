@@ -139,7 +139,7 @@ def show(request, id, rid) : ### 여기서 (request, id) 이 정보는 어디서
         categoryId.append(sections_dict[each.section])
         rId.append(each.id)
         titles.append(each.title)
-    return render(request, 'blogPosts/textPage.html', {'post':post, 'sections':sections, 'comments':comments, 'titles':titles, 'categoryId' : categoryId, 'rId' : rId, 'interest_posts_inorder_top_ten' : interest_posts_inorder_top_ten, 'interest_id': interest_id})
+    return render(request, 'blogPosts/textPage.html', {'post':post, 'id': id, 'sections':sections, 'comments':comments, 'titles':titles, 'categoryId' : categoryId, 'rId' : rId, 'interest_posts_inorder_top_ten' : interest_posts_inorder_top_ten, 'interest_id': interest_id})
 
 
 def delete(request, id) :
@@ -198,6 +198,7 @@ class CommentView:
 class LikeView:
     def create_like(request, id, rid):
         sections = bring_section_data_form_json(id)
+        print(id)
         if request.method == 'POST':
             #mainPage_section = Sections.########################## 
             post = Post.objects.get(id=rid)
