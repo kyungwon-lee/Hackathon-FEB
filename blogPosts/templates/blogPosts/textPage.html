@@ -69,7 +69,7 @@
               </button>
               <!-- <button type="button" class="navyBtn" onClick="change_src('http://127.0.0.1:8000/blogPosts/text3/')">력사 보기 -->
             </td>
-                    
+            {% if user.is_authenticated %}
             <td align="center">
               <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/text2/{{post.id}}/')">
                 <div class="button_base
@@ -81,7 +81,7 @@
               </button>
                 <!-- <button type="button" class="navyBtn" onClick="change_src('http://127.0.0.1:8000/blogPosts/text2/')">편집 -->
             </td>
-                    
+            {% endif %}
             <td align="center">
               <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/text1/{{post.id}}')">
                 <div class="button_base
@@ -191,6 +191,27 @@
                 <a class="page r"></a>
               </div>
           </footer>
+          <br>
+
+          <section>
+            <div class="main-footer">
+              <h4>FEB Makers |&nbsp&nbsp</h4>
+              <div class="footer-insta">
+                <a href="https://www.instagram.com/seoseongq" >
+                  <img id="insta-icon" src="{%static 'blogPosts/img/profile/ssk.jpg'%}" 
+                  /></a>&nbsp
+                <a href="https://www.instagram.com/inkyu_o" >
+                  <img id="insta-icon" src="{%static 'blogPosts/img/profile/oik.jpg'%}" 
+                  /></a>&nbsp
+                <a href="https://www.instagram.com/_binthect_" >
+                  <img id="insta-icon" src="{%static 'blogPosts/img/profile/yjb.jpg'%}" 
+                  /></a>&nbsp
+                <a href="https://www.instagram.com/gdori__s2" >
+                  <img id="insta-icon" src="{%static 'blogPosts/img/profile/lkw.jpg'%}" 
+                  /></a>
+              </div>
+            </div>
+          </section>
         </article>
       </div>
     </div>
