@@ -39,20 +39,14 @@
     
       <div class="article-container">
         <section class="sidebar">
-          <h3>경원님을 위한 추천 글</h3>
+          <h3>{{user.profile.email}}님을 위한 추천 글</h3>
           <ul>
+            {%for interest_post in interest_posts_inorder_top_ten %}
             <li>
-              <a href class="list-item">[금융] 금융에서의 추천 게시글</a>
+              <a href = "http://127.0.0.1:8000/mainPage/{{interest_id}}/post/{{interest_post.id}}/" class="list-item">[{{interest_post.section}}] {{interest_post.title}}</a>
+              {% comment %} <a href = "/mainPage/{{interest_id}}/post/{{interest_post.id}}" class="list-item">[{{interest_post.section}}] {{interest_post.title}}</a> {% endcomment %}
             </li>
-            <li>
-              <a href class="list-item">[사랑] 사랑에서의 추천 게시글</a>
-            </li>
-            <li>
-              <a href class="list-item">[운동] 운동에서의 추천 게시글</a>
-            </li>
-            <li>
-              <a href class="list-item">[어플리케이션] 어플리케이션에서의 추천 게시글</a>
-            </li>
+            {% endfor %}
           </ul>
         </section>
           <article class="article">

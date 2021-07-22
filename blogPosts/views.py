@@ -58,7 +58,7 @@ def bring_section_data_form_json(id) :
     photo_dir = mainPageInfo_data[id]['photo_dir']
     sections = Page_Sections()
     sections.setdata(data_id, section, sub_section, photo_dir)
-    print(sections.photo_dir)
+    #print(sections.photo_dir)
     return sections
 
 def main(request, id) :
@@ -67,17 +67,22 @@ def main(request, id) :
     titles = []
     categoryId = []
     rId = []
+    section_posts = Post.objects.filter(section=sections.section)
+    print(section_posts)
+    section_posts_inorder = sorted(section_posts, key=lambda x: x.get_total_like())
+    section_posts_inorder_top_ten = section_posts_inorder[0:9]
     for post in posts:
         categoryId.append(sections_dict[post.section])
         rId.append(post.id)
         titles.append(post.title)
+
     if request.method == 'GET' :
         #posts = Post.objects.get(id = id)
         #print(posts)
         #print(sections.section)
         posts = Post.objects.filter(section=sections.section)
-        print(sections.photo_dir)        
-        return render(request, 'blogPosts/main.html', {'sections': sections, 'posts': posts}) # 
+        #print(sections.photo_dir)        
+        return render(request, 'blogPosts/main.html', {'sections': sections, 'posts': posts, 'section_posts_inorder_top_ten':section_posts_inorder_top_ten }) # 
     elif request.method == 'POST':
         section = sections.section
         sub_section = request.POST['sub_section']
@@ -117,14 +122,23 @@ def show(request, id, rid) : ### 여기서 (request, id) 이 정보는 어디서
     sections = bring_section_data_form_json(id)
     comments = post.comment_set.all().order_by('-created_at')
     posts = Post.objects.all()
+    interest = request.user.profile.interest
+
+    interest_id = sections_dict[interest]
+    interest_posts = Post.objects.filter(section=interest)
+    #print(interest_posts)
+    interest_posts_inorder = sorted(interest_posts, key=lambda x: x.get_total_like())
+    #print(interest_posts_inorder)
+    interest_posts_inorder_top_ten = interest_posts_inorder[0:10]
+    #print(interest_posts_inorder_top_ten)
     titles = []
     categoryId = []
     rId = []
-    for post in posts:
-        categoryId.append(sections_dict[post.section])
-        rId.append(post.id)
-        titles.append(post.title)
-    return render(request, 'blogPosts/textPage.html', {'post':post, 'sections':sections, 'comments':comments, 'titles':titles, 'categoryId' : categoryId, 'rId' : rId})
+    for each in posts:
+        categoryId.append(sections_dict[each.section])
+        rId.append(each.id)
+        titles.append(each.title)
+    return render(request, 'blogPosts/textPage.html', {'post':post, 'sections':sections, 'comments':comments, 'titles':titles, 'categoryId' : categoryId, 'rId' : rId, 'interest_posts_inorder_top_ten' : interest_posts_inorder_top_ten, 'interest_id': interest_id})
 
 
 def delete(request, id) :
