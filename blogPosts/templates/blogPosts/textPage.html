@@ -38,7 +38,6 @@
       </nav>
     
       <div class="article-container">
-      {% if user.is_authenticated %}
         <section class="sidebar">
           {% if user.is_authenticated %}
             <h3>{{user.profile.email}}님을 위한 추천 글</h3>
@@ -54,7 +53,6 @@
             {% endfor %}
           </ul>
         </section>
-      {% endif %}
           <article class="article">
             <header class="article-header">
               <h1 class="article-title">[{{post.section}}] {{post.title}}</h1>
@@ -128,8 +126,16 @@
             <div class="article-votes">
               <span class="article-votes-question">도움이 되었습니까?</span>
               <div class="article-votes-controls">
-                <a class="realButton" onclick="onClickLikeButton({{post.id}}, {{id}})" id="{{post.id}}-like-button">예</a>
-                <a class="realButton" onclick="onClickDislikeButton({{post.id}}, {{id}})" id="{{post.id}}-dislike-button">아니오</a>
+                  {% if like_flag == 1 %}
+                    <a class="realButton" onclick="onClickLikeButton({{post.id}}, {{id}})" id="{{post.id}}-like-button" style = "background-color : rgba(181, 229, 80, 0.1)" >예</a>
+                    <a class="realButton" onclick="onClickDislikeButton({{post.id}}, {{id}})" id="{{post.id}}-dislike-button">아니오</a>
+                  {% elif like_flag == 2 %}
+                    <a class="realButton" onclick="onClickLikeButton({{post.id}}, {{id}})" id="{{post.id}}-like-button">예</a>
+                    <a class="realButton" onclick="onClickDislikeButton({{post.id}}, {{id}})" id="{{post.id}}-dislike-button" style = "background-color : rgba(181, 229, 80, 0.1)">아니오</a>
+                  {% else %}
+                    <a class="realButton" onclick="onClickLikeButton({{post.id}}, {{id}})" id="{{post.id}}-like-button">예</a>
+                    <a class="realButton" onclick="onClickDislikeButton({{post.id}}, {{id}})" id="{{post.id}}-dislike-button">아니오</a>
+                  {% endif %}
               <br>
               <small class="article-votes-count" id = "{{post.id}}-votes-count">
                 <span class="article-vote-label">{{post.like_dislike.count}} 명 중 {{post.get_total_like}} 명은 도움이 되었다고 했습니다.</span>

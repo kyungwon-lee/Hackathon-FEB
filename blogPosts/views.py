@@ -109,16 +109,25 @@ def show(request, id, rid) : ### 여기서 (request, id) 이 정보는 어디서
 
     interest_id = random.randrange(1,9)
     temp = list(sections_dict.keys())
-
     interest = temp[interest_id-1]
-    if (request.user.is_authenticated):
+    like_flag = 0
+
+    if (request.user.is_authenticated and request.user.profile.interest):
         interest = request.user.profile.interest
         interest_id = sections_dict[interest]
+        like_list = post.likeordislike_set.filter(user = request.user)
+        # 유저가 이 post에 대해서 좋아요를 눌렀는지? 좋아요인지 아닌지?
+        if like_list.count() > 0 :
+            if post.likeordislike_set.get(user=request.user).like == True:
+                like_flag = 1
+            elif post.likeordislike_set.get(user=request.user).dislike == True:
+                like_flag = 2
 
     interest_posts = Post.objects.filter(section=interest)
     interest_posts_inorder = sorted(interest_posts, key=lambda x: x.get_total_like())
     interest_posts_inorder_top_ten = interest_posts_inorder[0:10]
-    return render(request, 'blogPosts/textPage.html', {'post':post, 'id': id, 'sections':sections, 'comments':comments, 'titles':titles, 'categoryId' : categoryId, 'rId' : rId, 'interest_posts_inorder_top_ten' : interest_posts_inorder_top_ten, 'interest_id': interest_id})
+    
+    return render(request, 'blogPosts/textPage.html', {'post':post, 'id': id, 'sections':sections, 'comments':comments, 'titles':titles, 'categoryId' : categoryId, 'rId' : rId, 'interest_posts_inorder_top_ten' : interest_posts_inorder_top_ten, 'interest_id': interest_id, 'like_flag' : like_flag})
 
 
 def delete(request, id) :
@@ -151,7 +160,7 @@ class CommentView:
     def create(request, id, rid):
         if request.method == 'POST':
             content = request.POST['content']
-            comment = Comment.objects.create(post_id=id, content=content, author=request.user)
+            comment = Comment.objects.create(post_id=rid, content=content, author=request.user)
             post = Post.objects.get(id=rid)
             KST = datetime.now()
             current_time = KST.strftime('%Y년 %m월 %d일 %H:%M %p'.encode('unicode-escape').decode()).encode().decode('unicode-escape')
@@ -177,7 +186,6 @@ class CommentView:
 class LikeView:
     def create_like(request, id, rid):
         sections = bring_section_data_form_json(id)
-        print(id)
         if request.method == 'POST':
             #mainPage_section = Sections.########################## 
             post = Post.objects.get(id=rid)

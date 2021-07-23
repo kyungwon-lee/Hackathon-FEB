@@ -9,7 +9,7 @@ const onClickLikeButton = async (postId, rid) => {
             // 만약에 이미 싫어요를 누른 User라면?
             postDisLikeButton.style.backgroundColor = "#ffffff"
         }
-        postLikeButton.style.backgroundColor = "#ffe599"
+        postLikeButton.style.backgroundColor = "#b5e550"
     }
     else {
         postLikeButton.style.backgroundColor = "#ffffff"
