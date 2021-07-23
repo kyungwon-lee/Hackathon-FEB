@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import include 
+from django.conf.urls import include, url 
 from django.conf import settings 
 from django.conf.urls.static import static
 import blogPosts.views
@@ -36,7 +36,7 @@ urlpatterns = [
     #path('mainPage/<int:id>/', include('blogPosts.urls')),
     #path('mainPage/', include('mainPages.urls')), 
     
-    path('social_accounts/', include('allauth.urls')),
+    path('social_accounts/', include('social_django.urls', namespace='social')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
