@@ -93,17 +93,18 @@
   font-weight: 300;
   font-size: 15px;
   background-color: white;
-  height: 45px;
+  height: 30px;
+  margin-top: 10px;
 }
 
 .toolbar .images label {
   display: inline-block;
-  background-color: rgb(253, 187, 89);
+  background-color: #b5e550;
   font-size: 13px;
   font-weight: 500;
   color: #fff;
   outline: none;
-  border-color: rgb(253, 187, 89);
+  border-color: #b5e550;
   border-style: none;
   cursor: pointer;
   border-radius: 5px;
@@ -180,12 +181,12 @@
   .edit-complete {
     padding: 5px 30px;
     border-radius: 4px;
-    background-color: rgb(253, 187, 89);
+    background-color: #b5e550;
     font-size: 16px;
     font-weight: 500;
     color: #fff;
     outline: none;
-    border-color: rgb(253, 187, 89);
+    border-color: #b5e550;
     border-style: none;
   }
 
@@ -286,4 +287,8 @@
 .maintext-editor .content {
     padding-top: 16px;
     outline: none;
+}
+
+#new_inputbox {
+  margin-bottom: 5px;
 }
