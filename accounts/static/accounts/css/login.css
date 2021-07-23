@@ -102,18 +102,22 @@
 }
 
 .loginPage .facebookLoginBtn {
-  background-color:#1876f1;
-  border-color:#1876f1;
-  color:#fff;
-  display:inline-block;
+  /* display:inline-block; */
   text-align: center;
   vertical-align: middle;
   border: 1px solid transparent;
-  padding: .6875rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
+  /* padding: .6875rem .75rem; */
+  /* line-height: 1.5; */
   border-radius: .25rem;
   margin-bottom: 40px;
+  padding: 0;
+  background-color: white;
+}
+
+.loginPage .facebookLoginBtn a img{
+  resize: both;
+  width: 360px;
+  height: 80px;
 }
 
 .loginPage .signupLink {

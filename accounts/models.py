@@ -12,7 +12,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     password = models.CharField(max_length=64, verbose_name="비밀번호")
     # 자동으로 해당 시간이 추가되게 해놓음
-    email = models.EmailField(verbose_name="email", max_length=60)
+    email = models.EmailField(verbose_name="email", max_length=60, default = "마이페이지에서 이름을 입력해주세요!")
     interest = models.CharField(verbose_name='interest', max_length=200)
     date_joined = models.DateTimeField(verbose_name="date joined", auto_now_add=True)
     last_login = models.DateTimeField(verbose_name="last joined", auto_now=True)
