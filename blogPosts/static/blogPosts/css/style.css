@@ -15,7 +15,6 @@ h1 {
 /* Main Content */
 .cd-main-content .center {
   /* vertically align inside parent element */
-  display: table-cell;
   vertical-align: middle;
   text-align: center;
 }

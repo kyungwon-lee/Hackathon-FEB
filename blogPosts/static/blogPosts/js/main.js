@@ -27,7 +27,7 @@ jQuery(document).ready(function($){
 		setTimeout(function(){
 			// modalWindow.filter(modalId).addClass('visible');
 			transitionLayer.removeClass('opening');
-			window.location.replace('/mainPage/1')
+			window.location.replace('accounts/login/mainPage/1')
 		}, delay);
 	});
 
