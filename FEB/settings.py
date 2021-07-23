@@ -68,7 +68,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&
 # DEBUG = True
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['foreverybeginner.herokuapp.com']
 
 AUTH_USER_MODELS = "accounts.Profile"
 
@@ -186,7 +186,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT =  os.path.join(BASE_DIR, 'blogPosts/static') #은주_자료_이미지
+STATIC_ROOT =  os.path.join(BASE_DIR, 'FEB/static') #은주_자료_이미지
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'FEB', 'static'),) #은주_자료_이미지
 
 MEDIA_URL = '/media/'
