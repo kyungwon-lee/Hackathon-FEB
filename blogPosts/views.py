@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Post, Comment, LikeOrDislike
+from .models import Post, Comment, LikeOrDislike, Editors
 from django.http import JsonResponse
 from datetime import datetime
 from django.utils import timezone
@@ -9,10 +9,10 @@ from django.views.generic import ListView, CreateView
 from django.urls import reverse_lazy
 from django.conf.urls.static import static
 from django.conf import settings
+from django.core import serializers
 import os
-#from .static.blogPosts.json.page_section_info 
+import random
 import json 
-#from .forms import PostForm
 
 sections_dict = {"금융" : 1, "사랑" : 2, "운동" : 3, "취미" : 4, "학습" : 5, "전자기기" : 6, "어플리케이션" : 7, "기타": 8 }
 
@@ -122,23 +122,27 @@ def show(request, id, rid) : ### 여기서 (request, id) 이 정보는 어디서
     sections = bring_section_data_form_json(id)
     comments = post.comment_set.all().order_by('-created_at')
     posts = Post.objects.all()
-    interest = request.user.profile.interest
 
-    interest_id = sections_dict[interest]
-    interest_posts = Post.objects.filter(section=interest)
-    #print(interest_posts)
-    interest_posts_inorder = sorted(interest_posts, key=lambda x: x.get_total_like())
-    #print(interest_posts_inorder)
-    interest_posts_inorder_top_ten = interest_posts_inorder[0:10]
-    #print(interest_posts_inorder_top_ten)
     titles = []
     categoryId = []
     rId = []
     for each in posts:
         categoryId.append(sections_dict[each.section])
         rId.append(each.id)
-        titles.append(each.title)
-    return render(request, 'blogPosts/textPage.html', {'post':post, 'sections':sections, 'comments':comments, 'titles':titles, 'categoryId' : categoryId, 'rId' : rId, 'interest_posts_inorder_top_ten' : interest_posts_inorder_top_ten, 'interest_id': interest_id})
+        titles.append(each.title) 
+
+    interest_id = random.randrange(1,9)
+    temp = list(sections_dict.keys())
+
+    interest = temp[interest_id-1]
+    if (request.user.is_authenticated):
+        interest = request.user.profile.interest
+        interest_id = sections_dict[interest]
+
+    interest_posts = Post.objects.filter(section=interest)
+    interest_posts_inorder = sorted(interest_posts, key=lambda x: x.get_total_like())
+    interest_posts_inorder_top_ten = interest_posts_inorder[0:10]
+    return render(request, 'blogPosts/textPage.html', {'post':post, 'id': id, 'sections':sections, 'comments':comments, 'titles':titles, 'categoryId' : categoryId, 'rId' : rId, 'interest_posts_inorder_top_ten' : interest_posts_inorder_top_ten, 'interest_id': interest_id})
 
 
 def delete(request, id) :
@@ -146,22 +150,7 @@ def delete(request, id) :
     post.delete()
     return redirect('blogPosts:main')
 
-def update(request, id) :
-    if request.method == 'GET':
-        post = Post.objects.get(id=id)
-        return render(request, 'blogPosts/updateTextPage.html', {'post':post})
-    elif request.method == 'POST':
-        #section = request.POST['section']
-        #title = request.POST['title']
-        #brief_description = request.POST['brief_description']
-        content = request.POST['content']
-        content = content.replace("\r\n", "<br>")
-        Post.objects.filter(id=id).update(content = content)#section = section, title = title, brief_description = brief_description, content = content )
-        return redirect('blogPosts:text1', id=id)
     
-
-
-
 def example(request):
     if request.method == 'GET' :
         posts = Post.objects.all()
@@ -173,13 +162,21 @@ def example(request):
         content = request.POST['content']
         Post.objects.create(section = section, title = title, brief_description = brief_description, content = content )
         return redirect('blogPosts:example') 
+     
+class EditorView:
+    def create(request, id):
+        post = Post.objects.get(id=id)
+        editor_list = post.editors_set.filter(user_id=request.user.id)
+        Editors.objects.create(user=request.user, post=post)
+        return redirect(request.META.get('HTTP_REFERER'))
+
 
 class CommentView:
-    def create(request, id):
+    def create(request, id, rid):
         if request.method == 'POST':
             content = request.POST['content']
             comment = Comment.objects.create(post_id=id, content=content, author=request.user)
-            post = Post.objects.get(id=id)
+            post = Post.objects.get(id=rid)
             KST = datetime.now()
             current_time = KST.strftime('%Y년 %m월 %d일 %H:%M %p'.encode('unicode-escape').decode()).encode().decode('unicode-escape')
             return JsonResponse({
@@ -192,8 +189,8 @@ class CommentView:
         else:
             return render(f'/mainPage/<int:id>/post/{int:rid}')
     
-    def delete(request, id, cid):
-        post=Post.objects.get(id=id)
+    def delete(request, id, rid, cid):
+        post=Post.objects.get(id=rid)
         comment = Comment.objects.get(id=cid)
         comment.delete()
         return JsonResponse({
@@ -204,6 +201,7 @@ class CommentView:
 class LikeView:
     def create_like(request, id, rid):
         sections = bring_section_data_form_json(id)
+        print(id)
         if request.method == 'POST':
             #mainPage_section = Sections.########################## 
             post = Post.objects.get(id=rid)
@@ -232,9 +230,9 @@ class LikeView:
         else:
             return redirect (f'/mainPage/<int:id>/post/{int:rid}')
     
-    def create_dislike(request, id):
+    def create_dislike(request, id, rid):
         if request.method == 'POST':
-            post = Post.objects.get(id=id)
+            post = Post.objects.get(id=rid)
             flag = 0
             like_list = post.likeordislike_set.filter(user = request.user)
             if like_list.count() > 0:
@@ -259,18 +257,36 @@ class LikeView:
         else:
             return redirect (f'/mainPage/<int:id>/post/{int:rid}')
 
-def text1(request, id) :
-    post = Post.objects.get(id = id)
-    return render(request, 'blogPosts/text1.html', {'post':post})
+class IframeView:
+    def content(request, id) :
+        post = Post.objects.get(id = id)
+        return render(request, 'blogPosts/content.html', {'post':post})
 
-def text2(request, id) :
-    post = Post.objects.get(id = id)
-    return render(request, 'blogPosts/text2.html', {'post':post})
+    def update(request, id) :
+        if request.method == 'GET':
+            post = Post.objects.get(id=id)
+            return render(request, 'blogPosts/updateTextPage.html', {'post':post})
+        elif request.method == 'POST':
+            #section = request.POST['section']
+            #title = request.POST['title']
+            #brief_description = request.POST['brief_description']
+            post = Post.objects.get(id=id)
+            Editors.objects.create(user=request.user, post=post)
+            content = request.POST['content']
+            content = content.replace("\r\n", "<br>")
+            Post.objects.filter(id=id).update(content = content)#section = section, title = title, brief_description = brief_description, content = content )
+            return redirect('blogPosts:content', id=id)
 
-def text3(request, id) :
-    post = Post.objects.get(id = id)
-    return render(request, 'blogPosts/text3.html', {'post':post})
+    def history(request, id) :
+        post = Post.objects.get(id = id)
+        editor_list = post.editors_set.all().order_by('-edited_at')
+        # editor_list = serializers.serialize("json", post.editors_set.all())
 
-
-
-
+        editor_count = {}
+        for editor in editor_list :
+            if editor.user.profile.email in editor_count:
+                editor_count[editor.user.profile.email] += 1
+            else :
+                editor_count[editor.user.profile.email] = 1
+        # json_string = json.stringify(editor_count)
+        return render(request, 'blogPosts/history.html', {'post':post, 'editor_list': editor_list})

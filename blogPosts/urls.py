@@ -22,12 +22,13 @@ urlpatterns = [
     path('<int:id>/delete', views.delete, name= 'delete'), 
     #path('<int:id>/update', views.update, name= 'update'), 
     path('accounts/', include('accounts.urls')),
-    path('<int:id>/comments/', views.CommentView.create, name='comment_create'),
-    path('<int:id>/comments/<int:cid>/', views.CommentView.delete, name='comment_delete'),
-    path('<int:id>/post/<int:rid>/like/', views.LikeView.create_like, name='like'), #cid -> rid로 바꾸었음 
-    path('<int:id>/dislike/', views.LikeView.create_dislike, name='dislike'),
-    path('text1/<int:id>/', views.text1, name = "text1"),
-    path('text2/<int:id>/', views.update, name = "update"),
-    path('text3/<int:id>/', views.text3, name = "text3"),
+    path('<int:id>/post/<int:rid>/comments/', views.CommentView.create, name='comment_create'),
+    path('<int:id>/post/<int:rid>/comments/<int:cid>/', views.CommentView.delete, name='comment_delete'),
+    path('<int:id>/post/<int:rid>/like/', views.LikeView.create_like, name='like'),
+    path('<int:id>/post/<int:rid>/dislike/', views.LikeView.create_dislike, name='dislike'),
+    path('content/<int:id>/', views.IframeView.content, name = "content"),
+    path('update/<int:id>/', views.IframeView.update, name = "update"),
+    path('history/<int:id>/', views.IframeView.history, name = "history"),
+    path('editors/<int:id>/',  views.EditorView.create, name='editors'),
 ]
 

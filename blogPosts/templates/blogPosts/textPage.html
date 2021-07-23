@@ -40,7 +40,11 @@
       <div class="article-container">
       {% if user.is_authenticated %}
         <section class="sidebar">
-          <h3>{{user.profile.email}}님을 위한 추천 글</h3>
+          {% if user.is_authenticated %}
+            <h3>{{user.profile.email}}님을 위한 추천 글</h3>
+          {% else %}
+            <h3>새로운 새싹님을 위한 추천 글</h3>
+          {% endif %}
           <ul>
             {%for interest_post in interest_posts_inorder_top_ten %}
             <li>
@@ -61,7 +65,7 @@
               <span>{{post.brief_description}}</span>
             </td>
             <td align="center">
-              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/text3/{{post.id}}/')">
+              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/history/{{post.id}}/')">
                 <div class="button_base
                 b02_slide_in">
                   <div>력사 보기</div>
@@ -73,7 +77,7 @@
             </td>
             {% if user.is_authenticated %}
             <td align="center">
-              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/text2/{{post.id}}/')">
+              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/update/{{post.id}}/')">
                 <div class="button_base
                 b02_slide_in">
                   <div>편집</div>
@@ -85,7 +89,7 @@
             </td>
             {% endif %}
             <td align="center">
-              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/text1/{{post.id}}')">
+              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/content/{{post.id}}')">
                 <div class="button_base
                 b02_slide_in">
                   <div>읽기</div>
@@ -97,7 +101,7 @@
             </td>
           </table>
 
-          <iframe id='my_frame' src='http://127.0.0.1:8000/mainPage/text1/{{post.id}}' style="width:100%; height:600px; border:none;"></iframe>
+          <iframe id='my_frame' src='http://127.0.0.1:8000/mainPage/content/{{post.id}}' style="width:100%; height:600px; border:none;"></iframe>
         
           <footer>
             <div class="article-footer">
@@ -105,7 +109,7 @@
                 <ul class="share">
                   <li>
                     <a href="" onclick="window.open(url_combine_fb, '', 'scrollbars=no, width=600, height=600'); return false;">
-                      <img src="{% static 'blogPosts/img/facebook.svg'%}" title="페이스북으로 공유하기" class="sharebtn_custom"">
+                      <img src="{% static 'blogPosts/img/facebook.svg'%}" title="페이스북으로 공유하기" class="sharebtn_custom">
                     </a>
                   </li>
                   <li>
@@ -124,8 +128,8 @@
             <div class="article-votes">
               <span class="article-votes-question">도움이 되었습니까?</span>
               <div class="article-votes-controls">
-                <a class="realButton" onclick="onClickLikeButton({{post.id}}, {{post.rid}})" id="{{post.id}}-like-button">예</a>
-                <a class="realButton" onclick="onClickDislikeButton({{post.id}})" id="{{post.id}}-dislike-button">아니오</a>
+                <a class="realButton" onclick="onClickLikeButton({{post.id}}, {{id}})" id="{{post.id}}-like-button">예</a>
+                <a class="realButton" onclick="onClickDislikeButton({{post.id}}, {{id}})" id="{{post.id}}-dislike-button">아니오</a>
               <br>
               <small class="article-votes-count" id = "{{post.id}}-votes-count">
                 <span class="article-vote-label">{{post.like_dislike.count}} 명 중 {{post.get_total_like}} 명은 도움이 되었다고 했습니다.</span>
@@ -152,7 +156,7 @@
                   <div class="content-input">
                     <input name = "content" id="review-input-type" type="text" placeholder="댓글을 달아달아 밝은달아"/>
                   </div>
-                  <button onclick = "onAddComment({{post.id}})" id="review-input-btn">리뷰작성</button>
+                  <button onclick = "onAddComment({{post.id}}, {{id}})" id="review-input-btn">리뷰작성</button>
                 </div>
               </div>
             
@@ -181,7 +185,7 @@
                       <span class="reply">0</button>
                     </div>
                     {% if request.user == comment.author %}
-                      <button onclick="onDeleteComment({{post.id}},{{comment.id}})">댓글 삭제</button>
+                      <button onclick="onDeleteComment({{post.id}},{{id}}, {{comment.id}})">댓글 삭제</button>
                     {% endif %}
                   </li>
                 </ul>

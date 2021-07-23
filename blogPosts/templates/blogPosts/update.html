@@ -5,11 +5,8 @@
 </head>
 <body>
     <h1>내용을 수정해주세요!</h1>
-    
-
     <form action="{% url 'blogPosts:update' id=post.id %}" method="POST">
-
-        {% csrf_token %}
+    {% csrf_token %}
         {% comment %} <p>분류</p>
         <input name = "section" value = {{post.section}} /><br/>
         <p>제목</p>
@@ -18,10 +15,8 @@
         <textarea name="brief_description" rows="1" cols="50" >{{post.brief_description}}</textarea> <br /> {% endcomment %}
         {% comment %} <p>내용</p> {% endcomment %}
         <textarea name="content" rows="30" cols="50" >{{post.content}}</textarea> <br />
-        
         <input type="submit" value="submit" />
     </form>
-
-    <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/text1/{{post.id}}/')">
+    <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/content/{{post.id}}/')">
 </body>
 </html>

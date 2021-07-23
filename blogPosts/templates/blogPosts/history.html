@@ -27,12 +27,25 @@
 
         <div class="history-main">
             <!-- 가장 최신 기록 -> 가장 먼저 뜨도록!! -->
-            <p><strong>2021년 7월 18일 (일) 14:42 @seoseongq (count: 3)</strong></p>
-            <p>2021년 7월 17일 (일) 13:42 @binthecoder (count: 1)</p>
-            <p>2021년 7월 16일 (일) 12:42 @seoseongq (count: 2)</p>
-            <p>2021년 7월 15일 (일) 11:42 @seoseongq (count: 1)</p>
-            ...
-        </div>
+            {% comment %} <p><strong>2021년 7월 18일 (일) 14:42 @{{json_string}} (count: 3)</strong></p> {% endcomment %}
 
+            {% comment %} <script post = {{post}}>
+                var temp = document.currentScript.getAttribute('post');
+                console.log(temp.edit_users);
+            </script> {% endcomment %}
+
+            {% for editor in editor_list %}
+                <p>{{editor.edited_at}} @{{editor.user.profile.email}}</p>
+                {% comment %} <script post = {{post}}>
+                    var post = document.currentScript.getAttribute('post');
+                    console.log(post.editors_set.all());
+                    jbFunction(post.editors_set.all());
+                    function jbFunction(post) {
+                        var each_post = post.editors_set.all();
+                        console.log(each_post);
+                    }
+                </script> {% endcomment %}
+            {% endfor %}
+        </div>
     </body>
 </html>
