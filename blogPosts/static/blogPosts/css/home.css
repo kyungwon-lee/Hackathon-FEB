@@ -45,22 +45,7 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     margin-left: 5px;
     color: black;
 }
-/* 
-#cursor {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 99999;
-    width: 50px;
-    height: 50px;
-    display: none;
-  }
 
-#cursor-img {
-    width: 50px;
-    height: 50px;
-} */
-  
 
 .home {
     display: flex;
@@ -139,7 +124,7 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     border: none;
     height: 90%;
     width: 25vw;
-    text-align: center;
+    /* text-align: center; */
     outline: none;
 }
 
@@ -183,6 +168,11 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     resize : both;
     width: 54px;
     height: 54px;
+    transition: transform .1s ease-in-out;
+}
+
+.homeBottom .category-icon img:hover{
+    transform: translateY(-.625rem);
 }
 
 .newLeaf {
@@ -230,7 +220,7 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    margin-left: 20px;
+    /* margin-left: 20px; */
 }
 
 input {
@@ -245,15 +235,20 @@ outline:none;
 input[type=text] {
 background-color: transparent;
 width: 100%;
-padding: 0;
+padding: 0 0 5.5px 0;
+}
+#myInput_home{
+    position: absolute !important;
+    width: 100%;
+    transform: translate(0px, -6px);
+    top: -11.5px;
 }
 
 .autocomplete-items {
-position: absolute;
-border: 1px solid #d4d4d4;
 border-bottom: none;
 border-top: none;
 z-index: 99;
+text-align: center;
 /*position the autocomplete items to be the same width as the container:*/
 top: 100%;
 left: 0;
@@ -266,7 +261,7 @@ border: 1px solid #d4d4d4;
 }
 .autocomplete-items div:hover {
 /*when hovering an item:*/
-background-color: #FDBB59;
+background-color: #b5e550;
 }
 .autocomplete-active {
 /*when navigating through the items using the arrow keys:*/
@@ -323,6 +318,11 @@ footer #home-footer {
     height: 200px;
     bottom: 20%;
     left: 10%;
+    transition: transform .1s ease-in-out;
+}
+
+.cat:hover {
+    transform: translateY(-.625rem);
 }
 
 .flower {
@@ -336,6 +336,18 @@ footer #home-footer {
     position: absolute;
     bottom: 3%;
     right: 6.5%;
-    height: 120px;
-    width: 1500px;
+    height: 15vh;
+    width: 88vw;
+}
+
+
+.sleeping_ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sleeping_ul a{
+    text-decoration: none;
+    color: black;
 }

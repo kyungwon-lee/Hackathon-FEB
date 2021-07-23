@@ -19,26 +19,25 @@ const getCommentElement = (postId, rid, commentId, comment, createdTime, author,
     newCommentElement.setAttribute('class', `review-1st`);
     newCommentElement.id = `post${postId}-comment${commentId}`;
     newCommentElement.innerHTML =
-        `<li class="1st">
+        `
+        <li class="1st">
             <div class="user-info">
-            <span class="img">
+                <span class="img">
                 <div class="profile">
-                <img src = ${author_profile}>
+                    <img src = ${author_profile}>
                 </div>
-            </span>
-            <div class="txt">
+                </span>
+                <div class="txt">
                 <span class="username">${author}</span>
-                <p class="date">${createdTime}</p>
-            </div>
+                <p class="date">
+                ${createdTime} 
+                <button onclick="onDeleteComment(${postId}, ${rid}, ${commentId})">댓글 삭제</button>
+                </p>
+                </div>
             </div>
             <div class="content">
-            <p> ${comment} </p>
+                <p> ${comment}  </p>
             </div>
-            <div class="btn-box">
-            <button class="likebtn" type="button">0</button>
-            <span class="reply">0</button>
-            </div>
-            <button onclick="onDeleteComment(${postId}, ${rid}, ${commentId})">댓글 삭제</button>
         </li>`
     return newCommentElement;
 };

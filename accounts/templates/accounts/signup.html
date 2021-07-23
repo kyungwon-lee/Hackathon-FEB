@@ -13,7 +13,7 @@
     <nav class="header">
       <div class="header-logo-div">
         <a href="{%url 'home'%}">
-          <img class ="header-logo" src="{%static 'blogPosts/img/logo.png'%}" />
+          <img class ="header-logo" src="{%static 'blogPosts/img/logo2.png'%}" />
         </a>
       </div>
     </nav>
@@ -44,13 +44,9 @@
           </select>
           <br>
           <small>배추는 포기 셀 때나 하는 말입니다.</small>
-          <small>FEB의 <a href=#>이용약관</a> 및 <a href=#>개인정보처리방침</a>에 동의합니다.</small>
+          <small>FEB의 <a href={% url 'leeyong' %}>이용약관</a> 및 <a href={% url 'dogaccept' %}>개인정보처리방침</a>에 동의합니다.</small>
           <br>
           <button class="emailLoginBtn" type="submit">회원가입</button>
-          <button class="facebookLoginBtn" type="button">
-            <img src="https://assets.cdn.soomgo.com/icons/icon-login-facebook-btn.svg"></img>
-            <span>Facebook으로 가입하기</span>
-          </button>
         </form>
       </div>
     </div>

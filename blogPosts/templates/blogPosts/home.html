@@ -56,10 +56,12 @@
       </div>
       <div class = "homeMiddle">
         <div class = "search">
-          <div class = "search_inside">
-            <form autocomplete="off">
-              <div class="autocomplete" style="width:300px;">
-                <input href="javascript:;" onclick="load_titles({{titles}}, {{categoryId}}, {{rId}});" id="myInput" type="text" name="myCountry">
+          <div class = "search_inside" style = "width:100%">
+            <form autocomplete="off" style="width:100%">
+              <div class="autocomplete" style="width:80%;">
+                <div id="myInput_home">
+                  <input href="javascript:;" onclick="load_titles({{titles}}, {{categoryId}}, {{rId}});" id="myInput" type="text" name="myCountry">
+                </div>
               </div>
               <input type="submit" style="display:none;">
             </form>
@@ -210,7 +212,9 @@
     <img class="sketchbook" src="{% static 'blogPosts/img/sketchbook.png'%}"/>
     {% if user.is_authenticated %}
     <img class="sun" src="{% static 'blogPosts/img/suncrayon.png'%}"/>
-    <img class="cat" src="{% static 'blogPosts/img/catcrayon.png'%}"/>
+    <a href="{% url 'gallery' %}">
+      <img class="cat" src="{% static 'blogPosts/img/catcrayon.png'%}"/>
+    </a>
     <img class="flower" src="{% static 'blogPosts/img/flowercrayon.png' %}">
     <img class="grass" src="{% static 'blogPosts/img/grasscrayon.png' %}">
     {% endif %}

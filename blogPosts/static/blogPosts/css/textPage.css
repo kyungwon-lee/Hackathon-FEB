@@ -152,7 +152,6 @@ padding: 0;
   }
   
   .header-menu span{
-    font-family: 'Nanum Gothic Coding', monospace;
     /* font-family: 'Gaegu', cursive; */
     font-weight: 900;
     font-size: large;
@@ -276,7 +275,6 @@ margin-right: 36px;
 }
 
 .header-menu span{
-font-family: 'Nanum Gothic Coding', monospace;
 /* font-family: 'Gaegu', cursive; */
 font-weight: 900;
 font-size: large;
@@ -308,13 +306,13 @@ margin: 0 auto;
 
 #myInput {
     padding-top: 12px;
+    padding-bottom: 12px;
     padding-left: 10px;
 }
 
 .container .sub-nav{
 display: flex;
 justify-content: space-between;
-margin-bottom: 30px;
 min-height: 50px;
 padding-bottom: 15px;
 padding-top: 20px;

@@ -89,3 +89,9 @@ def editinterest(request):
 def trapcard(request):
     return render(request, 'accounts/deleteAccount.html')
 
+def leeyong(request):
+    return render(request, 'accounts/leeyong.html')
+
+def dogaccept(request):
+    return render(request, 'accounts/dogaccept.html')
+
