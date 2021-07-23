@@ -20,6 +20,28 @@
   margin-inline-end: 0px;
 }
 
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+  margin: 0 auto;
+  height: 40px;
+  border: none !important;
+  background-color: #fafafa;
+  padding: 1rem 1rem;
+  align-items: center !important;
+  font-family: "Noto Sans KR";
+}
+
+.header-logo {
+  resize: both;
+  width: 250px;
+  height:  40px;
+  text-align: center;
+}
+
+
 .signupPage .card {
   width: 100%;
   max-width: 342px;

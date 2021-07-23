@@ -30,7 +30,7 @@
                 <p>{{editor.edited_at}} @{{editor.user.profile.email}}    
                 {% for username, count in editor_count.items %}
                     {% if username == editor.user.profile.email %}
-                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✏️<i>{{editor.user.profile.email}}님의 누적 편집 횟수 : {{count}}회</i>✏️
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✏️&nbsp;<i>{{editor.user.profile.email}}님의 누적 편집 횟수 : {{count}}회</i>&nbsp;&nbsp;✏️
                     {% endif %}
                 {% endfor %}
                 </p>

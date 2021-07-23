@@ -8,11 +8,23 @@
     {% providers_media_js %}
     <link rel="stylesheet" href="{% static '/accounts/css/login.css' %}">  
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
     </style>
   </head>
   <body>
-    <a href="{%url 'home'%}">홈으로</a>
+    <nav class="header">
+      <div class="header-logo-div">
+        <a href="{%url 'home'%}">
+          <img class ="header-logo" src="{%static 'blogPosts/img/logo.png'%}" />
+        </a>
+      </div>
+    </nav>
+
+
+
+    {% comment %} <a href="{%url 'home'%}">홈으로</a> {% endcomment %}
     <div class="loginPage">
       <h2>로그인</h2>
       <div class="card">
@@ -32,7 +44,7 @@
           </button>
         </form>
         <div class="signupLink">
-         <a class="link" href="{%url 'signup' %}">계정이 없으신가요?</a>
+          <a class="link" href="{%url 'signup' %}">계정이 없으신가요?</a>
         </div>
       </div>
     </div>
