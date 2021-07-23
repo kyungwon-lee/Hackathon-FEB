@@ -26,25 +26,14 @@
         </header>
 
         <div class="history-main">
-            <!-- 가장 최신 기록 -> 가장 먼저 뜨도록!! -->
-            {% comment %} <p><strong>2021년 7월 18일 (일) 14:42 @{{json_string}} (count: 3)</strong></p> {% endcomment %}
-
-            {% comment %} <script post = {{post}}>
-                var temp = document.currentScript.getAttribute('post');
-                console.log(temp.edit_users);
-            </script> {% endcomment %}
-
             {% for editor in editor_list %}
-                <p>{{editor.edited_at}} @{{editor.user.profile.email}}</p>
-                {% comment %} <script post = {{post}}>
-                    var post = document.currentScript.getAttribute('post');
-                    console.log(post.editors_set.all());
-                    jbFunction(post.editors_set.all());
-                    function jbFunction(post) {
-                        var each_post = post.editors_set.all();
-                        console.log(each_post);
-                    }
-                </script> {% endcomment %}
+                <p>{{editor.edited_at}} @{{editor.user.profile.email}}    
+                {% for username, count in editor_count.items %}
+                    {% if username == editor.user.profile.email %}
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✏️<i>{{editor.user.profile.email}}님의 누적 편집 횟수 : {{count}}회</i>✏️
+                    {% endif %}
+                {% endfor %}
+                </p>
             {% endfor %}
         </div>
     </body>
