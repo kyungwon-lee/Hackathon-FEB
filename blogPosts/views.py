@@ -68,21 +68,19 @@ def main(request, id) :
     categoryId = []
     rId = []
     section_posts = Post.objects.filter(section=sections.section)
-    print(section_posts)
     section_posts_inorder = sorted(section_posts, key=lambda x: x.get_total_like())
     section_posts_inorder_top_ten = section_posts_inorder[0:9]
     for post in posts:
         categoryId.append(sections_dict[post.section])
         rId.append(post.id)
         titles.append(post.title)
-
     if request.method == 'GET' :
         #posts = Post.objects.get(id = id)
         #print(posts)
         #print(sections.section)
         posts = Post.objects.filter(section=sections.section)
         #print(sections.photo_dir)        
-        return render(request, 'blogPosts/main.html', {'sections': sections, 'posts': posts, 'section_posts_inorder_top_ten':section_posts_inorder_top_ten }) # 
+        return render(request, 'blogPosts/main.html', {'sections': sections, 'posts': posts, 'section_posts_inorder_top_ten':section_posts_inorder_top_ten, 'titles' : titles, 'categoryId' : categoryId, 'rId' : rId}) # 
     elif request.method == 'POST':
         section = sections.section
         sub_section = request.POST['sub_section']
