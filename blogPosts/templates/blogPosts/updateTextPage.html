@@ -22,20 +22,6 @@
                 $('#my_frame').attr('src', url);
             }
         </script>
-        <script>
-            function submit_multiple(){
-                original = multiple_form.action;
-                ageform.action="handler1";
-                ageform.target="result1";
-                ageform.submit();
-                window.alert("done the first");
-                ageform.action="handler2";
-                ageform.target="result2"
-                ageform.submit();
-                window.alert("done the second");
-                ageform.action = original;
-            }
-        </script>
     </head>
 
     <body>

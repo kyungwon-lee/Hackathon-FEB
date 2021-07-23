@@ -8,12 +8,6 @@
     </div>
     <section class="mainTitle">
       <img src="{% static "" %}{{sections.photo_dir}}" class="mainTitle-img"/>
-
-    {% comment %} <img src="{% get_static_prefix %}blogPosts/img/background/{{section.photo_dir}}.jpg"> {% endcomment %}
-    {% comment %} <img src= "blogPosts/img/background/bg_finance.jpg"> {% endcomment %}
-    
-      {% comment %} <img src= {{sections.photo_dir}}> {% endcomment %}
-
     <div class="frontimg">
         <div class="mainTitle-title">
           <h1 id="segmentTitle"> {{sections.section}}</h1>
@@ -254,7 +248,8 @@
   </body>
   <script> 
       function load_titles(titles, categoryId, rId) { 
-      autocomplete(document.getElementById("myInput"), titles , categoryId, rId);
+        console.log(titles);
+        autocomplete(document.getElementById("myInput"), titles , categoryId, rId);
     }
-    </script> 
+  </script> 
 {% endblock content%}

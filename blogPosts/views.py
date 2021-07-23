@@ -68,22 +68,21 @@ def main(request, id) :
     categoryId = []
     rId = []
     section_posts = Post.objects.filter(section=sections.section)
-    print(section_posts)
+    #print(section_posts)
     section_posts_inorder = sorted(section_posts, key=lambda x: x.get_total_like(), reverse=True)
-    print(section_posts_inorder)
+    #print(section_posts_inorder)
     section_posts_inorder_top_ten = section_posts_inorder[0:9]
     for post in posts:
         categoryId.append(sections_dict[post.section])
         rId.append(post.id)
         titles.append(post.title)
-
     if request.method == 'GET' :
         #posts = Post.objects.get(id = id)
         #print(posts)
         #print(sections.section)
         posts = Post.objects.filter(section=sections.section)
         #print(sections.photo_dir)        
-        return render(request, 'blogPosts/main.html', {'sections': sections, 'posts': posts, 'section_posts_inorder_top_ten':section_posts_inorder_top_ten }) # 
+        return render(request, 'blogPosts/main.html', {'sections': sections, 'posts': posts, 'section_posts_inorder_top_ten':section_posts_inorder_top_ten, 'titles' : titles, 'categoryId' : categoryId, 'rId' : rId}) # 
     elif request.method == 'POST':
         section = sections.section
         sub_section = request.POST['sub_section']
@@ -281,13 +280,13 @@ class IframeView:
     def history(request, id) :
         post = Post.objects.get(id = id)
         editor_list = post.editors_set.all().order_by('-edited_at')
-        # editor_list = serializers.serialize("json", post.editors_set.all())
-
+        final_list = editor_list
         editor_count = {}
         for editor in editor_list :
             if editor.user.profile.email in editor_count:
                 editor_count[editor.user.profile.email] += 1
+                final_list = final_list.exclude(edited_at = editor.edited_at)
             else :
                 editor_count[editor.user.profile.email] = 1
-        # json_string = json.stringify(editor_count)
-        return render(request, 'blogPosts/history.html', {'post':post, 'editor_list': editor_list})
+        
+        return render(request, 'blogPosts/history.html', {'post':post, 'editor_list': final_list, 'editor_count' : editor_count})
