@@ -261,7 +261,8 @@ border: 1px solid #d4d4d4;
 }
 .autocomplete-items div:hover {
 /*when hovering an item:*/
-background-color: #b5e550;
+/* background-color: #b5e550; */
+    background-color: #e2f1a0;
 }
 .autocomplete-active {
 /*when navigating through the items using the arrow keys:*/
