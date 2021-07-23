@@ -29,24 +29,6 @@ class Page_Sections:
         self.sub_section = sub_section
         self.photo_dir = photo_dir
 
-    
-# def index(request):
-#     return render(request, 'blogPosts/home.html')
-
-
-# def main(request): 
-#     if request.method == 'GET' :
-#         posts = Post.objects.all()
-#         return render(request, 'blogPosts/main.html', {'posts': posts})  
-#     elif request.method == 'POST':
-#         section = request.POST['section']
-#         title = request.POST['title']
-#         brief_description = request.POST['brief_description']
-#         image = request.FILES.get('image', False)
-#         content = request.POST['content']
-#         Post.objects.create(section = section, title = title, brief_description = brief_description, image = image,  content = content )
-#         return redirect('blogPosts:main') 
-
 def bring_section_data_form_json(id) :
     id = id - 1
     file_path = os.path.join(settings.STATIC_ROOT, 'blogPosts/json/page_section_info.json')
@@ -107,10 +89,6 @@ def home(request):
         titles.append(post.title)
     return render(request, 'blogPosts/home.html', {'titles' : titles, 'categoryId' : categoryId, 'rId' : rId})  
 
-# def textPage(request, id):
-#     post = Post.objects.get(id = id)
-#     return render(request, 'blogPosts/textPage.html', {'post':post}) 
-    
 def new(request, id) :
     sections = bring_section_data_form_json(id)
     return render(request, 'blogPosts/newTextPage.html', {'sections': sections})
