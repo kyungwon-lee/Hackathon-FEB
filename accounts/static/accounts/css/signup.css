@@ -144,8 +144,8 @@
 .signupPage .emailLoginBtn {
   transition: opacity .2s ease-in-out;
   color:#fff;
-  background-color: #FFB13D;
-  border-color: #FFB13D;
+  background-color: #b5e550;
+  border-color: #b5e550;
   display:inline-block;
   text-align: center;
   vertical-align: middle;
@@ -185,4 +185,15 @@
   box-sizing: border-box;
   cursor: pointer;
   text-align: center;
+}
+
+.signupPage .facebookLoginBtn a img{
+  resize: both;
+  width: 360px;
+  height: 80px;
+}
+
+.signupPage .facebookLoginBtn a, a:visited {
+  text-decoration: none;
+  color: black;
 }

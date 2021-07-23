@@ -152,7 +152,6 @@ padding: 0;
   }
   
   .header-menu span{
-    font-family: 'Nanum Gothic Coding', monospace;
     /* font-family: 'Gaegu', cursive; */
     font-weight: 900;
     font-size: large;
@@ -276,7 +275,6 @@ margin-right: 36px;
 }
 
 .header-menu span{
-font-family: 'Nanum Gothic Coding', monospace;
 /* font-family: 'Gaegu', cursive; */
 font-weight: 900;
 font-size: large;
@@ -308,13 +306,13 @@ margin: 0 auto;
 
 #myInput {
     padding-top: 12px;
+    padding-bottom: 12px;
     padding-left: 10px;
 }
 
 .container .sub-nav{
 display: flex;
 justify-content: space-between;
-margin-bottom: 30px;
 min-height: 50px;
 padding-bottom: 15px;
 padding-top: 20px;
@@ -605,16 +603,17 @@ font-family: "Noto Sans KR";
 border-top: 1px solid #ddd;
 list-style: none;
 padding-left: 0px;
+margin: 0;
 }
 
 .article-review .review-1st > li {
 padding: 30px 0;
-border-bottom: 1px solid #ddd;
 }
 
 .article-review .rv-1st .content {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .article-review .content .content-input {
@@ -622,6 +621,7 @@ border-bottom: 1px solid #ddd;
 }
 
 #review-input-type {
+    border: 1px solid #ddd;
     -webkit-writing-mode: horizontal-tb !important;
     text-rendering: auto;
     width: 95%;
@@ -637,11 +637,11 @@ border-bottom: 1px solid #ddd;
     flex-direction: column;
     resize: auto;
     cursor: text;
+    padding: 10px;
 }
 
 review-input-type::placeholder {
     text-align: center;
-    vertical-align: middle;
 }
 
 #review-input-btn {
@@ -652,7 +652,7 @@ review-input-type::placeholder {
     font-size: 16px;
     font-weight: 700;
     text-align: center;
-    color: #fff;
+    color: #fff!important;
     border-radius: 10px;
     background-color: #b5e550;
 }
@@ -724,7 +724,7 @@ text-align: left;
 }
 
 .article-review .content p {
-margin: 0;
+margin: 20px 0;
 color: #666;
 line-height: 24px;
 word-break: break-word;
@@ -742,7 +742,7 @@ word-break: break-word;
 .article-review button {
 margin: 0;
 font: inherit;
-color: inherit;
+color: black!important;
 padding: 0;
 background: none;
 border: none;
@@ -768,11 +768,11 @@ background-size: 13px 13px;
 
 .article-review .page-num {
 position: relative;
-margin: 40px 0 0;
 text-align: center;
 font-size: 0;
-padding: 0;
 box-sizing: border-box;
+padding-top: 70px;
+border-top: 1px solid #ddd;
 }
 
 .article-review .page-num .l {

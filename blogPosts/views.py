@@ -79,6 +79,9 @@ def main(request, id) :
 #     return render(request, 'blogPosts/main.html')
 
 
+def gallery(request) :
+    return render(request, 'blogPosts/gallery.html')
+
 def home(request):
     posts = Post.objects.all()
     titles = []
