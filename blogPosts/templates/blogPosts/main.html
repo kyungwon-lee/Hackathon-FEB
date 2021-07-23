@@ -30,7 +30,7 @@
               <form autocomplete="off">
                 <div class="autocomplete" style="width:300px;">
                   <div id="myInput_main">
-                    <input href="javascript:;" onclick="load_titles({{titles}}, {{categoryId}}, {{rId}});" id="myInput" type="text" name="myCountry" placeholder="검색어를 입력해주세요.">
+                    <input href="javascript:;" onclick="load_titles({{titles}} {{categoryId}} {{rId}});" id="myInput" type="text" name="myCountry" placeholder="검색어를 입력해주세요.">
                   </div>
                 </div>
                 <input type="submit" style="display:none;">
@@ -254,7 +254,9 @@
   </body>
   <script> 
       function load_titles(titles, categoryId, rId) { 
+      console.log('debug');
       autocomplete(document.getElementById("myInput"), titles , categoryId, rId);
     }
-    </script> 
+  </script> 
+  <script src="{% static 'blogPosts/js/home.js' %}"></script>
 {% endblock content%}
