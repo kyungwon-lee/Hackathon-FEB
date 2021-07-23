@@ -1,6 +1,7 @@
 html, body{
     height: 100%;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 header {
@@ -14,7 +15,13 @@ header .buttons {
     padding:1rem 1.25rem ;
     box-sizing: border-box;
     position: absolute;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
     right: 0;
+    font-family: 'Gaegu'!important;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 header a, a:visited {
@@ -27,11 +34,7 @@ header .signup:visited {
 }
 
 header .login {
-    padding: 8px 13px;
     border-radius: 4px;
-    background-color: rgb(253, 187, 89);
-    font-size: 16px;
-    font-weight: 500;
     color: #fff;
 }
 
@@ -277,18 +280,24 @@ div .center {
 }
 
 .sketchbook {
-    width: 100vw;
+    width: 98vw;
     height: 100vh;
     z-index: -1;
     position: absolute;
     top: 0;
+    right: 0;
+}
 
-#home-footer {
+footer #home-footer {
     padding-top: 10px;
     margin-bottom: 10px;
     display: flex;
     border-top: 2px solid #dfe1e5;
     justify-content: flex-end;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    border-top: 0;
 }
   
 #insta-icon {

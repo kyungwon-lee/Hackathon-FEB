@@ -38,8 +38,13 @@
       </nav>
     
       <div class="article-container">
+      {% if user.is_authenticated %}
         <section class="sidebar">
-          <h3>{{user.profile.email}}님을 위한 추천 글</h3>
+          {% if user.is_authenticated %}
+            <h3>{{user.profile.email}}님을 위한 추천 글</h3>
+          {% else %}
+            <h3>새로운 새싹님을 위한 추천 글</h3>
+          {% endif %}
           <ul>
             {%for interest_post in interest_posts_inorder_top_ten %}
             <li>
@@ -49,6 +54,7 @@
             {% endfor %}
           </ul>
         </section>
+      {% endif %}
           <article class="article">
             <header class="article-header">
               <h1 class="article-title">[{{post.section}}] {{post.title}}</h1>

@@ -39,6 +39,7 @@
         {% else %}
           <a class="login" href= "{% url 'login' %}">로그인</a>
           <a class="signup" href= "{% url 'signup' %}">회원가입</a>
+          <a href="#">여행간사람 : 정은주</a>
         {% endif %}
       </div>
     </header>
@@ -225,24 +226,9 @@
           </li>
         </ul>
       </div>
-    </section>
-    <div class="gooey-transition">
-	    <div class="cd-main-content">
-		    <div class="center">
-			    <a href="#modal-1" class="cd-btn cd-modal-trigger"></a>
-		    </div>
-	    </div> <!-- .cd-main-content -->
-
-	    <div class="cd-transition-layer" data-frame="25"> 
-		    <div class="bg-layer"></div>
-	    </div> <!-- .cd-transition-layer -->
-    </div>
-    <img class="sketchbook" src="{% static 'blogPosts/img/sketchbook.png'%}"/>
-    <br>
-
+      
     <footer>
       <div id="home-footer">
-        <h4>FEB Makers |&nbsp&nbsp</h4>
         <div class="footer-insta">
           <a href="https://www.instagram.com/seoseongq" >
             <img id="insta-icon" src="{%static 'blogPosts/img/profile/ssk.jpg'%}" 
@@ -259,5 +245,20 @@
         </div>
       </div>
     </footer>
+    </section>
+    <div class="gooey-transition">
+	    <div class="cd-main-content">
+		    <div class="center">
+			    <a href="#modal-1" class="cd-btn cd-modal-trigger"></a>
+		    </div>
+	    </div> <!-- .cd-main-content -->
+
+	    <div class="cd-transition-layer" data-frame="25"> 
+		    <div class="bg-layer"></div>
+	    </div> <!-- .cd-transition-layer -->
+    </div>
+    <img class="sketchbook" src="{% static 'blogPosts/img/sketchbook.png'%}"/>
+    <br>
+
   </body> 
 </html>
