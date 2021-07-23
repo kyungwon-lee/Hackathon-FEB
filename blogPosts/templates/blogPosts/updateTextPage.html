@@ -29,8 +29,10 @@
         <form id="update-textPage" name = "multiple_form" method="POST" action="{% url 'blogPosts:update' id=post.id %}">
         {% csrf_token %}
             <div class="update-editor">
-                <textarea id="update-textarea" name="content" rows="30" cols="85" >{{post.content}}</textarea> <br/>
-                <input type="submit" name = "action" value="update" />
+                <textarea id="update-textarea" name="content" rows="30" cols="85" >{{post.content}}</textarea>
+                <div id="update-inputbox-uppper">
+                    <input id="update-inputbox" type="submit" name ="action" value="   편집 완료   " />
+                </div>
             </div>
             <div class="article-image">
                 <img src={{post.image.url}} onError="this.style.visibility='hidden'">
