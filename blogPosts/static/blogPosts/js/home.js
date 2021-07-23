@@ -41,7 +41,7 @@ function autocomplete(inp, arr, categoryId, rId) {
         b.innerHTML = `<a href="/mainPage/${categoryId[i]}/post/${rId[i]}/">`
           /*insert a input field that will hold the current array item's value:*/
           // + "<input type='hidden'>"
-          + `<div class="inner_NQ">` + `${section_list[categoryId[i]]} > ` + arr[i] + `</div>`
+          + `<div class="inner_NQ">` + `${section_list[categoryId[i] - 1]} > ` + arr[i] + `</div>`
           + `</a>`;
         /*execute a function when someone clicks on the item value (DIV element):*/
         b.addEventListener("click", function (e) {

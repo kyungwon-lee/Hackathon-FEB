@@ -25,7 +25,7 @@
       <nav class="sub-nav">
         <ol class="breadcrumbs">
           <li title="금융">
-            <a href = 'http://127.0.0.1:8000/mainPage/{{sections.data_id}}' >  {{post.section}}</a>
+            <a href = 'https://foreverybeginner.herokuapp.com/mainPage/{{sections.data_id}}' >  {{post.section}}</a>
           </li>
           <li title="주식">
             <a>{{post.sub_section}}</a>
@@ -43,7 +43,7 @@
           <ul>
             {%for interest_post in interest_posts_inorder_top_ten %}
             <li>
-              <a href = "http://127.0.0.1:8000/mainPage/{{interest_id}}/post/{{interest_post.id}}/" class="list-item">[{{interest_post.section}}] {{interest_post.title}}</a>
+              <a href = "https://foreverybeginner.herokuapp.com/mainPage/{{interest_id}}/post/{{interest_post.id}}/" class="list-item">[{{interest_post.section}}] {{interest_post.title}}</a>
               {% comment %} <a href = "/mainPage/{{interest_id}}/post/{{interest_post.id}}" class="list-item">[{{interest_post.section}}] {{interest_post.title}}</a> {% endcomment %}
             </li>
             {% endfor %}
@@ -59,7 +59,7 @@
               <span>{{post.brief_description}}</span>
             </td>
             <td align="center">
-              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/history/{{post.id}}/')">
+              <button type="button" class="back" onClick="change_src('https://foreverybeginner.herokuapp.com/mainPage/history/{{post.id}}/')">
                 <div class="button_base
                 b02_slide_in">
                   <div>력사 보기</div>
@@ -71,7 +71,7 @@
             </td>
             {% if user.is_authenticated %}
             <td align="center">
-              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/update/{{post.id}}/')">
+              <button type="button" class="back" onClick="change_src('https://foreverybeginner.herokuapp.com/mainPage/update/{{post.id}}/')">
                 <div class="button_base
                 b02_slide_in">
                   <div>편집</div>
@@ -83,7 +83,7 @@
             </td>
             {% endif %}
             <td align="center">
-              <button type="button" class="back" onClick="change_src('http://127.0.0.1:8000/mainPage/content/{{post.id}}')">
+              <button type="button" class="back" onClick="change_src('https://foreverybeginner.herokuapp.com/mainPage/content/{{post.id}}')">
                 <div class="button_base
                 b02_slide_in">
                   <div>읽기</div>
@@ -96,7 +96,7 @@
           </table>
 
           <div class="iframe-box" style="overflow: hidden;">
-            <iframe id='my_frame' src='http://127.0.0.1:8000/mainPage/content/{{post.id}}' style="width:100%; height:600px; border:none;" scrolling="no"></iframe>
+            <iframe id='my_frame' src='https://foreverybeginner.herokuapp.com/mainPage/content/{{post.id}}' style="width:100%; height:600px; border:none;" scrolling="no"></iframe>
           </div>
 
           <footer>
