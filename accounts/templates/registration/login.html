@@ -2,17 +2,25 @@
 <html>
   <head>
     <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FEB</title>
     {% load static %}
     {% load socialaccount %}
     {% providers_media_js %}
-    <link rel="stylesheet" href="{% static '/accounts/css/login.css' %}">  
+    <link rel="stylesheet" href="{% static '/accounts/css/login.css' %}">
+    <link rel="stylesheet" href="{% static '/blogPosts/css/style.css' %}">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
     </style>
   </head>
+  <script src="{% static 'blogPosts/js/modernizr.js' %}"></script> <!-- Modernizr -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  {% comment %} <script>
+    if( !window.jQuery ) document.write('<script src="{% static js/jquery-2.2.1-min.js %}"><\/script>');
+  </script> {% endcomment %}
+  <script src="{% static 'blogPosts/js/main.js' %}"></script>
   <body>
     <nav class="header">
       <div class="header-logo-div">
@@ -35,7 +43,7 @@
           <legend class="pwLegend">비밀번호</legend>
           <input type="password" name="password" placeholder="비밀번호를 입력해주세요."><br>
           <input type="hidden" name="next" value="{{next}}">
-          <button class="emailLoginBtn" type="submit">이메일 로그인</button>
+                  <button class="emailLoginBtn" type="submit">이메일 로그인</button>
           <button class="facebookLoginBtn" type="button">
             <a href="{% url "social:begin" "google-oauth2" %}">
               <img src="{% static '/accounts/img/btn_google_signin_light_normal_web@2x.png' %}"></img>
@@ -46,6 +54,20 @@
           <a class="link" href="{%url 'signup' %}">계정이 없으신가요?</a>
         </div>
       </div>
+    </div>
+
+{% comment %} 화면전환 효과를 위한 부분 아래쪽 {% endcomment %}
+
+    <div class="gooey-transition">
+	    <div class="cd-main-content">
+		    <div class="center">
+			    <a href="#modal-1" class="cd-btn cd-modal-trigger"></a>
+		    </div>
+	    </div> <!-- .cd-main-content -->
+
+	    <div class="cd-transition-layer" data-frame="25"> 
+		    <div class="bg-layer"></div>
+	    </div> <!-- .cd-transition-layer -->
     </div>
   </body>
 </html>

@@ -143,6 +143,11 @@
   height: 80px;
 }
 
+.loginPage .facebookLoginBtn a, a:visited {
+  text-decoration: none;
+  color: white;
+}
+
 .loginPage .signupLink {
   display: flex;
   flex-direction: column;

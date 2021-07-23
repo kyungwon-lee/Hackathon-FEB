@@ -1,9 +1,14 @@
 html, body{
     height: 100%;
     box-sizing: border-box;
+    margin: 0;
     /* overflow: hidden; */
 }
 
+.home-body, a {
+    overflow: hidden;
+    cursor: url(https://ani.cursors-4u.net/others/oth-9/oth837.cur), auto !important;
+}
 header {
     text-align: right;
     font-weight: 500;
@@ -12,16 +17,14 @@ header {
 }
 
 header .buttons {
-    padding:1rem 1.25rem ;
     box-sizing: border-box;
     position: absolute;
-    top: 50px;
+    top: 15%;
+    right: 10%;
     display: flex;
     flex-direction: column;
-    right: 0;
-    font-family: 'Gaegu'!important;
-    font-size: 30px;
-    font-weight: bold;
+    font-family: 'Poor Story'!important;
+    font-size: 25px;
 }
 
 header a, a:visited {
@@ -42,7 +45,7 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     margin-left: 5px;
     color: black;
 }
-
+/* 
 #cursor {
     position: absolute;
     left: 0;
@@ -56,13 +59,13 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
 #cursor-img {
     width: 50px;
     height: 50px;
-}
+} */
   
 
 .home {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
 }
@@ -70,8 +73,6 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
 .homeTop{
     display: flex;
     justify-content: center;
-    margin-top: 25vh;
-    margin-bottom: 10px;
 }
 
 #logo {
@@ -100,7 +101,11 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     -webkit-text-stroke-width: 0.01px;
 	-webkit-text-stroke-color: black;
     font-size: 64px;
-    margin: 0;
+    margin: 0 0 20px 0 ;
+}
+
+.homeTitle .green {
+    color: #b5e550!important;
 }
 
 .homeMiddle{
@@ -113,7 +118,7 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     border-radius: 24px;
     border: 2px solid #dfe1e5;
     width: 30vw;
-    height: 4vh;
+    height: 45px;
     margin: 15px;
 }
 
@@ -125,11 +130,8 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
 .homeMiddle .magnifying-icon img{
     display: flex;
     resize: both;
-    width: 1.5vw;
     height: 70%;
     margin-left: 14px;
-    margin-top: 4px;
-    margin-right: 5px;
 }
 
 
@@ -221,10 +223,14 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     }
 }
 
-.autocomplete {
+.home-body .autocomplete {
 /*the container must be positioned relative:*/
-position: relative;
-display: inline-block;
+    width: 300px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: 20px;
 }
 
 input {
@@ -255,10 +261,8 @@ right: 0;
 }
 .autocomplete-items div {
 padding: 10px;
-cursor: pointer;
 background-color: #fff;
 border: 1px solid #d4d4d4;
-width: calc(25vw - 5px)
 }
 .autocomplete-items div:hover {
 /*when hovering an item:*/
@@ -280,12 +284,13 @@ div .center {
 }
 
 .sketchbook {
-    width: 98vw;
-    height: 100vh;
+    width: 90%;
+    height: 95%;
     z-index: -1;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 footer #home-footer {
@@ -302,4 +307,35 @@ footer #home-footer {
   
 #insta-icon {
     width: 50px;
+}
+
+.sun {
+    width: 100px;
+    position: absolute;
+    height: 100px;
+    top: 20%;
+    left: 10%;
+}
+
+.cat {
+    position: absolute;
+    width: 250px;
+    height: 200px;
+    bottom: 20%;
+    left: 10%;
+}
+
+.flower {
+    position: absolute;
+    bottom: 30%;
+    right: 20%;
+    width: 180px;
+}
+
+.grass {
+    position: absolute;
+    bottom: 3%;
+    right: 6.5%;
+    height: 120px;
+    width: 1500px;
 }
