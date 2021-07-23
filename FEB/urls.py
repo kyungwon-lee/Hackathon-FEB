@@ -33,7 +33,6 @@ urlpatterns = [
     path('mainPage/', include('blogPosts.urls')),
     #path('mainPage/<int:id>/', include('blogPosts.urls')),
     #path('mainPage/', include('mainPages.urls')), 
-    
     path('social_accounts/', include('allauth.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),

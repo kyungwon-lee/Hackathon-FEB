@@ -11,9 +11,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.core import serializers
 import os
-#from .static.blogPosts.json.page_section_info 
+import random
 import json 
-#from .forms import PostForm
 
 sections_dict = {"금융" : 1, "사랑" : 2, "운동" : 3, "취미" : 4, "학습" : 5, "전자기기" : 6, "어플리케이션" : 7, "기타": 8 }
 
@@ -123,22 +122,26 @@ def show(request, id, rid) : ### 여기서 (request, id) 이 정보는 어디서
     sections = bring_section_data_form_json(id)
     comments = post.comment_set.all().order_by('-created_at')
     posts = Post.objects.all()
-    interest = request.user.profile.interest
 
-    interest_id = sections_dict[interest]
-    interest_posts = Post.objects.filter(section=interest)
-    #print(interest_posts)
-    interest_posts_inorder = sorted(interest_posts, key=lambda x: x.get_total_like())
-    #print(interest_posts_inorder)
-    interest_posts_inorder_top_ten = interest_posts_inorder[0:10]
-    #print(interest_posts_inorder_top_ten)
     titles = []
     categoryId = []
     rId = []
     for each in posts:
         categoryId.append(sections_dict[each.section])
         rId.append(each.id)
-        titles.append(each.title)
+        titles.append(each.title) 
+
+    interest_id = random.randrange(1,9)
+    temp = list(sections_dict.keys())
+
+    interest = temp[interest_id-1]
+    if (request.user.is_authenticated):
+        interest = request.user.profile.interest
+        interest_id = sections_dict[interest]
+
+    interest_posts = Post.objects.filter(section=interest)
+    interest_posts_inorder = sorted(interest_posts, key=lambda x: x.get_total_like())
+    interest_posts_inorder_top_ten = interest_posts_inorder[0:10]
     return render(request, 'blogPosts/textPage.html', {'post':post, 'id': id, 'sections':sections, 'comments':comments, 'titles':titles, 'categoryId' : categoryId, 'rId' : rId, 'interest_posts_inorder_top_ten' : interest_posts_inorder_top_ten, 'interest_id': interest_id})
 
 

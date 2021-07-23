@@ -39,7 +39,11 @@
     
       <div class="article-container">
         <section class="sidebar">
-          <h3>{{user.profile.email}}님을 위한 추천 글</h3>
+          {% if user.is_authenticated %}
+            <h3>{{user.profile.email}}님을 위한 추천 글</h3>
+          {% else %}
+            <h3>새로운 새싹님을 위한 추천 글</h3>
+          {% endif %}
           <ul>
             {%for interest_post in interest_posts_inorder_top_ten %}
             <li>
