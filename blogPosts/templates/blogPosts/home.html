@@ -210,7 +210,9 @@
     <img class="sketchbook" src="{% static 'blogPosts/img/sketchbook.png'%}"/>
     {% if user.is_authenticated %}
     <img class="sun" src="{% static 'blogPosts/img/suncrayon.png'%}"/>
-    <img class="cat" src="{% static 'blogPosts/img/catcrayon.png'%}"/>
+    <a href="{% url 'gallery' %}">
+      <img class="cat" src="{% static 'blogPosts/img/catcrayon.png'%}"/>
+    </a>
     <img class="flower" src="{% static 'blogPosts/img/flowercrayon.png' %}">
     <img class="grass" src="{% static 'blogPosts/img/grasscrayon.png' %}">
     {% endif %}
