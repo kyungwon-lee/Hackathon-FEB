@@ -186,7 +186,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT =  os.path.join(BASE_DIR, 'FEB/static') #은주_자료_이미지
+STATIC_ROOT =  os.path.join(BASE_DIR, 'blogPosts/static') #은주_자료_이미지
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'FEB', 'static'),) #은주_자료_이미지
 
 MEDIA_URL = '/media/'
