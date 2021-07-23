@@ -69,7 +69,8 @@ def main(request, id) :
     rId = []
     section_posts = Post.objects.filter(section=sections.section)
     print(section_posts)
-    section_posts_inorder = sorted(section_posts, key=lambda x: x.get_total_like())
+    section_posts_inorder = sorted(section_posts, key=lambda x: x.get_total_like(), reverse=True)
+    print(section_posts_inorder)
     section_posts_inorder_top_ten = section_posts_inorder[0:9]
     for post in posts:
         categoryId.append(sections_dict[post.section])
@@ -162,7 +163,7 @@ def example(request):
         content = request.POST['content']
         Post.objects.create(section = section, title = title, brief_description = brief_description, content = content )
         return redirect('blogPosts:example') 
-     
+    
 class EditorView:
     def create(request, id):
         post = Post.objects.get(id=id)
