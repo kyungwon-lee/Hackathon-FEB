@@ -168,6 +168,11 @@ header .signup, .logout, .logout:visited, .mypage, .mypage:visited {
     resize : both;
     width: 54px;
     height: 54px;
+    transition: transform .1s ease-in-out;
+}
+
+.homeBottom .category-icon img:hover{
+    transform: translateY(-.625rem);
 }
 
 .newLeaf {
@@ -256,7 +261,7 @@ border: 1px solid #d4d4d4;
 }
 .autocomplete-items div:hover {
 /*when hovering an item:*/
-background-color: #e2f1a0;
+background-color: #b5e550;
 }
 .autocomplete-active {
 /*when navigating through the items using the arrow keys:*/
@@ -313,6 +318,11 @@ footer #home-footer {
     height: 200px;
     bottom: 20%;
     left: 10%;
+    transition: transform .1s ease-in-out;
+}
+
+.cat:hover {
+    transform: translateY(-.625rem);
 }
 
 .flower {
@@ -326,8 +336,8 @@ footer #home-footer {
     position: absolute;
     bottom: 3%;
     right: 6.5%;
-    height: 120px;
-    width: 1500px;
+    height: 15vh;
+    width: 88vw;
 }
 
 

@@ -242,6 +242,11 @@
   resize: both;
   width: 80px;
   height: 80px;
+  transition: transform .1s ease-in-out;
+}
+
+#mainMenu-iconimg:hover {
+  transform: translateY(-.625rem);
 }
 
 #mainMenu-icons-title {

@@ -26,6 +26,7 @@ app_name= "FEB"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', blogPosts.views.home, name='home'),
+    path('gallery/', blogPosts.views.gallery, name='gallery'),
 
     #path('main/', blogPosts.views.main, name='main'), 
     #path('main/', include('mainPages.urls')),
