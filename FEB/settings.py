@@ -60,10 +60,13 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['email']
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@eu##7=t$&!b89*w!jksld(9&2bys#vi4#682+m62hl26!)a=x'
+# SECRET_KEY = 'django-insecure-@eu##7=t$&!b89*w!jksld(9&2bys#vi4#682+m62hl26!)a=x'
+
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 ALLOWED_HOSTS = []
 
