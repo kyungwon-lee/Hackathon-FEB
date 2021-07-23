@@ -7,24 +7,6 @@ from django.contrib.auth.models import User
 # import os
 from accounts.models import Profile
 
-
-
-# def signup(request):
-#     if request.method == 'POST':
-#         email = request.POST.get('email')
-#         username=request.POST.get('username')
-#         password = request.POST.get('password')
-#         user = get_user_model().objects.create_user(email=email, username=username, password=password)
-#         try:
-#             auth_user = authenticate(request, email, password)
-#             print("DEBUG")
-#             login(request, auth_user)
-#             return redirect('/home')
-#         except:
-#             return redirect('/home')
-#     else:
-#         return render(request, 'accounts/signup.html')
-
 def signup(request):
     if request.method == 'POST':
         user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'])

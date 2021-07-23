@@ -95,7 +95,7 @@
 .emailInfo button {
   margin-left: .75rem;
   color: #fff;
-  background-color: rgb(253, 187, 89);
+  background-color: #b5e550;
   border: 1px solid transparent;
   outline: 0;
   font-family: inherit;
@@ -103,7 +103,7 @@
 }
 
 .buttonGroup .cancel {
-  color: rgb(253, 187, 89);
+  color: #b5e550;
   background: rgb(255,255,255);
   border: 0.0625rem solid rgb(225,225,225);
 }

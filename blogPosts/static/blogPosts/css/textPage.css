@@ -66,7 +66,7 @@ display: block;
 }
 
 .text-content .text-body{
-border-top: 1px solid rgb(253, 187, 89);
+border-top: 1px solid rgba(181, 229, 80, 0.1);
 margin-top: -1px;
 padding: 1.25em 0 1.5em 0;
 }
@@ -980,6 +980,29 @@ body .textPage-history {
     font-family: Noto Sans, sans-serif;
     font-weight: 100;
     display: flex;
+}
+
+.update-editor {
+    height: fit-content;
+}
+
+#update-inputbox-uppper {
+    text-align: end;
+}
+
+#update-inputbox {
+    padding: 2px;
+    font-family: Noto Sans, sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    border-radius: 8px;
+    border: 1px solid #dfe1e5 !important;
+    height: 40px;
+}
+
+#update-inputbox:hover {
+    background-color: rgba(181, 229, 80, 0.1);
+    font-weight: bolder;
 }
 
 .article-image img {
