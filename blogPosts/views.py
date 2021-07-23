@@ -102,6 +102,8 @@ def show(request, id, rid) : ### 여기서 (request, id) 이 정보는 어디서
     post = Post.objects.get(id = rid)
     sections = bring_section_data_form_json(id)
     comments = post.comment_set.all().order_by('-created_at')
+    # for comment in comments :
+    #     print(comment)
     posts = Post.objects.all()
 
     titles = []
