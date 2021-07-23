@@ -158,7 +158,6 @@
   border: none;
   height: 91%;
   width: 30vw;
-  /* text-align: center; */
   outline: none;
 }
 
@@ -336,6 +335,7 @@
 
 #myInput_main #myInput{
   padding-top: 9px;
+  padding-bottom: 5px;
 }
 
 #myInputautocomplete-list {
