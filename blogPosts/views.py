@@ -138,7 +138,8 @@ def show(request, id, rid) : ### 여기서 (request, id) 이 정보는 어디서
     if (request.user.is_authenticated):
         interest = request.user.profile.interest
         interest_id = sections_dict[interest]
-
+    like_list = post.likeordislike_set.filter(user = request.user)
+    print(like_list)
     interest_posts = Post.objects.filter(section=interest)
     interest_posts_inorder = sorted(interest_posts, key=lambda x: x.get_total_like())
     interest_posts_inorder_top_ten = interest_posts_inorder[0:10]
@@ -175,7 +176,7 @@ class CommentView:
     def create(request, id, rid):
         if request.method == 'POST':
             content = request.POST['content']
-            comment = Comment.objects.create(post_id=id, content=content, author=request.user)
+            comment = Comment.objects.create(post_id=rid, content=content, author=request.user)
             post = Post.objects.get(id=rid)
             KST = datetime.now()
             current_time = KST.strftime('%Y년 %m월 %d일 %H:%M %p'.encode('unicode-escape').decode()).encode().decode('unicode-escape')
