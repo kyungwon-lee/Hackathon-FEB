@@ -56,10 +56,12 @@
       </div>
       <div class = "homeMiddle">
         <div class = "search">
-          <div class = "search_inside">
-            <form autocomplete="off">
-              <div class="autocomplete" style="width:300px;">
-                <input href="javascript:;" onclick="load_titles({{titles}}, {{categoryId}}, {{rId}});" id="myInput" type="text" name="myCountry">
+          <div class = "search_inside" style = "width:100%">
+            <form autocomplete="off" style="width:100%">
+              <div class="autocomplete" style="width:80%;">
+                <div id="myInput_home">
+                  <input href="javascript:;" onclick="load_titles({{titles}}, {{categoryId}}, {{rId}});" id="myInput" type="text" name="myCountry">
+                </div>
               </div>
               <input type="submit" style="display:none;">
             </form>

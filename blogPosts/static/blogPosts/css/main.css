@@ -158,7 +158,7 @@
   border: none;
   height: 91%;
   width: 30vw;
-  text-align: center;
+  /* text-align: center; */
   outline: none;
 }
 
@@ -178,20 +178,8 @@
   height: 100%;
   object-fit: cover;
   opacity: 1;
-  filter: brightness(25%);
+  filter: brightness(60%);
 }
-
-/* .mainTitle::before {
-  content: "";
-  background-image: url('../img/background/bg_finance.jpg');
-  background-size: cover;
-  opacity: 0.5;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-} */
 
 .mainTitle .mainTitle-title {
   font-size: 30px;
@@ -339,6 +327,10 @@
 
 #myInput_main {
   transform: translate(0px, -6px);
+}
+
+#myInput_main #myInput{
+  padding-top: 9px;
 }
 
 #myInputautocomplete-list {
