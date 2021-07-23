@@ -148,6 +148,10 @@
                 게시판 후기&nbsp;<em>({{post.comment_set.count}})</em>
               </h2>
 
+
+              {% comment %} 로그인해야 만 입력할 댓긋을 입력할 수 있는 칸이 생긴다. {% endcomment %}
+              {% if user.is_authenticated %}
+
               <div class="rv-1st">
                 <div class="user-info">
                   <span class="img">
@@ -167,6 +171,12 @@
                   <button onclick = "onAddComment({{post.id}}, {{id}})" id="review-input-btn">리뷰작성</button>
                 </div>
               </div>
+
+              {% else %}
+              
+              {% endif %}
+
+              {% comment %} 댓글창을 보여준다.  {% endcomment %}
             
             <div id = "comment_list">
               <div id = "async_comment">
@@ -177,7 +187,8 @@
                     <div class="user-info">
                       <span class="img">
                         <div class="profile">
-                          <img src = {{user.profile.profile_image.url}}>
+                          {% comment %} <img src = {{user.profile.profile_image.url}}> {% endcomment %}
+                          <img src = {{comment.author.profile.profile_image.url}}>
                         </div>
                       </span>
                       <div class="txt">
