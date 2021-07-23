@@ -278,13 +278,13 @@ class IframeView:
     def history(request, id) :
         post = Post.objects.get(id = id)
         editor_list = post.editors_set.all().order_by('-edited_at')
-        # editor_list = serializers.serialize("json", post.editors_set.all())
-
+        final_list = editor_list
         editor_count = {}
         for editor in editor_list :
             if editor.user.profile.email in editor_count:
                 editor_count[editor.user.profile.email] += 1
+                final_list = final_list.exclude(edited_at = editor.edited_at)
             else :
                 editor_count[editor.user.profile.email] = 1
-        # json_string = json.stringify(editor_count)
-        return render(request, 'blogPosts/history.html', {'post':post, 'editor_list': editor_list})
+        
+        return render(request, 'blogPosts/history.html', {'post':post, 'editor_list': final_list, 'editor_count' : editor_count})
