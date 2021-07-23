@@ -121,8 +121,8 @@
         <ul class="accountInfo">
           <a href="{% url 'editname' %}" class="itemContainer">
             <div>
-              <div class="itemTitle">이메일</div>
-              <div class="itemInfo">{{user.get_username}}</div>
+              <div class="itemTitle">이름</div>
+              <div class="itemInfo">{{user.profile.email}}</div>
             </div>
             <div>
               <img src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
@@ -130,8 +130,8 @@
           </a>
           <a href="{% url 'editemail' %}" class="itemContainer">
             <div>
-              <div class="itemTitle">이름</div>
-              <div class="itemInfo">{{user.profile.email}}</div>
+              <div class="itemTitle">이메일</div>
+              <div class="itemInfo">{{user.get_username}}</div>
             </div>
             <div>
               <img src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
